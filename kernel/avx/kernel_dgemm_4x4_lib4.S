@@ -32,7 +32,7 @@
 //.LSTR:
 //	.string	"\n%d %d %d\n"
 
-#if defined(OS_LINUX)
+#if defined(OS_LINUX) || defined(OS_WINDOWS)
 	.text
 #elif defined(OS_MAC)
 	.section	__TEXT,__text,regular,pure_instructions
@@ -80,10 +80,13 @@
 #else
 	.p2align 4,,15
 #if defined(OS_LINUX)
-	.type inner_kernel_dgemm_add_nt_4x4_lib4, @function
+  .type inner_kernel_dgemm_add_nt_4x4_lib4, @function
 inner_kernel_dgemm_add_nt_4x4_lib4:
 #elif defined(OS_MAC)
 _inner_kernel_dgemm_add_nt_4x4_lib4:
+#elif defined(OS_WINDOWS)
+  .def   inner_kernel_dgemm_add_nt_4x4_lib4;        .scl    2;      .type   32;     .endef
+inner_kernel_dgemm_add_nt_4x4_lib4:
 #endif
 #endif
 	
@@ -307,9 +310,11 @@ _inner_kernel_dgemm_add_nt_4x4_lib4:
 #else
 	ret
 
+
 #if defined(OS_LINUX)
-	.size	inner_kernel_dgemm_add_nt_4x4_lib4, .-inner_kernel_dgemm_add_nt_4x4_lib4
+  .size	inner_kernel_dgemm_add_nt_4x4_lib4, .-inner_kernel_dgemm_add_nt_4x4_lib4
 #endif
+
 #endif
 
 
@@ -358,10 +363,13 @@ _inner_kernel_dgemm_add_nt_4x4_lib4:
 #else
 	.p2align 4,,15
 #if defined(OS_LINUX)
-	.type inner_kernel_dgemm_sub_nt_4x4_lib4, @function
+  .type inner_kernel_dgemm_sub_nt_4x4_lib4, @function
 inner_kernel_dgemm_sub_nt_4x4_lib4:
 #elif defined(OS_MAC)
 _inner_kernel_dgemm_sub_nt_4x4_lib4:
+#elif defined(OS_WINDOWS)
+  .def   inner_kernel_dgemm_sub_nt_4x4_lib4;        .scl    2;      .type   32;     .endef
+inner_kernel_dgemm_sub_nt_4x4_lib4:
 #endif
 #endif
 	
@@ -585,9 +593,11 @@ _inner_kernel_dgemm_sub_nt_4x4_lib4:
 #else
 	ret
 
+
 #if defined(OS_LINUX)
-	.size	inner_kernel_dgemm_sub_nt_4x4_lib4, .-inner_kernel_dgemm_sub_nt_4x4_lib4
+  .size	inner_kernel_dgemm_sub_nt_4x4_lib4, .-inner_kernel_dgemm_sub_nt_4x4_lib4
 #endif
+
 #endif
 
 
@@ -640,10 +650,13 @@ _inner_kernel_dgemm_sub_nt_4x4_lib4:
 #else
 	.p2align 4,,15
 #if defined(OS_LINUX)
-	.type inner_kernel_dgemm_add_nn_4x4_lib4, @function
+  .type inner_kernel_dgemm_add_nn_4x4_lib4, @function
 inner_kernel_dgemm_add_nn_4x4_lib4:
 #elif defined(OS_MAC)
 _inner_kernel_dgemm_add_nn_4x4_lib4:
+#elif defined(OS_WINDOWS)
+  .def   inner_kernel_dgemm_add_nn_4x4_lib4;        .scl    2;      .type   32;     .endef
+inner_kernel_dgemm_add_nn_4x4_lib4:
 #endif
 #endif
 	
@@ -775,9 +788,11 @@ _inner_kernel_dgemm_add_nn_4x4_lib4:
 #else
 	ret
 
+
 #if defined(OS_LINUX)
-	.size	inner_kernel_dgemm_add_nn_4x4_lib4, .-inner_kernel_dgemm_add_nn_4x4_lib4
+  .size	inner_kernel_dgemm_add_nn_4x4_lib4, .-inner_kernel_dgemm_add_nn_4x4_lib4
 #endif
+
 #endif
 
 
@@ -830,10 +845,13 @@ _inner_kernel_dgemm_add_nn_4x4_lib4:
 #else
 	.p2align 4,,15
 #if defined(OS_LINUX)
-	.type inner_kernel_dgemm_sub_nn_4x4_lib4, @function
+  .type inner_kernel_dgemm_sub_nn_4x4_lib4, @function
 inner_kernel_dgemm_sub_nn_4x4_lib4:
 #elif defined(OS_MAC)
 _inner_kernel_dgemm_sub_nn_4x4_lib4:
+#elif defined(OS_WINDOWS)
+  .def   inner_kernel_dgemm_sub_nn_4x4_lib4;        .scl    2;      .type   32;     .endef
+inner_kernel_dgemm_sub_nn_4x4_lib4:
 #endif
 #endif
 	
@@ -965,9 +983,11 @@ _inner_kernel_dgemm_sub_nn_4x4_lib4:
 #else
 	ret
 
+
 #if defined(OS_LINUX)
-	.size	inner_kernel_dgemm_sub_nn_4x4_lib4, .-inner_kernel_dgemm_sub_nn_4x4_lib4
+  .size	inner_kernel_dgemm_sub_nn_4x4_lib4, .-inner_kernel_dgemm_sub_nn_4x4_lib4
 #endif
+
 #endif
 
 
@@ -1007,10 +1027,13 @@ _inner_kernel_dgemm_sub_nn_4x4_lib4:
 #else
 	.p2align 4,,15
 #if defined(OS_LINUX)
-	.type inner_edge_dtrmm_nt_ru_4x4_lib4, @function
+  .type inner_edge_dtrmm_nt_ru_4x4_lib4, @function
 inner_edge_dtrmm_nt_ru_4x4_lib4:
 #elif defined(OS_MAC)
 _inner_edge_dtrmm_nt_ru_4x4_lib4:
+#elif defined(OS_WINDOWS)
+  .def   inner_edge_dtrmm_nt_ru_4x4_lib4;        .scl    2;      .type   32;     .endef
+inner_edge_dtrmm_nt_ru_4x4_lib4:
 #endif
 #endif
 	
@@ -1060,9 +1083,11 @@ _inner_edge_dtrmm_nt_ru_4x4_lib4:
 #else
 	ret
 
+
 #if defined(OS_LINUX)
-	.size	inner_edge_dtrmm_nt_ru_4x4_lib4, .-inner_edge_dtrmm_nt_ru_4x4_lib4
+  .size	inner_edge_dtrmm_nt_ru_4x4_lib4, .-inner_edge_dtrmm_nt_ru_4x4_lib4
 #endif
+
 #endif
 
 
@@ -1104,10 +1129,13 @@ _inner_edge_dtrmm_nt_ru_4x4_lib4:
 #else
 	.p2align 4,,15
 #if defined(OS_LINUX)
-	.type inner_edge_dtrmm_nt_ru_4x4_vs_lib4, @function
+  .type inner_edge_dtrmm_nt_ru_4x4_vs_lib4, @function
 inner_edge_dtrmm_nt_ru_4x4_vs_lib4:
 #elif defined(OS_MAC)
 _inner_edge_dtrmm_nt_ru_4x4_vs_lib4:
+#elif defined(OS_WINDOWS)
+  .def   inner_edge_dtrmm_nt_ru_4x4_vs_lib4;        .scl    2;      .type   32;     .endef
+inner_edge_dtrmm_nt_ru_4x4_vs_lib4:
 #endif
 
 #endif
@@ -1178,9 +1206,11 @@ _inner_edge_dtrmm_nt_ru_4x4_vs_lib4:
 #else
 	ret
 
+
 #if defined(OS_LINUX)
-	.size	inner_edge_dtrmm_nt_ru_4x4_vs_lib4, .-inner_edge_dtrmm_nt_ru_4x4_vs_lib4
+  .size	inner_edge_dtrmm_nt_ru_4x4_vs_lib4, .-inner_edge_dtrmm_nt_ru_4x4_vs_lib4
 #endif
+
 #endif
 
 
@@ -1220,10 +1250,13 @@ _inner_edge_dtrmm_nt_ru_4x4_vs_lib4:
 #else
 	.p2align 4,,15
 #if defined(OS_LINUX)
-	.type inner_edge_dlauum_nt_4x4_lib4, @function
+  .type inner_edge_dlauum_nt_4x4_lib4, @function
 inner_edge_dlauum_nt_4x4_lib4:
 #elif defined(OS_MAC)
 _inner_edge_dlauum_nt_4x4_lib4:
+#elif defined(OS_WINDOWS)
+  .def   inner_edge_dlauum_nt_4x4_lib4;        .scl    2;      .type   32;     .endef
+inner_edge_dlauum_nt_4x4_lib4:
 #endif
 
 #endif
@@ -1281,9 +1314,11 @@ _inner_edge_dlauum_nt_4x4_lib4:
 #else
 	ret
 
+
 #if defined(OS_LINUX)
-	.size	inner_edge_dlauum_nt_4x4_lib4, .-inner_edge_dlauum_nt_4x4_lib4
+  .size	inner_edge_dlauum_nt_4x4_lib4, .-inner_edge_dlauum_nt_4x4_lib4
 #endif
+
 #endif
 
 
@@ -1325,10 +1360,13 @@ _inner_edge_dlauum_nt_4x4_lib4:
 #else
 	.p2align 4,,15
 #if defined(OS_LINUX)
-	.type inner_edge_dlauum_nt_4x4_vs_lib4, @function
+  .type inner_edge_dlauum_nt_4x4_vs_lib4, @function
 inner_edge_dlauum_nt_4x4_vs_lib4:
 #elif defined(OS_MAC)
 _inner_edge_dlauum_nt_4x4_vs_lib4:
+#elif defined(OS_WINDOWS)
+  .def   inner_edge_dlauum_nt_4x4_vs_lib4;        .scl    2;      .type   32;     .endef
+inner_edge_dlauum_nt_4x4_vs_lib4:
 #endif
 #endif
 	
@@ -1403,9 +1441,11 @@ _inner_edge_dlauum_nt_4x4_vs_lib4:
 #else
 	ret
 
+
 #if defined(OS_LINUX)
-	.size	inner_edge_dlauum_nt_4x4_vs_lib4, .-inner_edge_dlauum_nt_4x4_vs_lib4
+  .size	inner_edge_dlauum_nt_4x4_vs_lib4, .-inner_edge_dlauum_nt_4x4_vs_lib4
 #endif
+
 #endif
 
 
@@ -1443,10 +1483,13 @@ _inner_edge_dlauum_nt_4x4_vs_lib4:
 #else
 	.p2align 4,,15
 #if defined(OS_LINUX)
-	.type inner_blend_4x4_lib4, @function
+  .type inner_blend_4x4_lib4, @function
 inner_blend_4x4_lib4:
 #elif defined(OS_MAC)
 _inner_blend_4x4_lib4:
+#elif defined(OS_WINDOWS)
+  .def   inner_blend_4x4_lib4;        .scl    2;      .type   32;     .endef
+inner_blend_4x4_lib4:
 #endif	
 #endif	
 	
@@ -1467,9 +1510,11 @@ _inner_blend_4x4_lib4:
 #else
 	ret
 
+
 #if defined(OS_LINUX)
-	.size	inner_blend_4x4_lib4, .-inner_blend_4x4_lib4
+  .size	inner_blend_4x4_lib4, .-inner_blend_4x4_lib4
 #endif
+
 #endif
 
 
@@ -1513,10 +1558,13 @@ _inner_blend_4x4_lib4:
 #else
 	.p2align 4,,15
 #if defined(OS_LINUX)
-	.type inner_scale_ab_4x4_lib4, @function
+  .type inner_scale_ab_4x4_lib4, @function
 inner_scale_ab_4x4_lib4:
 #elif defined(OS_MAC)
 _inner_scale_ab_4x4_lib4:
+#elif defined(OS_WINDOWS)
+  .def   inner_scale_ab_4x4_lib4;        .scl    2;      .type   32;     .endef
+inner_scale_ab_4x4_lib4:
 #endif
 #endif
 	
@@ -1549,9 +1597,11 @@ _inner_scale_ab_4x4_lib4:
 #else
 	ret
 
+
 #if defined(OS_LINUX)
-	.size	inner_scale_ab_4x4_lib4, .-inner_scale_ab_4x4_lib4
+  .size	inner_scale_ab_4x4_lib4, .-inner_scale_ab_4x4_lib4
 #endif
+
 #endif
 
 
@@ -1591,10 +1641,13 @@ _inner_scale_ab_4x4_lib4:
 #else
 	.p2align 4,,15
 #if defined(OS_LINUX)
-	.type inner_scale_11_4x4_lib4, @function
+  .type inner_scale_11_4x4_lib4, @function
 inner_scale_11_4x4_lib4:
 #elif defined(OS_MAC)
 _inner_scale_11_4x4_lib4:
+#elif defined(OS_WINDOWS)
+  .def   inner_scale_11_4x4_lib4;        .scl    2;      .type   32;     .endef
+inner_scale_11_4x4_lib4:
 #endif	
 #endif	
 	
@@ -1612,9 +1665,11 @@ _inner_scale_11_4x4_lib4:
 #else
 	ret
 
+
 #if defined(OS_LINUX)
-	.size	inner_scale_11_4x4_lib4, .-inner_scale_11_4x4_lib4
+  .size	inner_scale_11_4x4_lib4, .-inner_scale_11_4x4_lib4
 #endif
+
 #endif
 
 
@@ -1658,10 +1713,13 @@ _inner_scale_11_4x4_lib4:
 #else
 	.p2align 4,,15
 #if defined(OS_LINUX)
-	.type inner_blend_scale_ab_4x4_lib4, @function
+  .type inner_blend_scale_ab_4x4_lib4, @function
 inner_blend_scale_ab_4x4_lib4:
 #elif defined(OS_MAC)
 _inner_blend_scale_ab_4x4_lib4:
+#elif defined(OS_WINDOWS)
+  .def   inner_blend_scale_ab_4x4_lib4;        .scl    2;      .type   32;     .endef
+inner_blend_scale_ab_4x4_lib4:
 #endif
 #endif
 	
@@ -1704,9 +1762,11 @@ _inner_blend_scale_ab_4x4_lib4:
 #else
 	ret
 
+
 #if defined(OS_LINUX)
-	.size	inner_blend_scale_ab_4x4_lib4, .-inner_blend_scale_ab_4x4_lib4
+  .size	inner_blend_scale_ab_4x4_lib4, .-inner_blend_scale_ab_4x4_lib4
 #endif
+
 #endif
 
 
@@ -1756,10 +1816,13 @@ _inner_blend_scale_ab_4x4_lib4:
 #else
 	.p2align 4,,15
 #if defined(OS_LINUX)
-	.type inner_blend_scale_ab_4x4_gen_lib4, @function
+  .type inner_blend_scale_ab_4x4_gen_lib4, @function
 inner_blend_scale_ab_4x4_gen_lib4:
 #elif defined(OS_MAC)
 _inner_blend_scale_ab_4x4_gen_lib4:
+#elif defined(OS_WINDOWS)
+  .def   inner_blend_scale_ab_4x4_gen_lib4;        .scl    2;      .type   32;     .endef
+inner_blend_scale_ab_4x4_gen_lib4:
 #endif
 #endif
 	
@@ -1940,9 +2003,11 @@ _inner_blend_scale_ab_4x4_gen_lib4:
 #else
 	ret
 
+
 #if defined(OS_LINUX)
-	.size	inner_blend_scale_ab_4x4_gen_lib4, .-inner_blend_scale_ab_4x4_gen_lib4
+  .size	inner_blend_scale_ab_4x4_gen_lib4, .-inner_blend_scale_ab_4x4_gen_lib4
 #endif
+
 #endif
 
 
@@ -1982,10 +2047,13 @@ _inner_blend_scale_ab_4x4_gen_lib4:
 #else
 	.p2align 4,,15
 #if defined(OS_LINUX)
-	.type inner_blend_scale_a0_4x4_lib4, @function
+  .type inner_blend_scale_a0_4x4_lib4, @function
 inner_blend_scale_a0_4x4_lib4:
 #elif defined(OS_MAC)
 _inner_blend_scale_a0_4x4_lib4:
+#elif defined(OS_WINDOWS)
+  .def   inner_blend_scale_a0_4x4_lib4;        .scl    2;      .type   32;     .endef
+inner_blend_scale_a0_4x4_lib4:
 #endif
 #endif
 	
@@ -2012,9 +2080,11 @@ _inner_blend_scale_a0_4x4_lib4:
 #else
 	ret
 
+
 #if defined(OS_LINUX)
-	.size	inner_blend_scale_a0_4x4_lib4, .-inner_blend_scale_a0_4x4_lib4
+  .size	inner_blend_scale_a0_4x4_lib4, .-inner_blend_scale_a0_4x4_lib4
 #endif
+
 #endif
 
 
@@ -2054,10 +2124,13 @@ _inner_blend_scale_a0_4x4_lib4:
 #else
 	.p2align 4,,15
 #if defined(OS_LINUX)
-	.type inner_blend_scale_11_4x4_lib4, @function
+  .type inner_blend_scale_11_4x4_lib4, @function
 inner_blend_scale_11_4x4_lib4:
 #elif defined(OS_MAC)
 _inner_blend_scale_11_4x4_lib4:
+#elif defined(OS_WINDOWS)
+  .def   inner_blend_scale_11_4x4_lib4;        .scl    2;      .type   32;     .endef
+inner_blend_scale_11_4x4_lib4:
 #endif	
 #endif	
 	
@@ -2085,9 +2158,11 @@ _inner_blend_scale_11_4x4_lib4:
 #else
 	ret
 
+
 #if defined(OS_LINUX)
-	.size	inner_blend_scale_11_4x4_lib4, .-inner_blend_scale_11_4x4_lib4
+  .size	inner_blend_scale_11_4x4_lib4, .-inner_blend_scale_11_4x4_lib4
 #endif
+
 #endif
 
 
@@ -2125,15 +2200,18 @@ _inner_blend_scale_11_4x4_lib4:
 #else
 	.p2align 4,,15
 #if defined(OS_LINUX)
-	.type inner_edge_dpotrf_4x4_lib4, @function
+  .type inner_edge_dpotrf_4x4_lib4, @function
 inner_edge_dpotrf_4x4_lib4:
 #elif defined(OS_MAC)
 _inner_edge_dpotrf_4x4_lib4:
+#elif defined(OS_WINDOWS)
+  .def   inner_edge_dpotrf_4x4_lib4;        .scl    2;      .type   32;     .endef
+inner_edge_dpotrf_4x4_lib4:
 #endif
 #endif
 	
 	vxorpd	%ymm15, %ymm15, %ymm15 // 0.0
-#if defined(OS_LINUX)
+#if defined(OS_LINUX) ||  defined(OS_WINDOWS)
 	vmovsd	.LC04(%rip), %xmm14 // 1.0
 #elif defined(OS_MAC)
 	vmovsd	LC04(%rip), %xmm14 // 1.0
@@ -2236,9 +2314,11 @@ _inner_edge_dpotrf_4x4_lib4:
 #else
 	ret
 
+
 #if defined(OS_LINUX)
-	.size	inner_edge_dpotrf_4x4_lib4, .-inner_edge_dpotrf_4x4_lib4
+  .size	inner_edge_dpotrf_4x4_lib4, .-inner_edge_dpotrf_4x4_lib4
 #endif
+
 #endif
 
 
@@ -2278,15 +2358,18 @@ _inner_edge_dpotrf_4x4_lib4:
 #else
 	.p2align 4,,15
 #if defined(OS_LINUX)
-	.type inner_edge_dpotrf_4x4_vs_lib4, @function
+  .type inner_edge_dpotrf_4x4_vs_lib4, @function
 inner_edge_dpotrf_4x4_vs_lib4:
 #elif defined(OS_MAC)
 _inner_edge_dpotrf_4x4_vs_lib4:
+#elif defined(OS_WINDOWS)
+  .def   inner_edge_dpotrf_4x4_vs_lib4;        .scl    2;      .type   32;     .endef
+inner_edge_dpotrf_4x4_vs_lib4:
 #endif
 #endif
 	
 	vxorpd	%ymm15, %ymm15, %ymm15 // 0.0
-#if defined(OS_LINUX)
+#if defined(OS_LINUX) ||  defined(OS_WINDOWS)
 	vmovsd	.LC04(%rip), %xmm14 // 1.0
 #elif defined(OS_MAC)
 	vmovsd	LC04(%rip), %xmm14 // 1.0
@@ -2395,9 +2478,11 @@ _inner_edge_dpotrf_4x4_vs_lib4:
 #else
 	ret
 
+
 #if defined(OS_LINUX)
-	.size	inner_edge_dpotrf_4x4_vs_lib4, .-inner_edge_dpotrf_4x4_vs_lib4
+  .size	inner_edge_dpotrf_4x4_vs_lib4, .-inner_edge_dpotrf_4x4_vs_lib4
 #endif
+
 #endif
 
 
@@ -2437,10 +2522,13 @@ _inner_edge_dpotrf_4x4_vs_lib4:
 #else
 	.p2align 4,,15
 #if defined(OS_LINUX)
-	.type inner_edge_dtrsm_rlt_inv_4x4_lib4, @function
+  .type inner_edge_dtrsm_rlt_inv_4x4_lib4, @function
 inner_edge_dtrsm_rlt_inv_4x4_lib4:
 #elif defined(OS_MAC)
 _inner_edge_dtrsm_rlt_inv_4x4_lib4:
+#elif defined(OS_WINDOWS)
+  .def   inner_edge_dtrsm_rlt_inv_4x4_lib4;        .scl    2;      .type   32;     .endef
+inner_edge_dtrsm_rlt_inv_4x4_lib4:
 #endif
 #endif
 	
@@ -2479,9 +2567,11 @@ _inner_edge_dtrsm_rlt_inv_4x4_lib4:
 #else
 	ret
 
+
 #if defined(OS_LINUX)
-	.size	inner_edge_dtrsm_rlt_inv_4x4_lib4, .-inner_edge_dtrsm_rlt_inv_4x4_lib4
+  .size	inner_edge_dtrsm_rlt_inv_4x4_lib4, .-inner_edge_dtrsm_rlt_inv_4x4_lib4
 #endif
+
 #endif
 
 
@@ -2523,10 +2613,13 @@ _inner_edge_dtrsm_rlt_inv_4x4_lib4:
 #else
 	.p2align 4,,15
 #if defined(OS_LINUX)
-	.type inner_edge_dtrsm_rlt_inv_4x4_vs_lib4, @function
+  .type inner_edge_dtrsm_rlt_inv_4x4_vs_lib4, @function
 inner_edge_dtrsm_rlt_inv_4x4_vs_lib4:
 #elif defined(OS_MAC)
 _inner_edge_dtrsm_rlt_inv_4x4_vs_lib4:
+#elif defined(OS_WINDOWS)
+  .def   inner_edge_dtrsm_rlt_inv_4x4_vs_lib4;        .scl    2;      .type   32;     .endef
+inner_edge_dtrsm_rlt_inv_4x4_vs_lib4:
 #endif
 #endif
 	
@@ -2576,9 +2669,11 @@ _inner_edge_dtrsm_rlt_inv_4x4_vs_lib4:
 #else
 	ret
 
+
 #if defined(OS_LINUX)
-	.size	inner_edge_dtrsm_rlt_inv_4x4_vs_lib4, .-inner_edge_dtrsm_rlt_inv_4x4_vs_lib4
+  .size	inner_edge_dtrsm_rlt_inv_4x4_vs_lib4, .-inner_edge_dtrsm_rlt_inv_4x4_vs_lib4
 #endif
+
 #endif
 
 
@@ -2616,10 +2711,13 @@ _inner_edge_dtrsm_rlt_inv_4x4_vs_lib4:
 #else
 	.p2align 4,,15
 #if defined(OS_LINUX)
-	.type inner_edge_dtrsm_rlt_one_4x4_lib4, @function
+  .type inner_edge_dtrsm_rlt_one_4x4_lib4, @function
 inner_edge_dtrsm_rlt_one_4x4_lib4:
 #elif defined(OS_MAC)
 _inner_edge_dtrsm_rlt_one_4x4_lib4:
+#elif defined(OS_WINDOWS)
+  .def   inner_edge_dtrsm_rlt_one_4x4_lib4;        .scl    2;      .type   32;     .endef
+inner_edge_dtrsm_rlt_one_4x4_lib4:
 #endif
 #endif
 	
@@ -2649,9 +2747,11 @@ _inner_edge_dtrsm_rlt_one_4x4_lib4:
 #else
 	ret
 
+
 #if defined(OS_LINUX)
-	.size	inner_edge_dtrsm_rlt_one_4x4_lib4, .-inner_edge_dtrsm_rlt_one_4x4_lib4
+  .size	inner_edge_dtrsm_rlt_one_4x4_lib4, .-inner_edge_dtrsm_rlt_one_4x4_lib4
 #endif
+
 #endif
 
 
@@ -2691,10 +2791,13 @@ _inner_edge_dtrsm_rlt_one_4x4_lib4:
 #else
 	.p2align 4,,15
 #if defined(OS_LINUX)
-	.type inner_edge_dtrsm_rlt_one_4x4_vs_lib4, @function
+  .type inner_edge_dtrsm_rlt_one_4x4_vs_lib4, @function
 inner_edge_dtrsm_rlt_one_4x4_vs_lib4:
 #elif defined(OS_MAC)
 _inner_edge_dtrsm_rlt_one_4x4_vs_lib4:
+#elif defined(OS_WINDOWS)
+  .def   inner_edge_dtrsm_rlt_one_4x4_vs_lib4;        .scl    2;      .type   32;     .endef
+inner_edge_dtrsm_rlt_one_4x4_vs_lib4:
 #endif
 #endif
 	
@@ -2736,9 +2839,11 @@ _inner_edge_dtrsm_rlt_one_4x4_vs_lib4:
 #else
 	ret
 
+
 #if defined(OS_LINUX)
-	.size	inner_edge_dtrsm_rlt_one_4x4_vs_lib4, .-inner_edge_dtrsm_rlt_one_4x4_vs_lib4
+  .size	inner_edge_dtrsm_rlt_one_4x4_vs_lib4, .-inner_edge_dtrsm_rlt_one_4x4_vs_lib4
 #endif
+
 #endif
 
 
@@ -2778,10 +2883,13 @@ _inner_edge_dtrsm_rlt_one_4x4_vs_lib4:
 #else
 	.p2align 4,,15
 #if defined(OS_LINUX)
-	.type inner_edge_dtrsm_rut_inv_4x4_lib4, @function
+  .type inner_edge_dtrsm_rut_inv_4x4_lib4, @function
 inner_edge_dtrsm_rut_inv_4x4_lib4:
 #elif defined(OS_MAC)
 _inner_edge_dtrsm_rut_inv_4x4_lib4:
+#elif defined(OS_WINDOWS)
+  .def   inner_edge_dtrsm_rut_inv_4x4_lib4;        .scl    2;      .type   32;     .endef
+inner_edge_dtrsm_rut_inv_4x4_lib4:
 #endif
 #endif
 	
@@ -2820,9 +2928,11 @@ _inner_edge_dtrsm_rut_inv_4x4_lib4:
 #else
 	ret
 
+
 #if defined(OS_LINUX)
-	.size	inner_edge_dtrsm_rut_inv_4x4_lib4, .-inner_edge_dtrsm_rut_inv_4x4_lib4
+  .size	inner_edge_dtrsm_rut_inv_4x4_lib4, .-inner_edge_dtrsm_rut_inv_4x4_lib4
 #endif
+
 #endif
 
 
@@ -2864,10 +2974,13 @@ _inner_edge_dtrsm_rut_inv_4x4_lib4:
 #else
 	.p2align 4,,15
 #if defined(OS_LINUX)
-	.type inner_edge_dtrsm_rut_inv_4x4_vs_lib4, @function
+  .type inner_edge_dtrsm_rut_inv_4x4_vs_lib4, @function
 inner_edge_dtrsm_rut_inv_4x4_vs_lib4:
 #elif defined(OS_MAC)
 _inner_edge_dtrsm_rut_inv_4x4_vs_lib4:
+#elif defined(OS_WINDOWS)
+  .def   inner_edge_dtrsm_rut_inv_4x4_vs_lib4;        .scl    2;      .type   32;     .endef
+inner_edge_dtrsm_rut_inv_4x4_vs_lib4:
 #endif
 #endif
 	
@@ -2919,9 +3032,11 @@ _inner_edge_dtrsm_rut_inv_4x4_vs_lib4:
 #else
 	ret
 
+
 #if defined(OS_LINUX)
-	.size	inner_edge_dtrsm_rut_inv_4x4_vs_lib4, .-inner_edge_dtrsm_rut_inv_4x4_vs_lib4
+  .size	inner_edge_dtrsm_rut_inv_4x4_vs_lib4, .-inner_edge_dtrsm_rut_inv_4x4_vs_lib4
 #endif
+
 #endif
 
 
@@ -2965,10 +3080,13 @@ _inner_edge_dtrsm_rut_inv_4x4_vs_lib4:
 #else
 	.p2align 4,,15
 #if defined(OS_LINUX)
-	.type inner_edge_dtrsm_run_inv_4x4_lib4, @function
+  .type inner_edge_dtrsm_run_inv_4x4_lib4, @function
 inner_edge_dtrsm_run_inv_4x4_lib4:
 #elif defined(OS_MAC)
 _inner_edge_dtrsm_run_inv_4x4_lib4:
+#elif defined(OS_WINDOWS)
+  .def   inner_edge_dtrsm_run_inv_4x4_lib4;        .scl    2;      .type   32;     .endef
+inner_edge_dtrsm_run_inv_4x4_lib4:
 #endif
 #endif
 
@@ -3011,9 +3129,11 @@ _inner_edge_dtrsm_run_inv_4x4_lib4:
 #else
 	ret
 
+
 #if defined(OS_LINUX)
-	.size	inner_edge_dtrsm_run_inv_4x4_lib4, .-inner_edge_dtrsm_run_inv_4x4_lib4
+  .size	inner_edge_dtrsm_run_inv_4x4_lib4, .-inner_edge_dtrsm_run_inv_4x4_lib4
 #endif
+
 #endif
 
 
@@ -3055,10 +3175,13 @@ _inner_edge_dtrsm_run_inv_4x4_lib4:
 #else
 	.p2align 4,,15
 #if defined(OS_LINUX)
-	.type inner_edge_dtrsm_lln_one_4x4_lib4, @function
+  .type inner_edge_dtrsm_lln_one_4x4_lib4, @function
 inner_edge_dtrsm_lln_one_4x4_lib4:
 #elif defined(OS_MAC)
 _inner_edge_dtrsm_lln_one_4x4_lib4:
+#elif defined(OS_WINDOWS)
+  .def   inner_edge_dtrsm_lln_one_4x4_lib4;        .scl    2;      .type   32;     .endef
+inner_edge_dtrsm_lln_one_4x4_lib4:
 #endif
 #endif
 
@@ -3126,9 +3249,11 @@ _inner_edge_dtrsm_lln_one_4x4_lib4:
 #else
 	ret
 
+
 #if defined(OS_LINUX)
-	.size	inner_edge_dtrsm_lln_one_4x4_lib4, .-inner_edge_dtrsm_lln_one_4x4_lib4
+  .size	inner_edge_dtrsm_lln_one_4x4_lib4, .-inner_edge_dtrsm_lln_one_4x4_lib4
 #endif
+
 #endif
 
 
@@ -3172,10 +3297,13 @@ _inner_edge_dtrsm_lln_one_4x4_lib4:
 #else
 	.p2align 4,,15
 #if defined(OS_LINUX)
-	.type inner_edge_dtrsm_lun_inv_4x4_lib4, @function
+  .type inner_edge_dtrsm_lun_inv_4x4_lib4, @function
 inner_edge_dtrsm_lun_inv_4x4_lib4:
 #elif defined(OS_MAC)
 _inner_edge_dtrsm_lun_inv_4x4_lib4:
+#elif defined(OS_WINDOWS)
+  .def   inner_edge_dtrsm_lun_inv_4x4_lib4;        .scl    2;      .type   32;     .endef
+inner_edge_dtrsm_lun_inv_4x4_lib4:
 #endif
 #endif
 	
@@ -3294,9 +3422,11 @@ _inner_edge_dtrsm_lun_inv_4x4_lib4:
 #else
 	ret
 
+
 #if defined(OS_LINUX)
-	.size	inner_edge_dtrsm_lun_inv_4x4_lib4, .-inner_edge_dtrsm_lun_inv_4x4_lib4
+  .size	inner_edge_dtrsm_lun_inv_4x4_lib4, .-inner_edge_dtrsm_lun_inv_4x4_lib4
 #endif
+
 #endif
 
 
@@ -3342,10 +3472,13 @@ _inner_edge_dtrsm_lun_inv_4x4_lib4:
 #else
 	.p2align 4,,15
 #if defined(OS_LINUX)
-	.type inner_edge_dtrsm_lun_inv_4x4_vs_lib4, @function
+  .type inner_edge_dtrsm_lun_inv_4x4_vs_lib4, @function
 inner_edge_dtrsm_lun_inv_4x4_vs_lib4:
 #elif defined(OS_MAC)
 _inner_edge_dtrsm_lun_inv_4x4_vs_lib4:
+#elif defined(OS_WINDOWS)
+  .def   inner_edge_dtrsm_lun_inv_4x4_vs_lib4;        .scl    2;      .type   32;     .endef
+inner_edge_dtrsm_lun_inv_4x4_vs_lib4:
 #endif
 #endif
 	
@@ -3474,9 +3607,11 @@ _inner_edge_dtrsm_lun_inv_4x4_vs_lib4:
 #else
 	ret
 
+
 #if defined(OS_LINUX)
-	.size	inner_edge_dtrsm_lun_inv_4x4_vs_lib4, .-inner_edge_dtrsm_lun_inv_4x4_vs_lib4
+  .size	inner_edge_dtrsm_lun_inv_4x4_vs_lib4, .-inner_edge_dtrsm_lun_inv_4x4_vs_lib4
 #endif
+
 #endif
 
 
@@ -3514,14 +3649,17 @@ _inner_edge_dtrsm_lun_inv_4x4_vs_lib4:
 #else
 	.p2align 4,,15
 #if defined(OS_LINUX)
-	.type inner_edge_dgetrf_4x4_lib4, @function
+  .type inner_edge_dgetrf_4x4_lib4, @function
 inner_edge_dgetrf_4x4_lib4:
 #elif defined(OS_MAC)
 _inner_edge_dgetrf_4x4_lib4:
+#elif defined(OS_WINDOWS)
+  .def   inner_edge_dgetrf_4x4_lib4;        .scl    2;      .type   32;     .endef
+inner_edge_dgetrf_4x4_lib4:
 #endif
 #endif
 	
-#if defined(OS_LINUX)
+#if defined(OS_LINUX) ||  defined(OS_WINDOWS)
 	vmovsd	.LC04(%rip), %xmm14 // 1.0
 #elif defined(OS_MAC)
 	vmovsd	LC04(%rip), %xmm14 // 1.0
@@ -3605,9 +3743,11 @@ _inner_edge_dgetrf_4x4_lib4:
 #else
 	ret
 
+
 #if defined(OS_LINUX)
-	.size	inner_edge_dgetrf_4x4_lib4, .-inner_edge_dgetrf_4x4_lib4
+  .size	inner_edge_dgetrf_4x4_lib4, .-inner_edge_dgetrf_4x4_lib4
 #endif
+
 #endif
 
 
@@ -3637,10 +3777,13 @@ _inner_edge_dgetrf_4x4_lib4:
 #else
 	.p2align 4,,15
 #if defined(OS_LINUX)
-	.type inner_store_4x4_lib4, @function
+  .type inner_store_4x4_lib4, @function
 inner_store_4x4_lib4:
 #elif defined(OS_MAC)
 _inner_store_4x4_lib4:
+#elif defined(OS_WINDOWS)
+  .def   inner_store_4x4_lib4;        .scl    2;      .type   32;     .endef
+inner_store_4x4_lib4:
 #endif
 #endif
 	
@@ -3654,9 +3797,11 @@ _inner_store_4x4_lib4:
 #else
 	ret
 
+
 #if defined(OS_LINUX)
-	.size	inner_store_4x4_lib4, .-inner_store_4x4_lib4
+  .size	inner_store_4x4_lib4, .-inner_store_4x4_lib4
 #endif
+
 #endif
 
 
@@ -3694,15 +3839,18 @@ _inner_store_4x4_lib4:
 #else
 	.p2align 4,,15
 #if defined(OS_LINUX)
-	.type inner_store_4x4_vs_lib4, @function
+  .type inner_store_4x4_vs_lib4, @function
 inner_store_4x4_vs_lib4:
 #elif defined(OS_MAC)
 _inner_store_4x4_vs_lib4:
+#elif defined(OS_WINDOWS)
+  .def   inner_store_4x4_vs_lib4;        .scl    2;      .type   32;     .endef
+inner_store_4x4_vs_lib4:
 #endif
 #endif
 	
 	vcvtsi2sd	%r11d, %xmm15, %xmm15
-#if defined(OS_LINUX)
+#if defined(OS_LINUX) ||  defined(OS_WINDOWS)
 	vmovupd		.LC02(%rip), %ymm14
 #elif defined(OS_MAC)
 	vmovupd		LC02(%rip), %ymm14
@@ -3728,9 +3876,11 @@ _inner_store_4x4_vs_lib4:
 #else
 	ret
 
+
 #if defined(OS_LINUX)
-	.size	inner_store_4x4_vs_lib4, .-inner_store_4x4_vs_lib4
+  .size	inner_store_4x4_vs_lib4, .-inner_store_4x4_vs_lib4
 #endif
+
 #endif
 
 
@@ -3764,10 +3914,13 @@ _inner_store_4x4_vs_lib4:
 #else
 	.p2align 4,,15
 #if defined(OS_LINUX)
-	.type inner_store_l_4x4_lib4, @function
+  .type inner_store_l_4x4_lib4, @function
 inner_store_l_4x4_lib4:
 #elif defined(OS_MAC)
 _inner_store_l_4x4_lib4:
+#elif defined(OS_WINDOWS)
+  .def   inner_store_l_4x4_lib4;        .scl    2;      .type   32;     .endef
+inner_store_l_4x4_lib4:
 #endif
 #endif
 	
@@ -3789,9 +3942,11 @@ _inner_store_l_4x4_lib4:
 #else
 	ret
 
+
 #if defined(OS_LINUX)
-	.size	inner_store_l_4x4_lib4, .-inner_store_l_4x4_lib4
+  .size	inner_store_l_4x4_lib4, .-inner_store_l_4x4_lib4
 #endif
+
 #endif
 
 
@@ -3829,15 +3984,18 @@ _inner_store_l_4x4_lib4:
 #else
 	.p2align 4,,15
 #if defined(OS_LINUX)
-	.type inner_store_l_4x4_vs_lib4, @function
+  .type inner_store_l_4x4_vs_lib4, @function
 inner_store_l_4x4_vs_lib4:
 #elif defined(OS_MAC)
 _inner_store_l_4x4_vs_lib4:
+#elif defined(OS_WINDOWS)
+  .def   inner_store_l_4x4_vs_lib4;        .scl    2;      .type   32;     .endef
+inner_store_l_4x4_vs_lib4:
 #endif
 #endif
 	
 	vcvtsi2sd	%r11d, %xmm15, %xmm15
-#if defined(OS_LINUX)
+#if defined(OS_LINUX) ||  defined(OS_WINDOWS)
 	vmovupd		.LC02(%rip), %ymm14
 #elif defined(OS_MAC)
 	vmovupd		LC02(%rip), %ymm14
@@ -3869,9 +4027,11 @@ _inner_store_l_4x4_vs_lib4:
 #else
 	ret
 
+
 #if defined(OS_LINUX)
-	.size	inner_store_l_4x4_vs_lib4, .-inner_store_l_4x4_vs_lib4
+  .size	inner_store_l_4x4_vs_lib4, .-inner_store_l_4x4_vs_lib4
 #endif
+
 #endif
 
 
@@ -3915,17 +4075,20 @@ _inner_store_l_4x4_vs_lib4:
 #else
 	.p2align 4,,15
 #if defined(OS_LINUX)
-	.type inner_store_4x4_gen_lib4, @function
+  .type inner_store_4x4_gen_lib4, @function
 inner_store_4x4_gen_lib4:
 #elif defined(OS_MAC)
 _inner_store_4x4_gen_lib4:
+#elif defined(OS_WINDOWS)
+  .def   inner_store_4x4_gen_lib4;        .scl    2;      .type   32;     .endef
+inner_store_4x4_gen_lib4:
 #endif
 #endif
 	
 	// compute mask for rows
 	vcvtsi2sd	%r13d, %xmm14, %xmm14
 	vcvtsi2sd	%r14d, %xmm15, %xmm15
-#if defined(OS_LINUX)
+#if defined(OS_LINUX) ||  defined(OS_WINDOWS)
 	vmovupd		.LC02(%rip), %ymm12
 #elif defined(OS_MAC)
 	vmovupd		LC02(%rip), %ymm12
@@ -3985,7 +4148,7 @@ _inner_store_4x4_gen_lib4:
 	vperm2f128	$0x01, %ymm15, %ymm15, %ymm12
 	vshufpd		$0x5, %ymm15, %ymm12, %ymm15
 
-#if defined(OS_LINUX)
+#if defined(OS_LINUX) ||  defined(OS_WINDOWS)
 	vmovupd		.LC08(%rip), %ymm12
 	vmovupd		.LC05(%rip), %ymm13
 #elif defined(OS_MAC)
@@ -4025,7 +4188,7 @@ _inner_store_4x4_gen_lib4:
 
 	vperm2f128	$0x01, %ymm15, %ymm15, %ymm15
 
-#if defined(OS_LINUX)
+#if defined(OS_LINUX) ||  defined(OS_WINDOWS)
 	vmovupd		.LC09(%rip), %ymm12
 	vmovupd		.LC06(%rip), %ymm13
 #elif defined(OS_MAC)
@@ -4067,7 +4230,7 @@ _inner_store_4x4_gen_lib4:
 	vperm2f128	$0x01, %ymm15, %ymm15, %ymm12
 	vshufpd		$0x5, %ymm12, %ymm15, %ymm15
 
-#if defined(OS_LINUX)
+#if defined(OS_LINUX) ||  defined(OS_WINDOWS)
 	vmovupd		.LC10(%rip), %ymm12
 	vmovupd		.LC07(%rip), %ymm13
 #elif defined(OS_MAC)
@@ -4098,9 +4261,11 @@ _inner_store_4x4_gen_lib4:
 #else
 	ret
 
+
 #if defined(OS_LINUX)
-	.size	inner_store_4x4_gen_lib4, .-inner_store_4x4_gen_lib4
+  .size	inner_store_4x4_gen_lib4, .-inner_store_4x4_gen_lib4
 #endif
+
 #endif
 
 
@@ -4112,12 +4277,14 @@ _inner_store_4x4_gen_lib4:
 
 	.p2align 4,,15
 #if defined(OS_LINUX)
-	.globl kernel_dgemm_nt_4x4_a0_lib4
-	.type kernel_dgemm_nt_4x4_a0_lib4, @function
+  .type kernel_dgemm_nt_4x4_a0_lib4, @function
 kernel_dgemm_nt_4x4_a0_lib4:
 #elif defined(OS_MAC)
-	.globl _kernel_dgemm_nt_4x4_a0_lib4
 _kernel_dgemm_nt_4x4_a0_lib4:
+#elif defined(OS_WINDOWS)
+  .globl kernel_dgemm_nt_4x4_a0_lib4
+  .def   kernel_dgemm_nt_4x4_a0_lib4;        .scl    2;      .type   32;     .endef
+kernel_dgemm_nt_4x4_a0_lib4:
 #endif
 	
 	// prologue
@@ -4151,9 +4318,11 @@ _kernel_dgemm_nt_4x4_a0_lib4:
 	INNER_KERNEL_DGEMM_ADD_NT_4X4_LIB4
 #else
 #if defined(OS_LINUX)
-	call inner_kernel_dgemm_add_nt_4x4_lib4
+  call inner_kernel_dgemm_add_nt_4x4_lib4
 #elif defined(OS_MAC)
-	callq _inner_kernel_dgemm_add_nt_4x4_lib4
+  callq _inner_kernel_dgemm_add_nt_4x4_lib4
+#elif defined(OS_WINDOWS)
+  call inner_kernel_dgemm_add_nt_4x4_lib4
 #endif
 #endif
 
@@ -4166,9 +4335,11 @@ _kernel_dgemm_nt_4x4_a0_lib4:
 	INNER_BLEND_SCALE_A0_4X4_LIB4
 #else
 #if defined(OS_LINUX)
-	call inner_blend_scale_a0_4x4_lib4
+  call inner_blend_scale_a0_4x4_lib4
 #elif defined(OS_MAC)
-	callq _inner_blend_scale_a0_4x4_lib4
+  callq _inner_blend_scale_a0_4x4_lib4
+#elif defined(OS_WINDOWS)
+  call inner_blend_scale_a0_4x4_lib4
 #endif
 #endif
 
@@ -4181,9 +4352,11 @@ _kernel_dgemm_nt_4x4_a0_lib4:
 	INNER_STORE_4X4_LIB4
 #else
 #if defined(OS_LINUX)
-	call inner_store_4x4_lib4
+  call inner_store_4x4_lib4
 #elif defined(OS_MAC)
-	callq _inner_store_4x4_lib4
+  callq _inner_store_4x4_lib4
+#elif defined(OS_WINDOWS)
+  call inner_store_4x4_lib4
 #endif
 #endif
 
@@ -4202,9 +4375,11 @@ _kernel_dgemm_nt_4x4_a0_lib4:
 
 	ret
 
+
 #if defined(OS_LINUX)
-	.size	kernel_dgemm_nt_4x4_a0_lib4, .-kernel_dgemm_nt_4x4_a0_lib4
+  .size	kernel_dgemm_nt_4x4_a0_lib4, .-kernel_dgemm_nt_4x4_a0_lib4
 #endif
+
 
 
 
@@ -4215,12 +4390,14 @@ _kernel_dgemm_nt_4x4_a0_lib4:
 
 	.p2align 4,,15
 #if defined(OS_LINUX)
-	.globl kernel_dgemm_nt_4x4_lib4
-	.type kernel_dgemm_nt_4x4_lib4, @function
+  .type kernel_dgemm_nt_4x4_lib4, @function
 kernel_dgemm_nt_4x4_lib4:
 #elif defined(OS_MAC)
-	.globl _kernel_dgemm_nt_4x4_lib4
 _kernel_dgemm_nt_4x4_lib4:
+#elif defined(OS_WINDOWS)
+  .globl kernel_dgemm_nt_4x4_lib4
+  .def   kernel_dgemm_nt_4x4_lib4;        .scl    2;      .type   32;     .endef
+kernel_dgemm_nt_4x4_lib4:
 #endif
 	
 	// prologue
@@ -4254,9 +4431,11 @@ _kernel_dgemm_nt_4x4_lib4:
 	INNER_KERNEL_DGEMM_ADD_NT_4X4_LIB4
 #else
 #if defined(OS_LINUX)
-	call inner_kernel_dgemm_add_nt_4x4_lib4
+  call inner_kernel_dgemm_add_nt_4x4_lib4
 #elif defined(OS_MAC)
-	callq _inner_kernel_dgemm_add_nt_4x4_lib4
+  callq _inner_kernel_dgemm_add_nt_4x4_lib4
+#elif defined(OS_WINDOWS)
+  call inner_kernel_dgemm_add_nt_4x4_lib4
 #endif
 #endif
 
@@ -4271,9 +4450,11 @@ _kernel_dgemm_nt_4x4_lib4:
 	INNER_BLEND_SCALE_AB_4X4_LIB4
 #else
 #if defined(OS_LINUX)
-	call inner_blend_scale_ab_4x4_lib4
+  call inner_blend_scale_ab_4x4_lib4
 #elif defined(OS_MAC)
-	callq _inner_blend_scale_ab_4x4_lib4
+  callq _inner_blend_scale_ab_4x4_lib4
+#elif defined(OS_WINDOWS)
+  call inner_blend_scale_ab_4x4_lib4
 #endif
 #endif
 
@@ -4286,9 +4467,11 @@ _kernel_dgemm_nt_4x4_lib4:
 	INNER_STORE_4X4_LIB4
 #else
 #if defined(OS_LINUX)
-	call inner_store_4x4_lib4
+  call inner_store_4x4_lib4
 #elif defined(OS_MAC)
-	callq _inner_store_4x4_lib4
+  callq _inner_store_4x4_lib4
+#elif defined(OS_WINDOWS)
+  call inner_store_4x4_lib4
 #endif
 #endif
 
@@ -4307,9 +4490,11 @@ _kernel_dgemm_nt_4x4_lib4:
 
 	ret
 
+
 #if defined(OS_LINUX)
-	.size	kernel_dgemm_nt_4x4_lib4, .-kernel_dgemm_nt_4x4_lib4
+  .size	kernel_dgemm_nt_4x4_lib4, .-kernel_dgemm_nt_4x4_lib4
 #endif
+
 
 
 
@@ -4320,12 +4505,14 @@ _kernel_dgemm_nt_4x4_lib4:
 
 	.p2align 4,,15
 #if defined(OS_LINUX)
-	.globl kernel_dgemm_nt_4x4_vs_lib4
-	.type kernel_dgemm_nt_4x4_vs_lib4, @function
+  .type kernel_dgemm_nt_4x4_vs_lib4, @function
 kernel_dgemm_nt_4x4_vs_lib4:
 #elif defined(OS_MAC)
-	.globl _kernel_dgemm_nt_4x4_vs_lib4
 _kernel_dgemm_nt_4x4_vs_lib4:
+#elif defined(OS_WINDOWS)
+  .globl kernel_dgemm_nt_4x4_vs_lib4
+  .def   kernel_dgemm_nt_4x4_vs_lib4;        .scl    2;      .type   32;     .endef
+kernel_dgemm_nt_4x4_vs_lib4:
 #endif
 	
 	// prologue
@@ -4359,9 +4546,11 @@ _kernel_dgemm_nt_4x4_vs_lib4:
 	INNER_KERNEL_DGEMM_ADD_NT_4X4_LIB4
 #else
 #if defined(OS_LINUX)
-	call inner_kernel_dgemm_add_nt_4x4_lib4
+  call inner_kernel_dgemm_add_nt_4x4_lib4
 #elif defined(OS_MAC)
-	callq _inner_kernel_dgemm_add_nt_4x4_lib4
+  callq _inner_kernel_dgemm_add_nt_4x4_lib4
+#elif defined(OS_WINDOWS)
+  call inner_kernel_dgemm_add_nt_4x4_lib4
 #endif
 #endif
 
@@ -4376,9 +4565,11 @@ _kernel_dgemm_nt_4x4_vs_lib4:
 	INNER_BLEND_SCALE_AB_4X4_LIB4
 #else
 #if defined(OS_LINUX)
-	call inner_blend_scale_ab_4x4_lib4
+  call inner_blend_scale_ab_4x4_lib4
 #elif defined(OS_MAC)
-	callq _inner_blend_scale_ab_4x4_lib4
+  callq _inner_blend_scale_ab_4x4_lib4
+#elif defined(OS_WINDOWS)
+  call inner_blend_scale_ab_4x4_lib4
 #endif
 #endif
 
@@ -4393,9 +4584,11 @@ _kernel_dgemm_nt_4x4_vs_lib4:
 	INNER_STORE_4X4_VS_LIB4
 #else
 #if defined(OS_LINUX)
-	call inner_store_4x4_vs_lib4
+  call inner_store_4x4_vs_lib4
 #elif defined(OS_MAC)
-	callq _inner_store_4x4_vs_lib4
+  callq _inner_store_4x4_vs_lib4
+#elif defined(OS_WINDOWS)
+  call inner_store_4x4_vs_lib4
 #endif
 #endif
 
@@ -4414,9 +4607,11 @@ _kernel_dgemm_nt_4x4_vs_lib4:
 
 	ret
 
+
 #if defined(OS_LINUX)
-	.size	kernel_dgemm_nt_4x4_vs_lib4, .-kernel_dgemm_nt_4x4_vs_lib4
+  .size	kernel_dgemm_nt_4x4_vs_lib4, .-kernel_dgemm_nt_4x4_vs_lib4
 #endif
+
 
 
 
@@ -4427,12 +4622,14 @@ _kernel_dgemm_nt_4x4_vs_lib4:
 
 	.p2align 4,,15
 #if defined(OS_LINUX)
-	.globl kernel_dgemm_nt_4x4_gen_lib4
-	.type kernel_dgemm_nt_4x4_gen_lib4, @function
+  .type kernel_dgemm_nt_4x4_gen_lib4, @function
 kernel_dgemm_nt_4x4_gen_lib4:
 #elif defined(OS_MAC)
-	.globl _kernel_dgemm_nt_4x4_gen_lib4
 _kernel_dgemm_nt_4x4_gen_lib4:
+#elif defined(OS_WINDOWS)
+  .globl kernel_dgemm_nt_4x4_gen_lib4
+  .def   kernel_dgemm_nt_4x4_gen_lib4;        .scl    2;      .type   32;     .endef
+kernel_dgemm_nt_4x4_gen_lib4:
 #endif
 	
 	// prologue
@@ -4466,9 +4663,11 @@ _kernel_dgemm_nt_4x4_gen_lib4:
 	INNER_KERNEL_DGEMM_ADD_NT_4X4_LIB4
 #else
 #if defined(OS_LINUX)
-	call inner_kernel_dgemm_add_nt_4x4_lib4
+  call inner_kernel_dgemm_add_nt_4x4_lib4
 #elif defined(OS_MAC)
-	callq _inner_kernel_dgemm_add_nt_4x4_lib4
+  callq _inner_kernel_dgemm_add_nt_4x4_lib4
+#elif defined(OS_WINDOWS)
+  call inner_kernel_dgemm_add_nt_4x4_lib4
 #endif
 #endif
 
@@ -4488,9 +4687,11 @@ _kernel_dgemm_nt_4x4_gen_lib4:
 	INNER_BLEND_SCALE_AB_4X4_GEN_LIB4
 #else
 #if defined(OS_LINUX)
-	call inner_blend_scale_ab_4x4_gen_lib4
+  call inner_blend_scale_ab_4x4_gen_lib4
 #elif defined(OS_MAC)
-	callq _inner_blend_scale_ab_4x4_gen_lib4
+  callq _inner_blend_scale_ab_4x4_gen_lib4
+#elif defined(OS_WINDOWS)
+  call inner_blend_scale_ab_4x4_gen_lib4
 #endif
 #endif
 
@@ -4511,9 +4712,11 @@ _kernel_dgemm_nt_4x4_gen_lib4:
 	INNER_STORE_4X4_GEN_LIB4
 #else
 #if defined(OS_LINUX)
-	call inner_store_4x4_gen_lib4
+  call inner_store_4x4_gen_lib4
 #elif defined(OS_MAC)
-	callq _inner_store_4x4_gen_lib4
+  callq _inner_store_4x4_gen_lib4
+#elif defined(OS_WINDOWS)
+  call inner_store_4x4_gen_lib4
 #endif
 #endif
 
@@ -4532,9 +4735,11 @@ _kernel_dgemm_nt_4x4_gen_lib4:
 
 	ret
 
+
 #if defined(OS_LINUX)
-	.size	kernel_dgemm_nt_4x4_gen_lib4, .-kernel_dgemm_nt_4x4_gen_lib4
+  .size	kernel_dgemm_nt_4x4_gen_lib4, .-kernel_dgemm_nt_4x4_gen_lib4
 #endif
+
 
 
 
@@ -4545,12 +4750,14 @@ _kernel_dgemm_nt_4x4_gen_lib4:
 
 	.p2align 4,,15
 #if defined(OS_LINUX)
-	.globl kernel_dgemm_nn_4x4_lib4
-	.type kernel_dgemm_nn_4x4_lib4, @function
+  .type kernel_dgemm_nn_4x4_lib4, @function
 kernel_dgemm_nn_4x4_lib4:
 #elif defined(OS_MAC)
-	.globl _kernel_dgemm_nn_4x4_lib4
 _kernel_dgemm_nn_4x4_lib4:
+#elif defined(OS_WINDOWS)
+  .globl kernel_dgemm_nn_4x4_lib4
+  .def   kernel_dgemm_nn_4x4_lib4;        .scl    2;      .type   32;     .endef
+kernel_dgemm_nn_4x4_lib4:
 #endif
 	
 	// prologue
@@ -4587,9 +4794,11 @@ _kernel_dgemm_nn_4x4_lib4:
 	INNER_KERNEL_DGEMM_ADD_NN_4X4_LIB4
 #else
 #if defined(OS_LINUX)
-	call inner_kernel_dgemm_add_nn_4x4_lib4
+  call inner_kernel_dgemm_add_nn_4x4_lib4
 #elif defined(OS_MAC)
-	callq _inner_kernel_dgemm_add_nn_4x4_lib4
+  callq _inner_kernel_dgemm_add_nn_4x4_lib4
+#elif defined(OS_WINDOWS)
+  call inner_kernel_dgemm_add_nn_4x4_lib4
 #endif
 #endif
 
@@ -4604,9 +4813,11 @@ _kernel_dgemm_nn_4x4_lib4:
 	INNER_SCALE_AB_4X4_LIB4
 #else
 #if defined(OS_LINUX)
-	call inner_scale_ab_4x4_lib4
+  call inner_scale_ab_4x4_lib4
 #elif defined(OS_MAC)
-	callq _inner_scale_ab_4x4_lib4
+  callq _inner_scale_ab_4x4_lib4
+#elif defined(OS_WINDOWS)
+  call inner_scale_ab_4x4_lib4
 #endif
 #endif
 
@@ -4619,9 +4830,11 @@ _kernel_dgemm_nn_4x4_lib4:
 	INNER_STORE_4X4_LIB4
 #else
 #if defined(OS_LINUX)
-	call inner_store_4x4_lib4
+  call inner_store_4x4_lib4
 #elif defined(OS_MAC)
-	callq _inner_store_4x4_lib4
+  callq _inner_store_4x4_lib4
+#elif defined(OS_WINDOWS)
+  call inner_store_4x4_lib4
 #endif
 #endif
 
@@ -4640,9 +4853,11 @@ _kernel_dgemm_nn_4x4_lib4:
 
 	ret
 
+
 #if defined(OS_LINUX)
-	.size	kernel_dgemm_nn_4x4_lib4, .-kernel_dgemm_nn_4x4_lib4
+  .size	kernel_dgemm_nn_4x4_lib4, .-kernel_dgemm_nn_4x4_lib4
 #endif
+
 
 
 
@@ -4653,12 +4868,14 @@ _kernel_dgemm_nn_4x4_lib4:
 
 	.p2align 4,,15
 #if defined(OS_LINUX)
-	.globl kernel_dgemm_nn_4x4_vs_lib4
-	.type kernel_dgemm_nn_4x4_vs_lib4, @function
+  .type kernel_dgemm_nn_4x4_vs_lib4, @function
 kernel_dgemm_nn_4x4_vs_lib4:
 #elif defined(OS_MAC)
-	.globl _kernel_dgemm_nn_4x4_vs_lib4
 _kernel_dgemm_nn_4x4_vs_lib4:
+#elif defined(OS_WINDOWS)
+  .globl kernel_dgemm_nn_4x4_vs_lib4
+  .def   kernel_dgemm_nn_4x4_vs_lib4;        .scl    2;      .type   32;     .endef
+kernel_dgemm_nn_4x4_vs_lib4:
 #endif
 	
 	// prologue
@@ -4695,9 +4912,11 @@ _kernel_dgemm_nn_4x4_vs_lib4:
 	INNER_KERNEL_DGEMM_ADD_NN_4X4_LIB4
 #else
 #if defined(OS_LINUX)
-	call inner_kernel_dgemm_add_nn_4x4_lib4
+  call inner_kernel_dgemm_add_nn_4x4_lib4
 #elif defined(OS_MAC)
-	callq _inner_kernel_dgemm_add_nn_4x4_lib4
+  callq _inner_kernel_dgemm_add_nn_4x4_lib4
+#elif defined(OS_WINDOWS)
+  call inner_kernel_dgemm_add_nn_4x4_lib4
 #endif
 #endif
 
@@ -4712,9 +4931,11 @@ _kernel_dgemm_nn_4x4_vs_lib4:
 	INNER_SCALE_AB_4X4_LIB4
 #else
 #if defined(OS_LINUX)
-	call inner_scale_ab_4x4_lib4
+  call inner_scale_ab_4x4_lib4
 #elif defined(OS_MAC)
-	callq _inner_scale_ab_4x4_lib4
+  callq _inner_scale_ab_4x4_lib4
+#elif defined(OS_WINDOWS)
+  call inner_scale_ab_4x4_lib4
 #endif
 #endif
 
@@ -4729,9 +4950,11 @@ _kernel_dgemm_nn_4x4_vs_lib4:
 	INNER_STORE_4X4_VS_LIB4
 #else
 #if defined(OS_LINUX)
-	call inner_store_4x4_vs_lib4
+  call inner_store_4x4_vs_lib4
 #elif defined(OS_MAC)
-	callq _inner_store_4x4_vs_lib4
+  callq _inner_store_4x4_vs_lib4
+#elif defined(OS_WINDOWS)
+  call inner_store_4x4_vs_lib4
 #endif
 #endif
 
@@ -4750,9 +4973,11 @@ _kernel_dgemm_nn_4x4_vs_lib4:
 
 	ret
 
+
 #if defined(OS_LINUX)
-	.size	kernel_dgemm_nn_4x4_vs_lib4, .-kernel_dgemm_nn_4x4_vs_lib4
+  .size	kernel_dgemm_nn_4x4_vs_lib4, .-kernel_dgemm_nn_4x4_vs_lib4
 #endif
+
 
 
 
@@ -4763,12 +4988,14 @@ _kernel_dgemm_nn_4x4_vs_lib4:
 
 	.p2align 4,,15
 #if defined(OS_LINUX)
-	.globl kernel_dsyrk_nt_l_4x4_lib4
-	.type kernel_dsyrk_nt_l_4x4_lib4, @function
+  .type kernel_dsyrk_nt_l_4x4_lib4, @function
 kernel_dsyrk_nt_l_4x4_lib4:
 #elif defined(OS_MAC)
-	.globl _kernel_dsyrk_nt_l_4x4_lib4
 _kernel_dsyrk_nt_l_4x4_lib4:
+#elif defined(OS_WINDOWS)
+  .globl kernel_dsyrk_nt_l_4x4_lib4
+  .def   kernel_dsyrk_nt_l_4x4_lib4;        .scl    2;      .type   32;     .endef
+kernel_dsyrk_nt_l_4x4_lib4:
 #endif
 	
 	// prologue
@@ -4802,9 +5029,11 @@ _kernel_dsyrk_nt_l_4x4_lib4:
 	INNER_KERNEL_DGEMM_ADD_NT_4X4_LIB4
 #else
 #if defined(OS_LINUX)
-	call inner_kernel_dgemm_add_nt_4x4_lib4
+  call inner_kernel_dgemm_add_nt_4x4_lib4
 #elif defined(OS_MAC)
-	callq _inner_kernel_dgemm_add_nt_4x4_lib4
+  callq _inner_kernel_dgemm_add_nt_4x4_lib4
+#elif defined(OS_WINDOWS)
+  call inner_kernel_dgemm_add_nt_4x4_lib4
 #endif
 #endif
 
@@ -4819,9 +5048,11 @@ _kernel_dsyrk_nt_l_4x4_lib4:
 	INNER_BLEND_SCALE_AB_4X4_LIB4
 #else
 #if defined(OS_LINUX)
-	call inner_blend_scale_ab_4x4_lib4
+  call inner_blend_scale_ab_4x4_lib4
 #elif defined(OS_MAC)
-	callq _inner_blend_scale_ab_4x4_lib4
+  callq _inner_blend_scale_ab_4x4_lib4
+#elif defined(OS_WINDOWS)
+  call inner_blend_scale_ab_4x4_lib4
 #endif
 #endif
 
@@ -4835,9 +5066,11 @@ _kernel_dsyrk_nt_l_4x4_lib4:
 	INNER_STORE_L_4X4_LIB4
 #else
 #if defined(OS_LINUX)
-	call	inner_store_l_4x4_lib4
+  call inner_store_l_4x4_lib4
 #elif defined(OS_MAC)
-	callq	_inner_store_l_4x4_lib4
+  callq _inner_store_l_4x4_lib4
+#elif defined(OS_WINDOWS)
+  call inner_store_l_4x4_lib4
 #endif
 #endif
 
@@ -4857,9 +5090,11 @@ _kernel_dsyrk_nt_l_4x4_lib4:
 
 	ret
 
+
 #if defined(OS_LINUX)
-	.size	kernel_dsyrk_nt_l_4x4_lib4, .-kernel_dsyrk_nt_l_4x4_lib4
+  .size	kernel_dsyrk_nt_l_4x4_lib4, .-kernel_dsyrk_nt_l_4x4_lib4
 #endif
+
 
 
 
@@ -4870,12 +5105,14 @@ _kernel_dsyrk_nt_l_4x4_lib4:
 
 	.p2align 4,,15
 #if defined(OS_LINUX)
-	.globl kernel_dsyrk_nt_l_4x4_vs_lib4
-	.type kernel_dsyrk_nt_l_4x4_vs_lib4, @function
+  .type kernel_dsyrk_nt_l_4x4_vs_lib4, @function
 kernel_dsyrk_nt_l_4x4_vs_lib4:
 #elif defined(OS_MAC)
-	.globl _kernel_dsyrk_nt_l_4x4_vs_lib4
 _kernel_dsyrk_nt_l_4x4_vs_lib4:
+#elif defined(OS_WINDOWS)
+  .globl kernel_dsyrk_nt_l_4x4_vs_lib4
+  .def   kernel_dsyrk_nt_l_4x4_vs_lib4;        .scl    2;      .type   32;     .endef
+kernel_dsyrk_nt_l_4x4_vs_lib4:
 #endif
 	
 	// prologue
@@ -4909,9 +5146,11 @@ _kernel_dsyrk_nt_l_4x4_vs_lib4:
 	INNER_KERNEL_DGEMM_ADD_NT_4X4_LIB4
 #else
 #if defined(OS_LINUX)
-	call inner_kernel_dgemm_add_nt_4x4_lib4
+  call inner_kernel_dgemm_add_nt_4x4_lib4
 #elif defined(OS_MAC)
-	callq _inner_kernel_dgemm_add_nt_4x4_lib4
+  callq _inner_kernel_dgemm_add_nt_4x4_lib4
+#elif defined(OS_WINDOWS)
+  call inner_kernel_dgemm_add_nt_4x4_lib4
 #endif
 #endif
 
@@ -4926,9 +5165,11 @@ _kernel_dsyrk_nt_l_4x4_vs_lib4:
 	INNER_BLEND_SCALE_AB_4X4_LIB4
 #else
 #if defined(OS_LINUX)
-	call inner_blend_scale_ab_4x4_lib4
+  call inner_blend_scale_ab_4x4_lib4
 #elif defined(OS_MAC)
-	callq _inner_blend_scale_ab_4x4_lib4
+  callq _inner_blend_scale_ab_4x4_lib4
+#elif defined(OS_WINDOWS)
+  call inner_blend_scale_ab_4x4_lib4
 #endif
 #endif
 
@@ -4944,9 +5185,11 @@ _kernel_dsyrk_nt_l_4x4_vs_lib4:
 	INNER_STORE_L_4X4_VS_LIB4
 #else
 #if defined(OS_LINUX)
-	call	inner_store_l_4x4_vs_lib4
+  call inner_store_l_4x4_vs_lib4
 #elif defined(OS_MAC)
-	callq	_inner_store_l_4x4_vs_lib4
+  callq _inner_store_l_4x4_vs_lib4
+#elif defined(OS_WINDOWS)
+  call inner_store_l_4x4_vs_lib4
 #endif
 #endif
 
@@ -4966,9 +5209,11 @@ _kernel_dsyrk_nt_l_4x4_vs_lib4:
 
 	ret
 
+
 #if defined(OS_LINUX)
-	.size	kernel_dsyrk_nt_l_4x4_vs_lib4, .-kernel_dsyrk_nt_l_4x4_vs_lib4
+  .size	kernel_dsyrk_nt_l_4x4_vs_lib4, .-kernel_dsyrk_nt_l_4x4_vs_lib4
 #endif
+
 
 
 
@@ -4979,12 +5224,14 @@ _kernel_dsyrk_nt_l_4x4_vs_lib4:
 
 	.p2align 4,,15
 #if defined(OS_LINUX)
-	.globl kernel_dtrmm_nt_ru_4x4_lib4
-	.type kernel_dtrmm_nt_ru_4x4_lib4, @function
+  .type kernel_dtrmm_nt_ru_4x4_lib4, @function
 kernel_dtrmm_nt_ru_4x4_lib4:
 #elif defined(OS_MAC)
-	.globl _kernel_dtrmm_nt_ru_4x4_lib4
 _kernel_dtrmm_nt_ru_4x4_lib4:
+#elif defined(OS_WINDOWS)
+  .globl kernel_dtrmm_nt_ru_4x4_lib4
+  .def   kernel_dtrmm_nt_ru_4x4_lib4;        .scl    2;      .type   32;     .endef
+kernel_dtrmm_nt_ru_4x4_lib4:
 #endif
 	
 	// prologue
@@ -5021,9 +5268,11 @@ _kernel_dtrmm_nt_ru_4x4_lib4:
 	INNER_KERNEL_DGEMM_ADD_NT_4X4_LIB4
 #else
 #if defined(OS_LINUX)
-	call inner_kernel_dgemm_add_nt_4x4_lib4
+  call inner_kernel_dgemm_add_nt_4x4_lib4
 #elif defined(OS_MAC)
-	callq _inner_kernel_dgemm_add_nt_4x4_lib4
+  callq _inner_kernel_dgemm_add_nt_4x4_lib4
+#elif defined(OS_WINDOWS)
+  call inner_kernel_dgemm_add_nt_4x4_lib4
 #endif
 #endif
 
@@ -5034,9 +5283,11 @@ _kernel_dtrmm_nt_ru_4x4_lib4:
 	INNER_BLEND_4X4_LIB4
 #else
 #if defined(OS_LINUX)
-	call inner_blend_4x4_lib4
+  call inner_blend_4x4_lib4
 #elif defined(OS_MAC)
-	callq _inner_blend_4x4_lib4
+  callq _inner_blend_4x4_lib4
+#elif defined(OS_WINDOWS)
+  call inner_blend_4x4_lib4
 #endif
 #endif
 
@@ -5050,9 +5301,11 @@ _kernel_dtrmm_nt_ru_4x4_lib4:
 	INNER_EDGE_DTRMM_NT_RU_4X4_LIB4
 #else
 #if defined(OS_LINUX)
-	call inner_edge_dtrmm_nt_ru_4x4_lib4
+  call inner_edge_dtrmm_nt_ru_4x4_lib4
 #elif defined(OS_MAC)
-	callq _inner_edge_dtrmm_nt_ru_4x4_lib4
+  callq _inner_edge_dtrmm_nt_ru_4x4_lib4
+#elif defined(OS_WINDOWS)
+  call inner_edge_dtrmm_nt_ru_4x4_lib4
 #endif
 #endif
 
@@ -5067,9 +5320,11 @@ _kernel_dtrmm_nt_ru_4x4_lib4:
 	INNER_SCALE_AB_4X4_LIB4
 #else
 #if defined(OS_LINUX)
-	call inner_scale_ab_4x4_lib4
+  call inner_scale_ab_4x4_lib4
 #elif defined(OS_MAC)
-	callq _inner_scale_ab_4x4_lib4
+  callq _inner_scale_ab_4x4_lib4
+#elif defined(OS_WINDOWS)
+  call inner_scale_ab_4x4_lib4
 #endif
 #endif
 
@@ -5082,9 +5337,11 @@ _kernel_dtrmm_nt_ru_4x4_lib4:
 	INNER_STORE_4X4_LIB4
 #else
 #if defined(OS_LINUX)
-	call inner_store_4x4_lib4
+  call inner_store_4x4_lib4
 #elif defined(OS_MAC)
-	callq _inner_store_4x4_lib4
+  callq _inner_store_4x4_lib4
+#elif defined(OS_WINDOWS)
+  call inner_store_4x4_lib4
 #endif
 #endif
 
@@ -5103,9 +5360,11 @@ _kernel_dtrmm_nt_ru_4x4_lib4:
 
 	ret
 
+
 #if defined(OS_LINUX)
-	.size	kernel_dtrmm_nt_ru_4x4_lib4, .-kernel_dtrmm_nt_ru_4x4_lib4
+  .size	kernel_dtrmm_nt_ru_4x4_lib4, .-kernel_dtrmm_nt_ru_4x4_lib4
 #endif
+
 
 
 
@@ -5117,12 +5376,14 @@ _kernel_dtrmm_nt_ru_4x4_lib4:
 
 	.p2align 4,,15
 #if defined(OS_LINUX)
-	.globl kernel_dtrmm_nt_ru_4x4_vs_lib4
-	.type kernel_dtrmm_nt_ru_4x4_vs_lib4, @function
+  .type kernel_dtrmm_nt_ru_4x4_vs_lib4, @function
 kernel_dtrmm_nt_ru_4x4_vs_lib4:
 #elif defined(OS_MAC)
-	.globl _kernel_dtrmm_nt_ru_4x4_vs_lib4
 _kernel_dtrmm_nt_ru_4x4_vs_lib4:
+#elif defined(OS_WINDOWS)
+  .globl kernel_dtrmm_nt_ru_4x4_vs_lib4
+  .def   kernel_dtrmm_nt_ru_4x4_vs_lib4;        .scl    2;      .type   32;     .endef
+kernel_dtrmm_nt_ru_4x4_vs_lib4:
 #endif
 	
 	// prologue
@@ -5159,9 +5420,11 @@ _kernel_dtrmm_nt_ru_4x4_vs_lib4:
 	INNER_KERNEL_DGEMM_ADD_NT_4X4_LIB4
 #else
 #if defined(OS_LINUX)
-	call inner_kernel_dgemm_add_nt_4x4_lib4
+  call inner_kernel_dgemm_add_nt_4x4_lib4
 #elif defined(OS_MAC)
-	callq _inner_kernel_dgemm_add_nt_4x4_lib4
+  callq _inner_kernel_dgemm_add_nt_4x4_lib4
+#elif defined(OS_WINDOWS)
+  call inner_kernel_dgemm_add_nt_4x4_lib4
 #endif
 #endif
 
@@ -5172,9 +5435,11 @@ _kernel_dtrmm_nt_ru_4x4_vs_lib4:
 	INNER_BLEND_4X4_LIB4
 #else
 #if defined(OS_LINUX)
-	call inner_blend_4x4_lib4
+  call inner_blend_4x4_lib4
 #elif defined(OS_MAC)
-	callq _inner_blend_4x4_lib4
+  callq _inner_blend_4x4_lib4
+#elif defined(OS_WINDOWS)
+  call inner_blend_4x4_lib4
 #endif
 #endif
 
@@ -5189,9 +5454,11 @@ _kernel_dtrmm_nt_ru_4x4_vs_lib4:
 	INNER_EDGE_DTRMM_NT_RU_4X4_VS_LIB4
 #else
 #if defined(OS_LINUX)
-	call inner_edge_dtrmm_nt_ru_4x4_vs_lib4
+  call inner_edge_dtrmm_nt_ru_4x4_vs_lib4
 #elif defined(OS_MAC)
-	callq _inner_edge_dtrmm_nt_ru_4x4_vs_lib4
+  callq _inner_edge_dtrmm_nt_ru_4x4_vs_lib4
+#elif defined(OS_WINDOWS)
+  call inner_edge_dtrmm_nt_ru_4x4_vs_lib4
 #endif
 #endif
 
@@ -5206,9 +5473,11 @@ _kernel_dtrmm_nt_ru_4x4_vs_lib4:
 	INNER_SCALE_AB_4X4_LIB4
 #else
 #if defined(OS_LINUX)
-	call inner_scale_ab_4x4_lib4
+  call inner_scale_ab_4x4_lib4
 #elif defined(OS_MAC)
-	callq _inner_scale_ab_4x4_lib4
+  callq _inner_scale_ab_4x4_lib4
+#elif defined(OS_WINDOWS)
+  call inner_scale_ab_4x4_lib4
 #endif
 #endif
 
@@ -5223,9 +5492,11 @@ _kernel_dtrmm_nt_ru_4x4_vs_lib4:
 	INNER_STORE_4X4_VS_LIB4
 #else
 #if defined(OS_LINUX)
-	call inner_store_4x4_vs_lib4
+  call inner_store_4x4_vs_lib4
 #elif defined(OS_MAC)
-	callq _inner_store_4x4_vs_lib4
+  callq _inner_store_4x4_vs_lib4
+#elif defined(OS_WINDOWS)
+  call inner_store_4x4_vs_lib4
 #endif
 #endif
 
@@ -5244,9 +5515,11 @@ _kernel_dtrmm_nt_ru_4x4_vs_lib4:
 
 	ret
 
+
 #if defined(OS_LINUX)
-	.size	kernel_dtrmm_nt_ru_4x4_vs_lib4, .-kernel_dtrmm_nt_ru_4x4_vs_lib4
+  .size	kernel_dtrmm_nt_ru_4x4_vs_lib4, .-kernel_dtrmm_nt_ru_4x4_vs_lib4
 #endif
+
 
 
 
@@ -5257,12 +5530,14 @@ _kernel_dtrmm_nt_ru_4x4_vs_lib4:
 
 	.p2align 4,,15
 #if defined(OS_LINUX)
-	.globl kernel_dpotrf_nt_l_4x4_lib4
-	.type kernel_dpotrf_nt_l_4x4_lib4, @function
+  .type kernel_dpotrf_nt_l_4x4_lib4, @function
 kernel_dpotrf_nt_l_4x4_lib4:
 #elif defined(OS_MAC)
-	.globl _kernel_dpotrf_nt_l_4x4_lib4
 _kernel_dpotrf_nt_l_4x4_lib4:
+#elif defined(OS_WINDOWS)
+  .globl kernel_dpotrf_nt_l_4x4_lib4
+  .def   kernel_dpotrf_nt_l_4x4_lib4;        .scl    2;      .type   32;     .endef
+kernel_dpotrf_nt_l_4x4_lib4:
 #endif
 	
 	// prologue
@@ -5296,9 +5571,11 @@ _kernel_dpotrf_nt_l_4x4_lib4:
 	INNER_KERNEL_DGEMM_SUB_NT_4X4_LIB4
 #else
 #if defined(OS_LINUX)
-	call inner_kernel_dgemm_sub_nt_4x4_lib4
+  call inner_kernel_dgemm_sub_nt_4x4_lib4
 #elif defined(OS_MAC)
-	callq _inner_kernel_dgemm_sub_nt_4x4_lib4
+  callq _inner_kernel_dgemm_sub_nt_4x4_lib4
+#elif defined(OS_WINDOWS)
+  call inner_kernel_dgemm_sub_nt_4x4_lib4
 #endif
 #endif
 
@@ -5311,9 +5588,11 @@ _kernel_dpotrf_nt_l_4x4_lib4:
 	INNER_BLEND_SCALE_11_4X4_LIB4
 #else
 #if defined(OS_LINUX)
-	call inner_blend_scale_11_4x4_lib4
+  call inner_blend_scale_11_4x4_lib4
 #elif defined(OS_MAC)
-	callq _inner_blend_scale_11_4x4_lib4
+  callq _inner_blend_scale_11_4x4_lib4
+#elif defined(OS_WINDOWS)
+  call inner_blend_scale_11_4x4_lib4
 #endif
 #endif
 
@@ -5326,9 +5605,11 @@ _kernel_dpotrf_nt_l_4x4_lib4:
 	INNER_EDGE_DPOTRF_4X4_LIB4
 #else
 #if defined(OS_LINUX)
-	call inner_edge_dpotrf_4x4_lib4
+  call inner_edge_dpotrf_4x4_lib4
 #elif defined(OS_MAC)
-	callq _inner_edge_dpotrf_4x4_lib4
+  callq _inner_edge_dpotrf_4x4_lib4
+#elif defined(OS_WINDOWS)
+  call inner_edge_dpotrf_4x4_lib4
 #endif
 #endif
 
@@ -5341,9 +5622,11 @@ _kernel_dpotrf_nt_l_4x4_lib4:
 	INNER_STORE_L_4X4_LIB4
 #else
 #if defined(OS_LINUX)
-	call inner_store_l_4x4_lib4
+  call inner_store_l_4x4_lib4
 #elif defined(OS_MAC)
-	callq _inner_store_l_4x4_lib4
+  callq _inner_store_l_4x4_lib4
+#elif defined(OS_WINDOWS)
+  call inner_store_l_4x4_lib4
 #endif
 #endif
 
@@ -5362,9 +5645,11 @@ _kernel_dpotrf_nt_l_4x4_lib4:
 
 	ret
 
+
 #if defined(OS_LINUX)
-	.size	kernel_dpotrf_nt_l_4x4_lib4, .-kernel_dpotrf_nt_l_4x4_lib4
+  .size	kernel_dpotrf_nt_l_4x4_lib4, .-kernel_dpotrf_nt_l_4x4_lib4
 #endif
+
 
 
 
@@ -5375,12 +5660,14 @@ _kernel_dpotrf_nt_l_4x4_lib4:
 
 	.p2align 4,,15
 #if defined(OS_LINUX)
-	.globl kernel_dpotrf_nt_l_4x4_vs_lib4
-	.type kernel_dpotrf_nt_l_4x4_vs_lib4, @function
+  .type kernel_dpotrf_nt_l_4x4_vs_lib4, @function
 kernel_dpotrf_nt_l_4x4_vs_lib4:
 #elif defined(OS_MAC)
-	.globl _kernel_dpotrf_nt_l_4x4_vs_lib4
 _kernel_dpotrf_nt_l_4x4_vs_lib4:
+#elif defined(OS_WINDOWS)
+  .globl kernel_dpotrf_nt_l_4x4_vs_lib4
+  .def   kernel_dpotrf_nt_l_4x4_vs_lib4;        .scl    2;      .type   32;     .endef
+kernel_dpotrf_nt_l_4x4_vs_lib4:
 #endif
 	
 	// prologue
@@ -5414,9 +5701,11 @@ _kernel_dpotrf_nt_l_4x4_vs_lib4:
 	INNER_KERNEL_DGEMM_SUB_NT_4X4_LIB4
 #else
 #if defined(OS_LINUX)
-	call inner_kernel_dgemm_sub_nt_4x4_lib4
+  call inner_kernel_dgemm_sub_nt_4x4_lib4
 #elif defined(OS_MAC)
-	callq _inner_kernel_dgemm_sub_nt_4x4_lib4
+  callq _inner_kernel_dgemm_sub_nt_4x4_lib4
+#elif defined(OS_WINDOWS)
+  call inner_kernel_dgemm_sub_nt_4x4_lib4
 #endif
 #endif
 
@@ -5429,9 +5718,11 @@ _kernel_dpotrf_nt_l_4x4_vs_lib4:
 	INNER_BLEND_SCALE_11_4X4_LIB4
 #else
 #if defined(OS_LINUX)
-	call inner_blend_scale_11_4x4_lib4
+  call inner_blend_scale_11_4x4_lib4
 #elif defined(OS_MAC)
-	callq _inner_blend_scale_11_4x4_lib4
+  callq _inner_blend_scale_11_4x4_lib4
+#elif defined(OS_WINDOWS)
+  call inner_blend_scale_11_4x4_lib4
 #endif
 #endif
 
@@ -5445,9 +5736,11 @@ _kernel_dpotrf_nt_l_4x4_vs_lib4:
 	INNER_EDGE_DPOTRF_4X4_VS_LIB4
 #else
 #if defined(OS_LINUX)
-	call inner_edge_dpotrf_4x4_vs_lib4
+  call inner_edge_dpotrf_4x4_vs_lib4
 #elif defined(OS_MAC)
-	callq _inner_edge_dpotrf_4x4_vs_lib4
+  callq _inner_edge_dpotrf_4x4_vs_lib4
+#elif defined(OS_WINDOWS)
+  call inner_edge_dpotrf_4x4_vs_lib4
 #endif
 #endif
 
@@ -5462,9 +5755,11 @@ _kernel_dpotrf_nt_l_4x4_vs_lib4:
 	INNER_STORE_L_4X4_VS_LIB4
 #else
 #if defined(OS_LINUX)
-	call inner_store_l_4x4_vs_lib4
+  call inner_store_l_4x4_vs_lib4
 #elif defined(OS_MAC)
-	callq _inner_store_l_4x4_vs_lib4
+  callq _inner_store_l_4x4_vs_lib4
+#elif defined(OS_WINDOWS)
+  call inner_store_l_4x4_vs_lib4
 #endif
 #endif
 
@@ -5483,9 +5778,11 @@ _kernel_dpotrf_nt_l_4x4_vs_lib4:
 
 	ret
 
+
 #if defined(OS_LINUX)
-	.size	kernel_dpotrf_nt_l_4x4_vs_lib4, .-kernel_dpotrf_nt_l_4x4_vs_lib4
+  .size	kernel_dpotrf_nt_l_4x4_vs_lib4, .-kernel_dpotrf_nt_l_4x4_vs_lib4
 #endif
+
 
 
 
@@ -5496,12 +5793,14 @@ _kernel_dpotrf_nt_l_4x4_vs_lib4:
 
 	.p2align 4,,15
 #if defined(OS_LINUX)
-	.globl kernel_dsyrk_dpotrf_nt_l_4x4_lib4
-	.type kernel_dsyrk_dpotrf_nt_l_4x4_lib4, @function
+  .type kernel_dsyrk_dpotrf_nt_l_4x4_lib4, @function
 kernel_dsyrk_dpotrf_nt_l_4x4_lib4:
 #elif defined(OS_MAC)
-	.globl _kernel_dsyrk_dpotrf_nt_l_4x4_lib4
 _kernel_dsyrk_dpotrf_nt_l_4x4_lib4:
+#elif defined(OS_WINDOWS)
+  .globl kernel_dsyrk_dpotrf_nt_l_4x4_lib4
+  .def   kernel_dsyrk_dpotrf_nt_l_4x4_lib4;        .scl    2;      .type   32;     .endef
+kernel_dsyrk_dpotrf_nt_l_4x4_lib4:
 #endif
 	
 	// prologue
@@ -5535,9 +5834,11 @@ _kernel_dsyrk_dpotrf_nt_l_4x4_lib4:
 	INNER_KERNEL_DGEMM_ADD_NT_4X4_LIB4
 #else
 #if defined(OS_LINUX)
-	call inner_kernel_dgemm_add_nt_4x4_lib4
+  call inner_kernel_dgemm_add_nt_4x4_lib4
 #elif defined(OS_MAC)
-	callq _inner_kernel_dgemm_add_nt_4x4_lib4
+  callq _inner_kernel_dgemm_add_nt_4x4_lib4
+#elif defined(OS_WINDOWS)
+  call inner_kernel_dgemm_add_nt_4x4_lib4
 #endif
 #endif
 
@@ -5552,9 +5853,11 @@ _kernel_dsyrk_dpotrf_nt_l_4x4_lib4:
 	INNER_KERNEL_DGEMM_SUB_NT_4X4_LIB4
 #else
 #if defined(OS_LINUX)
-	call inner_kernel_dgemm_sub_nt_4x4_lib4
+  call inner_kernel_dgemm_sub_nt_4x4_lib4
 #elif defined(OS_MAC)
-	callq _inner_kernel_dgemm_sub_nt_4x4_lib4
+  callq _inner_kernel_dgemm_sub_nt_4x4_lib4
+#elif defined(OS_WINDOWS)
+  call inner_kernel_dgemm_sub_nt_4x4_lib4
 #endif
 #endif
 
@@ -5567,9 +5870,11 @@ _kernel_dsyrk_dpotrf_nt_l_4x4_lib4:
 	INNER_BLEND_SCALE_11_4X4_LIB4
 #else
 #if defined(OS_LINUX)
-	call inner_blend_scale_11_4x4_lib4
+  call inner_blend_scale_11_4x4_lib4
 #elif defined(OS_MAC)
-	callq _inner_blend_scale_11_4x4_lib4
+  callq _inner_blend_scale_11_4x4_lib4
+#elif defined(OS_WINDOWS)
+  call inner_blend_scale_11_4x4_lib4
 #endif
 #endif
 
@@ -5582,9 +5887,11 @@ _kernel_dsyrk_dpotrf_nt_l_4x4_lib4:
 	INNER_EDGE_DPOTRF_4X4_LIB4
 #else
 #if defined(OS_LINUX)
-	call inner_edge_dpotrf_4x4_lib4
+  call inner_edge_dpotrf_4x4_lib4
 #elif defined(OS_MAC)
-	callq _inner_edge_dpotrf_4x4_lib4
+  callq _inner_edge_dpotrf_4x4_lib4
+#elif defined(OS_WINDOWS)
+  call inner_edge_dpotrf_4x4_lib4
 #endif
 #endif
 
@@ -5597,9 +5904,11 @@ _kernel_dsyrk_dpotrf_nt_l_4x4_lib4:
 	INNER_STORE_L_4X4_LIB4
 #else
 #if defined(OS_LINUX)
-	call inner_store_l_4x4_lib4
+  call inner_store_l_4x4_lib4
 #elif defined(OS_MAC)
-	callq _inner_store_l_4x4_lib4
+  callq _inner_store_l_4x4_lib4
+#elif defined(OS_WINDOWS)
+  call inner_store_l_4x4_lib4
 #endif
 #endif
 
@@ -5618,9 +5927,11 @@ _kernel_dsyrk_dpotrf_nt_l_4x4_lib4:
 
 	ret
 
+
 #if defined(OS_LINUX)
-	.size	kernel_dsyrk_dpotrf_nt_l_4x4_lib4, .-kernel_dsyrk_dpotrf_nt_l_4x4_lib4
+  .size	kernel_dsyrk_dpotrf_nt_l_4x4_lib4, .-kernel_dsyrk_dpotrf_nt_l_4x4_lib4
 #endif
+
 
 
 
@@ -5631,12 +5942,14 @@ _kernel_dsyrk_dpotrf_nt_l_4x4_lib4:
 
 	.p2align 4,,15
 #if defined(OS_LINUX)
-	.globl kernel_dsyrk_dpotrf_nt_l_4x4_vs_lib4
-	.type kernel_dsyrk_dpotrf_nt_l_4x4_vs_lib4, @function
+  .type kernel_dsyrk_dpotrf_nt_l_4x4_vs_lib4, @function
 kernel_dsyrk_dpotrf_nt_l_4x4_vs_lib4:
 #elif defined(OS_MAC)
-	.globl _kernel_dsyrk_dpotrf_nt_l_4x4_vs_lib4
 _kernel_dsyrk_dpotrf_nt_l_4x4_vs_lib4:
+#elif defined(OS_WINDOWS)
+  .globl kernel_dsyrk_dpotrf_nt_l_4x4_vs_lib4
+  .def   kernel_dsyrk_dpotrf_nt_l_4x4_vs_lib4;        .scl    2;      .type   32;     .endef
+kernel_dsyrk_dpotrf_nt_l_4x4_vs_lib4:
 #endif
 	
 	// prologue
@@ -5670,9 +5983,11 @@ _kernel_dsyrk_dpotrf_nt_l_4x4_vs_lib4:
 	INNER_KERNEL_DGEMM_ADD_NT_4X4_LIB4
 #else
 #if defined(OS_LINUX)
-	call inner_kernel_dgemm_add_nt_4x4_lib4
+  call inner_kernel_dgemm_add_nt_4x4_lib4
 #elif defined(OS_MAC)
-	callq _inner_kernel_dgemm_add_nt_4x4_lib4
+  callq _inner_kernel_dgemm_add_nt_4x4_lib4
+#elif defined(OS_WINDOWS)
+  call inner_kernel_dgemm_add_nt_4x4_lib4
 #endif
 #endif
 
@@ -5687,9 +6002,11 @@ _kernel_dsyrk_dpotrf_nt_l_4x4_vs_lib4:
 	INNER_KERNEL_DGEMM_SUB_NT_4X4_LIB4
 #else
 #if defined(OS_LINUX)
-	call inner_kernel_dgemm_sub_nt_4x4_lib4
+  call inner_kernel_dgemm_sub_nt_4x4_lib4
 #elif defined(OS_MAC)
-	callq _inner_kernel_dgemm_sub_nt_4x4_lib4
+  callq _inner_kernel_dgemm_sub_nt_4x4_lib4
+#elif defined(OS_WINDOWS)
+  call inner_kernel_dgemm_sub_nt_4x4_lib4
 #endif
 #endif
 
@@ -5702,9 +6019,11 @@ _kernel_dsyrk_dpotrf_nt_l_4x4_vs_lib4:
 	INNER_BLEND_SCALE_11_4X4_LIB4
 #else
 #if defined(OS_LINUX)
-	call inner_blend_scale_11_4x4_lib4
+  call inner_blend_scale_11_4x4_lib4
 #elif defined(OS_MAC)
-	callq _inner_blend_scale_11_4x4_lib4
+  callq _inner_blend_scale_11_4x4_lib4
+#elif defined(OS_WINDOWS)
+  call inner_blend_scale_11_4x4_lib4
 #endif
 #endif
 
@@ -5718,9 +6037,11 @@ _kernel_dsyrk_dpotrf_nt_l_4x4_vs_lib4:
 	INNER_EDGE_DPOTRF_4X4_VS_LIB4
 #else
 #if defined(OS_LINUX)
-	call inner_edge_dpotrf_4x4_vs_lib4
+  call inner_edge_dpotrf_4x4_vs_lib4
 #elif defined(OS_MAC)
-	callq _inner_edge_dpotrf_4x4_vs_lib4
+  callq _inner_edge_dpotrf_4x4_vs_lib4
+#elif defined(OS_WINDOWS)
+  call inner_edge_dpotrf_4x4_vs_lib4
 #endif
 #endif
 
@@ -5735,9 +6056,11 @@ _kernel_dsyrk_dpotrf_nt_l_4x4_vs_lib4:
 	INNER_STORE_L_4X4_VS_LIB4
 #else
 #if defined(OS_LINUX)
-	call inner_store_l_4x4_vs_lib4
+  call inner_store_l_4x4_vs_lib4
 #elif defined(OS_MAC)
-	callq _inner_store_l_4x4_vs_lib4
+  callq _inner_store_l_4x4_vs_lib4
+#elif defined(OS_WINDOWS)
+  call inner_store_l_4x4_vs_lib4
 #endif
 #endif
 
@@ -5756,9 +6079,11 @@ _kernel_dsyrk_dpotrf_nt_l_4x4_vs_lib4:
 
 	ret
 
+
 #if defined(OS_LINUX)
-	.size	kernel_dsyrk_dpotrf_nt_l_4x4_vs_lib4, .-kernel_dsyrk_dpotrf_nt_l_4x4_vs_lib4
+  .size	kernel_dsyrk_dpotrf_nt_l_4x4_vs_lib4, .-kernel_dsyrk_dpotrf_nt_l_4x4_vs_lib4
 #endif
+
 
 
 
@@ -5769,12 +6094,14 @@ _kernel_dsyrk_dpotrf_nt_l_4x4_vs_lib4:
 
 	.p2align 4,,15
 #if defined(OS_LINUX)
-	.globl kernel_dtrsm_nt_rl_inv_4x4_lib4
-	.type kernel_dtrsm_nt_rl_inv_4x4_lib4, @function
+  .type kernel_dtrsm_nt_rl_inv_4x4_lib4, @function
 kernel_dtrsm_nt_rl_inv_4x4_lib4:
 #elif defined(OS_MAC)
-	.globl _kernel_dtrsm_nt_rl_inv_4x4_lib4
 _kernel_dtrsm_nt_rl_inv_4x4_lib4:
+#elif defined(OS_WINDOWS)
+  .globl kernel_dtrsm_nt_rl_inv_4x4_lib4
+  .def   kernel_dtrsm_nt_rl_inv_4x4_lib4;        .scl    2;      .type   32;     .endef
+kernel_dtrsm_nt_rl_inv_4x4_lib4:
 #endif
 	
 	// prologue
@@ -5808,9 +6135,11 @@ _kernel_dtrsm_nt_rl_inv_4x4_lib4:
 	INNER_KERNEL_DGEMM_SUB_NT_4X4_LIB4
 #else
 #if defined(OS_LINUX)
-	call inner_kernel_dgemm_sub_nt_4x4_lib4
+  call inner_kernel_dgemm_sub_nt_4x4_lib4
 #elif defined(OS_MAC)
-	callq _inner_kernel_dgemm_sub_nt_4x4_lib4
+  callq _inner_kernel_dgemm_sub_nt_4x4_lib4
+#elif defined(OS_WINDOWS)
+  call inner_kernel_dgemm_sub_nt_4x4_lib4
 #endif
 #endif
 
@@ -5823,9 +6152,11 @@ _kernel_dtrsm_nt_rl_inv_4x4_lib4:
 	INNER_BLEND_SCALE_11_4X4_LIB4
 #else
 #if defined(OS_LINUX)
-	call inner_blend_scale_11_4x4_lib4
+  call inner_blend_scale_11_4x4_lib4
 #elif defined(OS_MAC)
-	callq _inner_blend_scale_11_4x4_lib4
+  callq _inner_blend_scale_11_4x4_lib4
+#elif defined(OS_WINDOWS)
+  call inner_blend_scale_11_4x4_lib4
 #endif
 #endif
 
@@ -5839,9 +6170,11 @@ _kernel_dtrsm_nt_rl_inv_4x4_lib4:
 	INNER_EDGE_DTRSM_RLT_INV_4X4_LIB4
 #else
 #if defined(OS_LINUX)
-	call inner_edge_dtrsm_rlt_inv_4x4_lib4
+  call inner_edge_dtrsm_rlt_inv_4x4_lib4
 #elif defined(OS_MAC)
-	callq _inner_edge_dtrsm_rlt_inv_4x4_lib4
+  callq _inner_edge_dtrsm_rlt_inv_4x4_lib4
+#elif defined(OS_WINDOWS)
+  call inner_edge_dtrsm_rlt_inv_4x4_lib4
 #endif
 #endif
 
@@ -5854,9 +6187,11 @@ _kernel_dtrsm_nt_rl_inv_4x4_lib4:
 	INNER_STORE_4X4_LIB4
 #else
 #if defined(OS_LINUX)
-	call inner_store_4x4_lib4
+  call inner_store_4x4_lib4
 #elif defined(OS_MAC)
-	callq _inner_store_4x4_lib4
+  callq _inner_store_4x4_lib4
+#elif defined(OS_WINDOWS)
+  call inner_store_4x4_lib4
 #endif
 #endif
 
@@ -5875,9 +6210,11 @@ _kernel_dtrsm_nt_rl_inv_4x4_lib4:
 
 	ret
 
+
 #if defined(OS_LINUX)
-	.size	kernel_dtrsm_nt_rl_inv_4x4_lib4, .-kernel_dtrsm_nt_rl_inv_4x4_lib4
+  .size	kernel_dtrsm_nt_rl_inv_4x4_lib4, .-kernel_dtrsm_nt_rl_inv_4x4_lib4
 #endif
+
 
 
 
@@ -5888,12 +6225,14 @@ _kernel_dtrsm_nt_rl_inv_4x4_lib4:
 
 	.p2align 4,,15
 #if defined(OS_LINUX)
-	.globl kernel_dgemm_dtrsm_nt_rl_inv_4x4_lib4
-	.type kernel_dgemm_dtrsm_nt_rl_inv_4x4_lib4, @function
+  .type kernel_dgemm_dtrsm_nt_rl_inv_4x4_lib4, @function
 kernel_dgemm_dtrsm_nt_rl_inv_4x4_lib4:
 #elif defined(OS_MAC)
-	.globl _kernel_dgemm_dtrsm_nt_rl_inv_4x4_lib4
 _kernel_dgemm_dtrsm_nt_rl_inv_4x4_lib4:
+#elif defined(OS_WINDOWS)
+  .globl kernel_dgemm_dtrsm_nt_rl_inv_4x4_lib4
+  .def   kernel_dgemm_dtrsm_nt_rl_inv_4x4_lib4;        .scl    2;      .type   32;     .endef
+kernel_dgemm_dtrsm_nt_rl_inv_4x4_lib4:
 #endif
 	
 	// prologue
@@ -5927,9 +6266,11 @@ _kernel_dgemm_dtrsm_nt_rl_inv_4x4_lib4:
 	INNER_KERNEL_DGEMM_ADD_NT_4X4_LIB4
 #else
 #if defined(OS_LINUX)
-	call inner_kernel_dgemm_add_nt_4x4_lib4
+  call inner_kernel_dgemm_add_nt_4x4_lib4
 #elif defined(OS_MAC)
-	callq _inner_kernel_dgemm_add_nt_4x4_lib4
+  callq _inner_kernel_dgemm_add_nt_4x4_lib4
+#elif defined(OS_WINDOWS)
+  call inner_kernel_dgemm_add_nt_4x4_lib4
 #endif
 #endif
 
@@ -5944,9 +6285,11 @@ _kernel_dgemm_dtrsm_nt_rl_inv_4x4_lib4:
 	INNER_KERNEL_DGEMM_SUB_NT_4X4_LIB4
 #else
 #if defined(OS_LINUX)
-	call inner_kernel_dgemm_sub_nt_4x4_lib4
+  call inner_kernel_dgemm_sub_nt_4x4_lib4
 #elif defined(OS_MAC)
-	callq _inner_kernel_dgemm_sub_nt_4x4_lib4
+  callq _inner_kernel_dgemm_sub_nt_4x4_lib4
+#elif defined(OS_WINDOWS)
+  call inner_kernel_dgemm_sub_nt_4x4_lib4
 #endif
 #endif
 
@@ -5959,9 +6302,11 @@ _kernel_dgemm_dtrsm_nt_rl_inv_4x4_lib4:
 	INNER_BLEND_SCALE_11_4X4_LIB4
 #else
 #if defined(OS_LINUX)
-	call inner_blend_scale_11_4x4_lib4
+  call inner_blend_scale_11_4x4_lib4
 #elif defined(OS_MAC)
-	callq _inner_blend_scale_11_4x4_lib4
+  callq _inner_blend_scale_11_4x4_lib4
+#elif defined(OS_WINDOWS)
+  call inner_blend_scale_11_4x4_lib4
 #endif
 #endif
 
@@ -5975,9 +6320,11 @@ _kernel_dgemm_dtrsm_nt_rl_inv_4x4_lib4:
 	INNER_EDGE_DTRSM_RLT_INV_4X4_LIB4
 #else
 #if defined(OS_LINUX)
-	call inner_edge_dtrsm_rlt_inv_4x4_lib4
+  call inner_edge_dtrsm_rlt_inv_4x4_lib4
 #elif defined(OS_MAC)
-	callq _inner_edge_dtrsm_rlt_inv_4x4_lib4
+  callq _inner_edge_dtrsm_rlt_inv_4x4_lib4
+#elif defined(OS_WINDOWS)
+  call inner_edge_dtrsm_rlt_inv_4x4_lib4
 #endif
 #endif
 
@@ -5990,9 +6337,11 @@ _kernel_dgemm_dtrsm_nt_rl_inv_4x4_lib4:
 	INNER_STORE_4X4_LIB4
 #else
 #if defined(OS_LINUX)
-	call inner_store_4x4_lib4
+  call inner_store_4x4_lib4
 #elif defined(OS_MAC)
-	callq _inner_store_4x4_lib4
+  callq _inner_store_4x4_lib4
+#elif defined(OS_WINDOWS)
+  call inner_store_4x4_lib4
 #endif
 #endif
 
@@ -6011,9 +6360,11 @@ _kernel_dgemm_dtrsm_nt_rl_inv_4x4_lib4:
 
 	ret
 
+
 #if defined(OS_LINUX)
-	.size	kernel_dgemm_dtrsm_nt_rl_inv_4x4_lib4, .-kernel_dgemm_dtrsm_nt_rl_inv_4x4_lib4
+  .size	kernel_dgemm_dtrsm_nt_rl_inv_4x4_lib4, .-kernel_dgemm_dtrsm_nt_rl_inv_4x4_lib4
 #endif
+
 
 
 
@@ -6024,12 +6375,14 @@ _kernel_dgemm_dtrsm_nt_rl_inv_4x4_lib4:
 
 	.p2align 4,,15
 #if defined(OS_LINUX)
-	.globl kernel_dtrsm_nt_rl_inv_4x4_vs_lib4
-	.type kernel_dtrsm_nt_rl_inv_4x4_vs_lib4, @function
+  .type kernel_dtrsm_nt_rl_inv_4x4_vs_lib4, @function
 kernel_dtrsm_nt_rl_inv_4x4_vs_lib4:
 #elif defined(OS_MAC)
-	.globl _kernel_dtrsm_nt_rl_inv_4x4_vs_lib4
 _kernel_dtrsm_nt_rl_inv_4x4_vs_lib4:
+#elif defined(OS_WINDOWS)
+  .globl kernel_dtrsm_nt_rl_inv_4x4_vs_lib4
+  .def   kernel_dtrsm_nt_rl_inv_4x4_vs_lib4;        .scl    2;      .type   32;     .endef
+kernel_dtrsm_nt_rl_inv_4x4_vs_lib4:
 #endif
 	
 	// prologue
@@ -6063,9 +6416,11 @@ _kernel_dtrsm_nt_rl_inv_4x4_vs_lib4:
 	INNER_KERNEL_DGEMM_SUB_NT_4X4_LIB4
 #else
 #if defined(OS_LINUX)
-	call inner_kernel_dgemm_sub_nt_4x4_lib4
+  call inner_kernel_dgemm_sub_nt_4x4_lib4
 #elif defined(OS_MAC)
-	callq _inner_kernel_dgemm_sub_nt_4x4_lib4
+  callq _inner_kernel_dgemm_sub_nt_4x4_lib4
+#elif defined(OS_WINDOWS)
+  call inner_kernel_dgemm_sub_nt_4x4_lib4
 #endif
 #endif
 
@@ -6078,9 +6433,11 @@ _kernel_dtrsm_nt_rl_inv_4x4_vs_lib4:
 	INNER_BLEND_SCALE_11_4X4_LIB4
 #else
 #if defined(OS_LINUX)
-	call inner_blend_scale_11_4x4_lib4
+  call inner_blend_scale_11_4x4_lib4
 #elif defined(OS_MAC)
-	callq _inner_blend_scale_11_4x4_lib4
+  callq _inner_blend_scale_11_4x4_lib4
+#elif defined(OS_WINDOWS)
+  call inner_blend_scale_11_4x4_lib4
 #endif
 #endif
 
@@ -6095,9 +6452,11 @@ _kernel_dtrsm_nt_rl_inv_4x4_vs_lib4:
 	INNER_EDGE_DTRSM_RLT_INV_4X4_VS_LIB4
 #else
 #if defined(OS_LINUX)
-	call inner_edge_dtrsm_rlt_inv_4x4_vs_lib4
+  call inner_edge_dtrsm_rlt_inv_4x4_vs_lib4
 #elif defined(OS_MAC)
-	callq _inner_edge_dtrsm_rlt_inv_4x4_vs_lib4
+  callq _inner_edge_dtrsm_rlt_inv_4x4_vs_lib4
+#elif defined(OS_WINDOWS)
+  call inner_edge_dtrsm_rlt_inv_4x4_vs_lib4
 #endif
 #endif
 
@@ -6112,9 +6471,11 @@ _kernel_dtrsm_nt_rl_inv_4x4_vs_lib4:
 	INNER_STORE_4X4_VS_LIB4
 #else
 #if defined(OS_LINUX)
-	call inner_store_4x4_vs_lib4
+  call inner_store_4x4_vs_lib4
 #elif defined(OS_MAC)
-	callq _inner_store_4x4_vs_lib4
+  callq _inner_store_4x4_vs_lib4
+#elif defined(OS_WINDOWS)
+  call inner_store_4x4_vs_lib4
 #endif
 #endif
 
@@ -6133,9 +6494,11 @@ _kernel_dtrsm_nt_rl_inv_4x4_vs_lib4:
 
 	ret
 
+
 #if defined(OS_LINUX)
-	.size	kernel_dtrsm_nt_rl_inv_4x4_vs_lib4, .-kernel_dtrsm_nt_rl_inv_4x4_vs_lib4
+  .size	kernel_dtrsm_nt_rl_inv_4x4_vs_lib4, .-kernel_dtrsm_nt_rl_inv_4x4_vs_lib4
 #endif
+
 
 
 
@@ -6146,12 +6509,14 @@ _kernel_dtrsm_nt_rl_inv_4x4_vs_lib4:
 
 	.p2align 4,,15
 #if defined(OS_LINUX)
-	.globl kernel_dgemm_dtrsm_nt_rl_inv_4x4_vs_lib4
-	.type kernel_dgemm_dtrsm_nt_rl_inv_4x4_vs_lib4, @function
+  .type kernel_dgemm_dtrsm_nt_rl_inv_4x4_vs_lib4, @function
 kernel_dgemm_dtrsm_nt_rl_inv_4x4_vs_lib4:
 #elif defined(OS_MAC)
-	.globl _kernel_dgemm_dtrsm_nt_rl_inv_4x4_vs_lib4
 _kernel_dgemm_dtrsm_nt_rl_inv_4x4_vs_lib4:
+#elif defined(OS_WINDOWS)
+  .globl kernel_dgemm_dtrsm_nt_rl_inv_4x4_vs_lib4
+  .def   kernel_dgemm_dtrsm_nt_rl_inv_4x4_vs_lib4;        .scl    2;      .type   32;     .endef
+kernel_dgemm_dtrsm_nt_rl_inv_4x4_vs_lib4:
 #endif
 	
 	// prologue
@@ -6185,9 +6550,11 @@ _kernel_dgemm_dtrsm_nt_rl_inv_4x4_vs_lib4:
 	INNER_KERNEL_DGEMM_ADD_NT_4X4_LIB4
 #else
 #if defined(OS_LINUX)
-	call inner_kernel_dgemm_add_nt_4x4_lib4
+  call inner_kernel_dgemm_add_nt_4x4_lib4
 #elif defined(OS_MAC)
-	callq _inner_kernel_dgemm_add_nt_4x4_lib4
+  callq _inner_kernel_dgemm_add_nt_4x4_lib4
+#elif defined(OS_WINDOWS)
+  call inner_kernel_dgemm_add_nt_4x4_lib4
 #endif
 #endif
 
@@ -6202,9 +6569,11 @@ _kernel_dgemm_dtrsm_nt_rl_inv_4x4_vs_lib4:
 	INNER_KERNEL_DGEMM_SUB_NT_4X4_LIB4
 #else
 #if defined(OS_LINUX)
-	call inner_kernel_dgemm_sub_nt_4x4_lib4
+  call inner_kernel_dgemm_sub_nt_4x4_lib4
 #elif defined(OS_MAC)
-	callq _inner_kernel_dgemm_sub_nt_4x4_lib4
+  callq _inner_kernel_dgemm_sub_nt_4x4_lib4
+#elif defined(OS_WINDOWS)
+  call inner_kernel_dgemm_sub_nt_4x4_lib4
 #endif
 #endif
 
@@ -6217,9 +6586,11 @@ _kernel_dgemm_dtrsm_nt_rl_inv_4x4_vs_lib4:
 	INNER_BLEND_SCALE_11_4X4_LIB4
 #else
 #if defined(OS_LINUX)
-	call inner_blend_scale_11_4x4_lib4
+  call inner_blend_scale_11_4x4_lib4
 #elif defined(OS_MAC)
-	callq _inner_blend_scale_11_4x4_lib4
+  callq _inner_blend_scale_11_4x4_lib4
+#elif defined(OS_WINDOWS)
+  call inner_blend_scale_11_4x4_lib4
 #endif
 #endif
 
@@ -6234,9 +6605,11 @@ _kernel_dgemm_dtrsm_nt_rl_inv_4x4_vs_lib4:
 	INNER_EDGE_DTRSM_RLT_INV_4X4_VS_LIB4
 #else
 #if defined(OS_LINUX)
-	call inner_edge_dtrsm_rlt_inv_4x4_vs_lib4
+  call inner_edge_dtrsm_rlt_inv_4x4_vs_lib4
 #elif defined(OS_MAC)
-	callq _inner_edge_dtrsm_rlt_inv_4x4_vs_lib4
+  callq _inner_edge_dtrsm_rlt_inv_4x4_vs_lib4
+#elif defined(OS_WINDOWS)
+  call inner_edge_dtrsm_rlt_inv_4x4_vs_lib4
 #endif
 #endif
 
@@ -6251,9 +6624,11 @@ _kernel_dgemm_dtrsm_nt_rl_inv_4x4_vs_lib4:
 	INNER_STORE_4X4_VS_LIB4
 #else
 #if defined(OS_LINUX)
-	call inner_store_4x4_vs_lib4
+  call inner_store_4x4_vs_lib4
 #elif defined(OS_MAC)
-	callq _inner_store_4x4_vs_lib4
+  callq _inner_store_4x4_vs_lib4
+#elif defined(OS_WINDOWS)
+  call inner_store_4x4_vs_lib4
 #endif
 #endif
 
@@ -6272,9 +6647,11 @@ _kernel_dgemm_dtrsm_nt_rl_inv_4x4_vs_lib4:
 
 	ret
 
+
 #if defined(OS_LINUX)
-	.size	kernel_dgemm_dtrsm_nt_rl_inv_4x4_vs_lib4, .-kernel_dgemm_dtrsm_nt_rl_inv_4x4_vs_lib4
+  .size	kernel_dgemm_dtrsm_nt_rl_inv_4x4_vs_lib4, .-kernel_dgemm_dtrsm_nt_rl_inv_4x4_vs_lib4
 #endif
+
 
 
 
@@ -6285,12 +6662,14 @@ _kernel_dgemm_dtrsm_nt_rl_inv_4x4_vs_lib4:
 
 	.p2align 4,,15
 #if defined(OS_LINUX)
-	.globl kernel_dtrsm_nt_rl_one_4x4_lib4
-	.type kernel_dtrsm_nt_rl_one_4x4_lib4, @function
+  .type kernel_dtrsm_nt_rl_one_4x4_lib4, @function
 kernel_dtrsm_nt_rl_one_4x4_lib4:
 #elif defined(OS_MAC)
-	.globl _kernel_dtrsm_nt_rl_one_4x4_lib4
 _kernel_dtrsm_nt_rl_one_4x4_lib4:
+#elif defined(OS_WINDOWS)
+  .globl kernel_dtrsm_nt_rl_one_4x4_lib4
+  .def   kernel_dtrsm_nt_rl_one_4x4_lib4;        .scl    2;      .type   32;     .endef
+kernel_dtrsm_nt_rl_one_4x4_lib4:
 #endif
 	
 	// prologue
@@ -6324,9 +6703,11 @@ _kernel_dtrsm_nt_rl_one_4x4_lib4:
 	INNER_KERNEL_DGEMM_SUB_NT_4X4_LIB4
 #else
 #if defined(OS_LINUX)
-	call inner_kernel_dgemm_sub_nt_4x4_lib4
+  call inner_kernel_dgemm_sub_nt_4x4_lib4
 #elif defined(OS_MAC)
-	callq _inner_kernel_dgemm_sub_nt_4x4_lib4
+  callq _inner_kernel_dgemm_sub_nt_4x4_lib4
+#elif defined(OS_WINDOWS)
+  call inner_kernel_dgemm_sub_nt_4x4_lib4
 #endif
 #endif
 
@@ -6339,9 +6720,11 @@ _kernel_dtrsm_nt_rl_one_4x4_lib4:
 	INNER_BLEND_SCALE_11_4X4_LIB4
 #else
 #if defined(OS_LINUX)
-	call inner_blend_scale_11_4x4_lib4
+  call inner_blend_scale_11_4x4_lib4
 #elif defined(OS_MAC)
-	callq _inner_blend_scale_11_4x4_lib4
+  callq _inner_blend_scale_11_4x4_lib4
+#elif defined(OS_WINDOWS)
+  call inner_blend_scale_11_4x4_lib4
 #endif
 #endif
 
@@ -6354,9 +6737,11 @@ _kernel_dtrsm_nt_rl_one_4x4_lib4:
 	INNER_EDGE_DTRSM_RLT_ONE_4X4_LIB4
 #else
 #if defined(OS_LINUX)
-	call inner_edge_dtrsm_rlt_one_4x4_lib4
+  call inner_edge_dtrsm_rlt_one_4x4_lib4
 #elif defined(OS_MAC)
-	callq _inner_edge_dtrsm_rlt_one_4x4_lib4
+  callq _inner_edge_dtrsm_rlt_one_4x4_lib4
+#elif defined(OS_WINDOWS)
+  call inner_edge_dtrsm_rlt_one_4x4_lib4
 #endif
 #endif
 
@@ -6369,9 +6754,11 @@ _kernel_dtrsm_nt_rl_one_4x4_lib4:
 	INNER_STORE_4X4_LIB4
 #else
 #if defined(OS_LINUX)
-	call inner_store_4x4_lib4
+  call inner_store_4x4_lib4
 #elif defined(OS_MAC)
-	callq _inner_store_4x4_lib4
+  callq _inner_store_4x4_lib4
+#elif defined(OS_WINDOWS)
+  call inner_store_4x4_lib4
 #endif
 #endif
 
@@ -6390,9 +6777,11 @@ _kernel_dtrsm_nt_rl_one_4x4_lib4:
 
 	ret
 
+
 #if defined(OS_LINUX)
-	.size	kernel_dtrsm_nt_rl_one_4x4_lib4, .-kernel_dtrsm_nt_rl_one_4x4_lib4
+  .size	kernel_dtrsm_nt_rl_one_4x4_lib4, .-kernel_dtrsm_nt_rl_one_4x4_lib4
 #endif
+
 
 
 
@@ -6403,12 +6792,14 @@ _kernel_dtrsm_nt_rl_one_4x4_lib4:
 
 	.p2align 4,,15
 #if defined(OS_LINUX)
-	.globl kernel_dtrsm_nt_rl_one_4x4_vs_lib4
-	.type kernel_dtrsm_nt_rl_one_4x4_vs_lib4, @function
+  .type kernel_dtrsm_nt_rl_one_4x4_vs_lib4, @function
 kernel_dtrsm_nt_rl_one_4x4_vs_lib4:
 #elif defined(OS_MAC)
-	.globl _kernel_dtrsm_nt_rl_one_4x4_vs_lib4
 _kernel_dtrsm_nt_rl_one_4x4_vs_lib4:
+#elif defined(OS_WINDOWS)
+  .globl kernel_dtrsm_nt_rl_one_4x4_vs_lib4
+  .def   kernel_dtrsm_nt_rl_one_4x4_vs_lib4;        .scl    2;      .type   32;     .endef
+kernel_dtrsm_nt_rl_one_4x4_vs_lib4:
 #endif
 	
 	// prologue
@@ -6442,9 +6833,11 @@ _kernel_dtrsm_nt_rl_one_4x4_vs_lib4:
 	INNER_KERNEL_DGEMM_SUB_NT_4X4_LIB4
 #else
 #if defined(OS_LINUX)
-	call inner_kernel_dgemm_sub_nt_4x4_lib4
+  call inner_kernel_dgemm_sub_nt_4x4_lib4
 #elif defined(OS_MAC)
-	callq _inner_kernel_dgemm_sub_nt_4x4_lib4
+  callq _inner_kernel_dgemm_sub_nt_4x4_lib4
+#elif defined(OS_WINDOWS)
+  call inner_kernel_dgemm_sub_nt_4x4_lib4
 #endif
 #endif
 
@@ -6457,9 +6850,11 @@ _kernel_dtrsm_nt_rl_one_4x4_vs_lib4:
 	INNER_BLEND_SCALE_11_4X4_LIB4
 #else
 #if defined(OS_LINUX)
-	call inner_blend_scale_11_4x4_lib4
+  call inner_blend_scale_11_4x4_lib4
 #elif defined(OS_MAC)
-	callq _inner_blend_scale_11_4x4_lib4
+  callq _inner_blend_scale_11_4x4_lib4
+#elif defined(OS_WINDOWS)
+  call inner_blend_scale_11_4x4_lib4
 #endif
 #endif
 
@@ -6473,9 +6868,11 @@ _kernel_dtrsm_nt_rl_one_4x4_vs_lib4:
 	INNER_EDGE_DTRSM_RLT_ONE_4X4_VS_LIB4
 #else
 #if defined(OS_LINUX)
-	call inner_edge_dtrsm_rlt_one_4x4_vs_lib4
+  call inner_edge_dtrsm_rlt_one_4x4_vs_lib4
 #elif defined(OS_MAC)
-	callq _inner_edge_dtrsm_rlt_one_4x4_vs_lib4
+  callq _inner_edge_dtrsm_rlt_one_4x4_vs_lib4
+#elif defined(OS_WINDOWS)
+  call inner_edge_dtrsm_rlt_one_4x4_vs_lib4
 #endif
 #endif
 
@@ -6490,9 +6887,11 @@ _kernel_dtrsm_nt_rl_one_4x4_vs_lib4:
 	INNER_STORE_4X4_VS_LIB4
 #else
 #if defined(OS_LINUX)
-	call inner_store_4x4_vs_lib4
+  call inner_store_4x4_vs_lib4
 #elif defined(OS_MAC)
-	callq _inner_store_4x4_vs_lib4
+  callq _inner_store_4x4_vs_lib4
+#elif defined(OS_WINDOWS)
+  call inner_store_4x4_vs_lib4
 #endif
 #endif
 
@@ -6511,9 +6910,11 @@ _kernel_dtrsm_nt_rl_one_4x4_vs_lib4:
 
 	ret
 
+
 #if defined(OS_LINUX)
-	.size	kernel_dtrsm_nt_rl_one_4x4_vs_lib4, .-kernel_dtrsm_nt_rl_one_4x4_vs_lib4
+  .size	kernel_dtrsm_nt_rl_one_4x4_vs_lib4, .-kernel_dtrsm_nt_rl_one_4x4_vs_lib4
 #endif
+
 
 
 
@@ -6524,12 +6925,14 @@ _kernel_dtrsm_nt_rl_one_4x4_vs_lib4:
 
 	.p2align 4,,15
 #if defined(OS_LINUX)
-	.globl kernel_dtrsm_nt_ru_inv_4x4_lib4
-	.type kernel_dtrsm_nt_ru_inv_4x4_lib4, @function
+  .type kernel_dtrsm_nt_ru_inv_4x4_lib4, @function
 kernel_dtrsm_nt_ru_inv_4x4_lib4:
 #elif defined(OS_MAC)
-	.globl _kernel_dtrsm_nt_ru_inv_4x4_lib4
 _kernel_dtrsm_nt_ru_inv_4x4_lib4:
+#elif defined(OS_WINDOWS)
+  .globl kernel_dtrsm_nt_ru_inv_4x4_lib4
+  .def   kernel_dtrsm_nt_ru_inv_4x4_lib4;        .scl    2;      .type   32;     .endef
+kernel_dtrsm_nt_ru_inv_4x4_lib4:
 #endif
 	
 	// prologue
@@ -6563,9 +6966,11 @@ _kernel_dtrsm_nt_ru_inv_4x4_lib4:
 	INNER_KERNEL_DGEMM_SUB_NT_4X4_LIB4
 #else
 #if defined(OS_LINUX)
-	call inner_kernel_dgemm_sub_nt_4x4_lib4
+  call inner_kernel_dgemm_sub_nt_4x4_lib4
 #elif defined(OS_MAC)
-	callq _inner_kernel_dgemm_sub_nt_4x4_lib4
+  callq _inner_kernel_dgemm_sub_nt_4x4_lib4
+#elif defined(OS_WINDOWS)
+  call inner_kernel_dgemm_sub_nt_4x4_lib4
 #endif
 #endif
 
@@ -6578,9 +6983,11 @@ _kernel_dtrsm_nt_ru_inv_4x4_lib4:
 	INNER_BLEND_SCALE_11_4X4_LIB4
 #else
 #if defined(OS_LINUX)
-	call inner_blend_scale_11_4x4_lib4
+  call inner_blend_scale_11_4x4_lib4
 #elif defined(OS_MAC)
-	callq _inner_blend_scale_11_4x4_lib4
+  callq _inner_blend_scale_11_4x4_lib4
+#elif defined(OS_WINDOWS)
+  call inner_blend_scale_11_4x4_lib4
 #endif
 #endif
 
@@ -6594,9 +7001,11 @@ _kernel_dtrsm_nt_ru_inv_4x4_lib4:
 	INNER_EDGE_DTRSM_RUT_INV_4X4_LIB4
 #else
 #if defined(OS_LINUX)
-	call inner_edge_dtrsm_rut_inv_4x4_lib4
+  call inner_edge_dtrsm_rut_inv_4x4_lib4
 #elif defined(OS_MAC)
-	callq _inner_edge_dtrsm_rut_inv_4x4_lib4
+  callq _inner_edge_dtrsm_rut_inv_4x4_lib4
+#elif defined(OS_WINDOWS)
+  call inner_edge_dtrsm_rut_inv_4x4_lib4
 #endif
 #endif
 
@@ -6609,9 +7018,11 @@ _kernel_dtrsm_nt_ru_inv_4x4_lib4:
 	INNER_STORE_4X4_LIB4
 #else
 #if defined(OS_LINUX)
-	call inner_store_4x4_lib4
+  call inner_store_4x4_lib4
 #elif defined(OS_MAC)
-	callq _inner_store_4x4_lib4
+  callq _inner_store_4x4_lib4
+#elif defined(OS_WINDOWS)
+  call inner_store_4x4_lib4
 #endif
 #endif
 
@@ -6630,9 +7041,11 @@ _kernel_dtrsm_nt_ru_inv_4x4_lib4:
 
 	ret
 
+
 #if defined(OS_LINUX)
-	.size	kernel_dtrsm_nt_ru_inv_4x4_lib4, .-kernel_dtrsm_nt_ru_inv_4x4_lib4
+  .size	kernel_dtrsm_nt_ru_inv_4x4_lib4, .-kernel_dtrsm_nt_ru_inv_4x4_lib4
 #endif
+
 
 
 
@@ -6643,12 +7056,14 @@ _kernel_dtrsm_nt_ru_inv_4x4_lib4:
 
 	.p2align 4,,15
 #if defined(OS_LINUX)
-	.globl kernel_dtrsm_nt_ru_inv_4x4_vs_lib4
-	.type kernel_dtrsm_nt_ru_inv_4x4_vs_lib4, @function
+  .type kernel_dtrsm_nt_ru_inv_4x4_vs_lib4, @function
 kernel_dtrsm_nt_ru_inv_4x4_vs_lib4:
 #elif defined(OS_MAC)
-	.globl _kernel_dtrsm_nt_ru_inv_4x4_vs_lib4
 _kernel_dtrsm_nt_ru_inv_4x4_vs_lib4:
+#elif defined(OS_WINDOWS)
+  .globl kernel_dtrsm_nt_ru_inv_4x4_vs_lib4
+  .def   kernel_dtrsm_nt_ru_inv_4x4_vs_lib4;        .scl    2;      .type   32;     .endef
+kernel_dtrsm_nt_ru_inv_4x4_vs_lib4:
 #endif
 	
 	// prologue
@@ -6682,9 +7097,11 @@ _kernel_dtrsm_nt_ru_inv_4x4_vs_lib4:
 	INNER_KERNEL_DGEMM_SUB_NT_4X4_LIB4
 #else
 #if defined(OS_LINUX)
-	call inner_kernel_dgemm_sub_nt_4x4_lib4
+  call inner_kernel_dgemm_sub_nt_4x4_lib4
 #elif defined(OS_MAC)
-	callq _inner_kernel_dgemm_sub_nt_4x4_lib4
+  callq _inner_kernel_dgemm_sub_nt_4x4_lib4
+#elif defined(OS_WINDOWS)
+  call inner_kernel_dgemm_sub_nt_4x4_lib4
 #endif
 #endif
 
@@ -6697,9 +7114,11 @@ _kernel_dtrsm_nt_ru_inv_4x4_vs_lib4:
 	INNER_BLEND_SCALE_11_4X4_LIB4
 #else
 #if defined(OS_LINUX)
-	call inner_blend_scale_11_4x4_lib4
+  call inner_blend_scale_11_4x4_lib4
 #elif defined(OS_MAC)
-	callq _inner_blend_scale_11_4x4_lib4
+  callq _inner_blend_scale_11_4x4_lib4
+#elif defined(OS_WINDOWS)
+  call inner_blend_scale_11_4x4_lib4
 #endif
 #endif
 
@@ -6714,9 +7133,11 @@ _kernel_dtrsm_nt_ru_inv_4x4_vs_lib4:
 	INNER_EDGE_DTRSM_RUT_INV_4X4_VS_LIB4
 #else
 #if defined(OS_LINUX)
-	call inner_edge_dtrsm_rut_inv_4x4_vs_lib4
+  call inner_edge_dtrsm_rut_inv_4x4_vs_lib4
 #elif defined(OS_MAC)
-	callq _inner_edge_dtrsm_rut_inv_4x4_vs_lib4
+  callq _inner_edge_dtrsm_rut_inv_4x4_vs_lib4
+#elif defined(OS_WINDOWS)
+  call inner_edge_dtrsm_rut_inv_4x4_vs_lib4
 #endif
 #endif
 
@@ -6731,9 +7152,11 @@ _kernel_dtrsm_nt_ru_inv_4x4_vs_lib4:
 	INNER_STORE_4X4_VS_LIB4
 #else
 #if defined(OS_LINUX)
-	call inner_store_4x4_vs_lib4
+  call inner_store_4x4_vs_lib4
 #elif defined(OS_MAC)
-	callq _inner_store_4x4_vs_lib4
+  callq _inner_store_4x4_vs_lib4
+#elif defined(OS_WINDOWS)
+  call inner_store_4x4_vs_lib4
 #endif
 #endif
 
@@ -6752,9 +7175,11 @@ _kernel_dtrsm_nt_ru_inv_4x4_vs_lib4:
 
 	ret
 
+
 #if defined(OS_LINUX)
-	.size	kernel_dtrsm_nt_ru_inv_4x4_vs_lib4, .-kernel_dtrsm_nt_ru_inv_4x4_vs_lib4
+  .size	kernel_dtrsm_nt_ru_inv_4x4_vs_lib4, .-kernel_dtrsm_nt_ru_inv_4x4_vs_lib4
 #endif
+
 
 
 
@@ -6765,12 +7190,14 @@ _kernel_dtrsm_nt_ru_inv_4x4_vs_lib4:
 
 	.p2align 4,,15
 #if defined(OS_LINUX)
-	.globl kernel_dtrsm_nn_ru_inv_4x4_lib4
-	.type kernel_dtrsm_nn_ru_inv_4x4_lib4, @function
+  .type kernel_dtrsm_nn_ru_inv_4x4_lib4, @function
 kernel_dtrsm_nn_ru_inv_4x4_lib4:
 #elif defined(OS_MAC)
-	.globl _kernel_dtrsm_nn_ru_inv_4x4_lib4
 _kernel_dtrsm_nn_ru_inv_4x4_lib4:
+#elif defined(OS_WINDOWS)
+  .globl kernel_dtrsm_nn_ru_inv_4x4_lib4
+  .def   kernel_dtrsm_nn_ru_inv_4x4_lib4;        .scl    2;      .type   32;     .endef
+kernel_dtrsm_nn_ru_inv_4x4_lib4:
 #endif
 	
 	// prologue
@@ -6807,9 +7234,11 @@ _kernel_dtrsm_nn_ru_inv_4x4_lib4:
 	INNER_KERNEL_DGEMM_SUB_NN_4X4_LIB4
 #else
 #if defined(OS_LINUX)
-	call inner_kernel_dgemm_sub_nn_4x4_lib4
+  call inner_kernel_dgemm_sub_nn_4x4_lib4
 #elif defined(OS_MAC)
-	callq _inner_kernel_dgemm_sub_nn_4x4_lib4
+  callq _inner_kernel_dgemm_sub_nn_4x4_lib4
+#elif defined(OS_WINDOWS)
+  call inner_kernel_dgemm_sub_nn_4x4_lib4
 #endif
 #endif
 
@@ -6822,9 +7251,11 @@ _kernel_dtrsm_nn_ru_inv_4x4_lib4:
 	INNER_SCALE_11_4X4_LIB4
 #else
 #if defined(OS_LINUX)
-	call inner_scale_11_4x4_lib4
+  call inner_scale_11_4x4_lib4
 #elif defined(OS_MAC)
-	callq _inner_scale_11_4x4_lib4
+  callq _inner_scale_11_4x4_lib4
+#elif defined(OS_WINDOWS)
+  call inner_scale_11_4x4_lib4
 #endif
 #endif
 
@@ -6838,9 +7269,11 @@ _kernel_dtrsm_nn_ru_inv_4x4_lib4:
 	INNER_EDGE_DTRSM_RUN_INV_4X4_LIB4
 #else
 #if defined(OS_LINUX)
-	call inner_edge_dtrsm_run_inv_4x4_lib4
+  call inner_edge_dtrsm_run_inv_4x4_lib4
 #elif defined(OS_MAC)
-	callq _inner_edge_dtrsm_run_inv_4x4_lib4
+  callq _inner_edge_dtrsm_run_inv_4x4_lib4
+#elif defined(OS_WINDOWS)
+  call inner_edge_dtrsm_run_inv_4x4_lib4
 #endif
 #endif
 
@@ -6853,9 +7286,11 @@ _kernel_dtrsm_nn_ru_inv_4x4_lib4:
 	INNER_STORE_4X4_LIB4
 #else
 #if defined(OS_LINUX)
-	call inner_store_4x4_lib4
+  call inner_store_4x4_lib4
 #elif defined(OS_MAC)
-	callq _inner_store_4x4_lib4
+  callq _inner_store_4x4_lib4
+#elif defined(OS_WINDOWS)
+  call inner_store_4x4_lib4
 #endif
 #endif
 
@@ -6874,9 +7309,11 @@ _kernel_dtrsm_nn_ru_inv_4x4_lib4:
 
 	ret
 
+
 #if defined(OS_LINUX)
-	.size	kernel_dtrsm_nn_ru_inv_4x4_lib4, .-kernel_dtrsm_nn_ru_inv_4x4_lib4
+  .size	kernel_dtrsm_nn_ru_inv_4x4_lib4, .-kernel_dtrsm_nn_ru_inv_4x4_lib4
 #endif
+
 
 
 
@@ -6887,12 +7324,14 @@ _kernel_dtrsm_nn_ru_inv_4x4_lib4:
 
 	.p2align 4,,15
 #if defined(OS_LINUX)
-	.globl kernel_dtrsm_nn_ru_inv_4x4_vs_lib4
-	.type kernel_dtrsm_nn_ru_inv_4x4_vs_lib4, @function
+  .type kernel_dtrsm_nn_ru_inv_4x4_vs_lib4, @function
 kernel_dtrsm_nn_ru_inv_4x4_vs_lib4:
 #elif defined(OS_MAC)
-	.globl _kernel_dtrsm_nn_ru_inv_4x4_vs_lib4
 _kernel_dtrsm_nn_ru_inv_4x4_vs_lib4:
+#elif defined(OS_WINDOWS)
+  .globl kernel_dtrsm_nn_ru_inv_4x4_vs_lib4
+  .def   kernel_dtrsm_nn_ru_inv_4x4_vs_lib4;        .scl    2;      .type   32;     .endef
+kernel_dtrsm_nn_ru_inv_4x4_vs_lib4:
 #endif
 	
 	// prologue
@@ -6929,9 +7368,11 @@ _kernel_dtrsm_nn_ru_inv_4x4_vs_lib4:
 	INNER_KERNEL_DGEMM_SUB_NN_4X4_LIB4
 #else
 #if defined(OS_LINUX)
-	call inner_kernel_dgemm_sub_nn_4x4_lib4
+  call inner_kernel_dgemm_sub_nn_4x4_lib4
 #elif defined(OS_MAC)
-	callq _inner_kernel_dgemm_sub_nn_4x4_lib4
+  callq _inner_kernel_dgemm_sub_nn_4x4_lib4
+#elif defined(OS_WINDOWS)
+  call inner_kernel_dgemm_sub_nn_4x4_lib4
 #endif
 #endif
 
@@ -6944,9 +7385,11 @@ _kernel_dtrsm_nn_ru_inv_4x4_vs_lib4:
 	INNER_SCALE_11_4X4_LIB4
 #else
 #if defined(OS_LINUX)
-	call inner_scale_11_4x4_lib4
+  call inner_scale_11_4x4_lib4
 #elif defined(OS_MAC)
-	callq _inner_scale_11_4x4_lib4
+  callq _inner_scale_11_4x4_lib4
+#elif defined(OS_WINDOWS)
+  call inner_scale_11_4x4_lib4
 #endif
 #endif
 
@@ -6960,9 +7403,11 @@ _kernel_dtrsm_nn_ru_inv_4x4_vs_lib4:
 	INNER_EDGE_DTRSM_RUN_INV_4X4_LIB4
 #else
 #if defined(OS_LINUX)
-	call inner_edge_dtrsm_run_inv_4x4_lib4
+  call inner_edge_dtrsm_run_inv_4x4_lib4
 #elif defined(OS_MAC)
-	callq _inner_edge_dtrsm_run_inv_4x4_lib4
+  callq _inner_edge_dtrsm_run_inv_4x4_lib4
+#elif defined(OS_WINDOWS)
+  call inner_edge_dtrsm_run_inv_4x4_lib4
 #endif
 #endif
 
@@ -6978,9 +7423,11 @@ _kernel_dtrsm_nn_ru_inv_4x4_vs_lib4:
 	INNER_STORE_4X4_VS_LIB4
 #else
 #if defined(OS_LINUX)
-	call inner_store_4x4_vs_lib4
+  call inner_store_4x4_vs_lib4
 #elif defined(OS_MAC)
-	callq _inner_store_4x4_vs_lib4
+  callq _inner_store_4x4_vs_lib4
+#elif defined(OS_WINDOWS)
+  call inner_store_4x4_vs_lib4
 #endif
 #endif
 
@@ -6999,9 +7446,11 @@ _kernel_dtrsm_nn_ru_inv_4x4_vs_lib4:
 
 	ret
 
+
 #if defined(OS_LINUX)
-	.size	kernel_dtrsm_nn_ru_inv_4x4_vs_lib4, .-kernel_dtrsm_nn_ru_inv_4x4_vs_lib4
+  .size	kernel_dtrsm_nn_ru_inv_4x4_vs_lib4, .-kernel_dtrsm_nn_ru_inv_4x4_vs_lib4
 #endif
+
 
 
 
@@ -7012,12 +7461,14 @@ _kernel_dtrsm_nn_ru_inv_4x4_vs_lib4:
 
 	.p2align 4,,15
 #if defined(OS_LINUX)
-	.globl kernel_dtrsm_nn_ll_one_4x4_lib4
-	.type kernel_dtrsm_nn_ll_one_4x4_lib4, @function
+  .type kernel_dtrsm_nn_ll_one_4x4_lib4, @function
 kernel_dtrsm_nn_ll_one_4x4_lib4:
 #elif defined(OS_MAC)
-	.globl _kernel_dtrsm_nn_ll_one_4x4_lib4
 _kernel_dtrsm_nn_ll_one_4x4_lib4:
+#elif defined(OS_WINDOWS)
+  .globl kernel_dtrsm_nn_ll_one_4x4_lib4
+  .def   kernel_dtrsm_nn_ll_one_4x4_lib4;        .scl    2;      .type   32;     .endef
+kernel_dtrsm_nn_ll_one_4x4_lib4:
 #endif
 	
 	// prologue
@@ -7054,9 +7505,11 @@ _kernel_dtrsm_nn_ll_one_4x4_lib4:
 	INNER_KERNEL_DGEMM_SUB_NN_4X4_LIB4
 #else
 #if defined(OS_LINUX)
-	call inner_kernel_dgemm_sub_nn_4x4_lib4
+  call inner_kernel_dgemm_sub_nn_4x4_lib4
 #elif defined(OS_MAC)
-	callq _inner_kernel_dgemm_sub_nn_4x4_lib4
+  callq _inner_kernel_dgemm_sub_nn_4x4_lib4
+#elif defined(OS_WINDOWS)
+  call inner_kernel_dgemm_sub_nn_4x4_lib4
 #endif
 #endif
 
@@ -7069,9 +7522,11 @@ _kernel_dtrsm_nn_ll_one_4x4_lib4:
 	INNER_SCALE_11_4X4_LIB4
 #else
 #if defined(OS_LINUX)
-	call inner_scale_11_4x4_lib4
+  call inner_scale_11_4x4_lib4
 #elif defined(OS_MAC)
-	callq _inner_scale_11_4x4_lib4
+  callq _inner_scale_11_4x4_lib4
+#elif defined(OS_WINDOWS)
+  call inner_scale_11_4x4_lib4
 #endif
 #endif
 
@@ -7084,9 +7539,11 @@ _kernel_dtrsm_nn_ll_one_4x4_lib4:
 	INNER_EDGE_DTRSM_LLN_ONE_4X4_LIB4
 #else
 #if defined(OS_LINUX)
-	call inner_edge_dtrsm_lln_one_4x4_lib4
+  call inner_edge_dtrsm_lln_one_4x4_lib4
 #elif defined(OS_MAC)
-	callq _inner_edge_dtrsm_lln_one_4x4_lib4
+  callq _inner_edge_dtrsm_lln_one_4x4_lib4
+#elif defined(OS_WINDOWS)
+  call inner_edge_dtrsm_lln_one_4x4_lib4
 #endif
 #endif
 
@@ -7099,9 +7556,11 @@ _kernel_dtrsm_nn_ll_one_4x4_lib4:
 	INNER_STORE_4X4_LIB4
 #else
 #if defined(OS_LINUX)
-	call inner_store_4x4_lib4
+  call inner_store_4x4_lib4
 #elif defined(OS_MAC)
-	callq _inner_store_4x4_lib4
+  callq _inner_store_4x4_lib4
+#elif defined(OS_WINDOWS)
+  call inner_store_4x4_lib4
 #endif
 #endif
 
@@ -7120,9 +7579,11 @@ _kernel_dtrsm_nn_ll_one_4x4_lib4:
 
 	ret
 
+
 #if defined(OS_LINUX)
-	.size	kernel_dtrsm_nn_ll_one_4x4_lib4, .-kernel_dtrsm_nn_ll_one_4x4_lib4
+  .size	kernel_dtrsm_nn_ll_one_4x4_lib4, .-kernel_dtrsm_nn_ll_one_4x4_lib4
 #endif
+
 
 
 
@@ -7133,12 +7594,14 @@ _kernel_dtrsm_nn_ll_one_4x4_lib4:
 
 	.p2align 4,,15
 #if defined(OS_LINUX)
-	.globl kernel_dtrsm_nn_ll_one_4x4_vs_lib4
-	.type kernel_dtrsm_nn_ll_one_4x4_vs_lib4, @function
+  .type kernel_dtrsm_nn_ll_one_4x4_vs_lib4, @function
 kernel_dtrsm_nn_ll_one_4x4_vs_lib4:
 #elif defined(OS_MAC)
-	.globl _kernel_dtrsm_nn_ll_one_4x4_vs_lib4
 _kernel_dtrsm_nn_ll_one_4x4_vs_lib4:
+#elif defined(OS_WINDOWS)
+  .globl kernel_dtrsm_nn_ll_one_4x4_vs_lib4
+  .def   kernel_dtrsm_nn_ll_one_4x4_vs_lib4;        .scl    2;      .type   32;     .endef
+kernel_dtrsm_nn_ll_one_4x4_vs_lib4:
 #endif
 	
 	// prologue
@@ -7175,9 +7638,11 @@ _kernel_dtrsm_nn_ll_one_4x4_vs_lib4:
 	INNER_KERNEL_DGEMM_SUB_NN_4X4_LIB4
 #else
 #if defined(OS_LINUX)
-	call inner_kernel_dgemm_sub_nn_4x4_lib4
+  call inner_kernel_dgemm_sub_nn_4x4_lib4
 #elif defined(OS_MAC)
-	callq _inner_kernel_dgemm_sub_nn_4x4_lib4
+  callq _inner_kernel_dgemm_sub_nn_4x4_lib4
+#elif defined(OS_WINDOWS)
+  call inner_kernel_dgemm_sub_nn_4x4_lib4
 #endif
 #endif
 
@@ -7190,9 +7655,11 @@ _kernel_dtrsm_nn_ll_one_4x4_vs_lib4:
 	INNER_SCALE_11_4X4_LIB4
 #else
 #if defined(OS_LINUX)
-	call inner_scale_11_4x4_lib4
+  call inner_scale_11_4x4_lib4
 #elif defined(OS_MAC)
-	callq _inner_scale_11_4x4_lib4
+  callq _inner_scale_11_4x4_lib4
+#elif defined(OS_WINDOWS)
+  call inner_scale_11_4x4_lib4
 #endif
 #endif
 
@@ -7205,9 +7672,11 @@ _kernel_dtrsm_nn_ll_one_4x4_vs_lib4:
 	INNER_EDGE_DTRSM_LLN_ONE_4X4_LIB4
 #else
 #if defined(OS_LINUX)
-	call inner_edge_dtrsm_lln_one_4x4_lib4
+  call inner_edge_dtrsm_lln_one_4x4_lib4
 #elif defined(OS_MAC)
-	callq _inner_edge_dtrsm_lln_one_4x4_lib4
+  callq _inner_edge_dtrsm_lln_one_4x4_lib4
+#elif defined(OS_WINDOWS)
+  call inner_edge_dtrsm_lln_one_4x4_lib4
 #endif
 #endif
 
@@ -7223,9 +7692,11 @@ _kernel_dtrsm_nn_ll_one_4x4_vs_lib4:
 	INNER_STORE_4X4_VS_LIB4
 #else
 #if defined(OS_LINUX)
-	call inner_store_4x4_vs_lib4
+  call inner_store_4x4_vs_lib4
 #elif defined(OS_MAC)
-	callq _inner_store_4x4_vs_lib4
+  callq _inner_store_4x4_vs_lib4
+#elif defined(OS_WINDOWS)
+  call inner_store_4x4_vs_lib4
 #endif
 #endif
 
@@ -7244,9 +7715,11 @@ _kernel_dtrsm_nn_ll_one_4x4_vs_lib4:
 
 	ret
 
+
 #if defined(OS_LINUX)
-	.size	kernel_dtrsm_nn_ll_one_4x4_vs_lib4, .-kernel_dtrsm_nn_ll_one_4x4_vs_lib4
+  .size	kernel_dtrsm_nn_ll_one_4x4_vs_lib4, .-kernel_dtrsm_nn_ll_one_4x4_vs_lib4
 #endif
+
 
 
 
@@ -7257,12 +7730,14 @@ _kernel_dtrsm_nn_ll_one_4x4_vs_lib4:
 
 	.p2align 4,,15
 #if defined(OS_LINUX)
-	.globl kernel_dtrsm_nn_lu_inv_4x4_lib4
-	.type kernel_dtrsm_nn_lu_inv_4x4_lib4, @function
+  .type kernel_dtrsm_nn_lu_inv_4x4_lib4, @function
 kernel_dtrsm_nn_lu_inv_4x4_lib4:
 #elif defined(OS_MAC)
-	.globl _kernel_dtrsm_nn_lu_inv_4x4_lib4
 _kernel_dtrsm_nn_lu_inv_4x4_lib4:
+#elif defined(OS_WINDOWS)
+  .globl kernel_dtrsm_nn_lu_inv_4x4_lib4
+  .def   kernel_dtrsm_nn_lu_inv_4x4_lib4;        .scl    2;      .type   32;     .endef
+kernel_dtrsm_nn_lu_inv_4x4_lib4:
 #endif
 	
 	// prologue
@@ -7299,9 +7774,11 @@ _kernel_dtrsm_nn_lu_inv_4x4_lib4:
 	INNER_KERNEL_DGEMM_SUB_NN_4X4_LIB4
 #else
 #if defined(OS_LINUX)
-	call inner_kernel_dgemm_sub_nn_4x4_lib4
+  call inner_kernel_dgemm_sub_nn_4x4_lib4
 #elif defined(OS_MAC)
-	callq _inner_kernel_dgemm_sub_nn_4x4_lib4
+  callq _inner_kernel_dgemm_sub_nn_4x4_lib4
+#elif defined(OS_WINDOWS)
+  call inner_kernel_dgemm_sub_nn_4x4_lib4
 #endif
 #endif
 
@@ -7314,9 +7791,11 @@ _kernel_dtrsm_nn_lu_inv_4x4_lib4:
 	INNER_SCALE_11_4X4_LIB4
 #else
 #if defined(OS_LINUX)
-	call inner_scale_11_4x4_lib4
+  call inner_scale_11_4x4_lib4
 #elif defined(OS_MAC)
-	callq _inner_scale_11_4x4_lib4
+  callq _inner_scale_11_4x4_lib4
+#elif defined(OS_WINDOWS)
+  call inner_scale_11_4x4_lib4
 #endif
 #endif
 
@@ -7330,9 +7809,11 @@ _kernel_dtrsm_nn_lu_inv_4x4_lib4:
 	INNER_EDGE_DTRSM_LUN_INV_4X4_LIB4
 #else
 #if defined(OS_LINUX)
-	call inner_edge_dtrsm_lun_inv_4x4_lib4
+  call inner_edge_dtrsm_lun_inv_4x4_lib4
 #elif defined(OS_MAC)
-	callq _inner_edge_dtrsm_lun_inv_4x4_lib4
+  callq _inner_edge_dtrsm_lun_inv_4x4_lib4
+#elif defined(OS_WINDOWS)
+  call inner_edge_dtrsm_lun_inv_4x4_lib4
 #endif
 #endif
 
@@ -7345,9 +7826,11 @@ _kernel_dtrsm_nn_lu_inv_4x4_lib4:
 	INNER_STORE_4X4_LIB4
 #else
 #if defined(OS_LINUX)
-	call inner_store_4x4_lib4
+  call inner_store_4x4_lib4
 #elif defined(OS_MAC)
-	callq _inner_store_4x4_lib4
+  callq _inner_store_4x4_lib4
+#elif defined(OS_WINDOWS)
+  call inner_store_4x4_lib4
 #endif
 #endif
 
@@ -7366,9 +7849,11 @@ _kernel_dtrsm_nn_lu_inv_4x4_lib4:
 
 	ret
 
+
 #if defined(OS_LINUX)
-	.size	kernel_dtrsm_nn_lu_inv_4x4_lib4, .-kernel_dtrsm_nn_lu_inv_4x4_lib4
+  .size	kernel_dtrsm_nn_lu_inv_4x4_lib4, .-kernel_dtrsm_nn_lu_inv_4x4_lib4
 #endif
+
 
 
 
@@ -7379,12 +7864,14 @@ _kernel_dtrsm_nn_lu_inv_4x4_lib4:
 
 	.p2align 4,,15
 #if defined(OS_LINUX)
-	.globl kernel_dtrsm_nn_lu_inv_4x4_vs_lib4
-	.type kernel_dtrsm_nn_lu_inv_4x4_vs_lib4, @function
+  .type kernel_dtrsm_nn_lu_inv_4x4_vs_lib4, @function
 kernel_dtrsm_nn_lu_inv_4x4_vs_lib4:
 #elif defined(OS_MAC)
-	.globl _kernel_dtrsm_nn_lu_inv_4x4_vs_lib4
 _kernel_dtrsm_nn_lu_inv_4x4_vs_lib4:
+#elif defined(OS_WINDOWS)
+  .globl kernel_dtrsm_nn_lu_inv_4x4_vs_lib4
+  .def   kernel_dtrsm_nn_lu_inv_4x4_vs_lib4;        .scl    2;      .type   32;     .endef
+kernel_dtrsm_nn_lu_inv_4x4_vs_lib4:
 #endif
 	
 	// prologue
@@ -7421,9 +7908,11 @@ _kernel_dtrsm_nn_lu_inv_4x4_vs_lib4:
 	INNER_KERNEL_DGEMM_SUB_NN_4X4_LIB4
 #else
 #if defined(OS_LINUX)
-	call inner_kernel_dgemm_sub_nn_4x4_lib4
+  call inner_kernel_dgemm_sub_nn_4x4_lib4
 #elif defined(OS_MAC)
-	callq _inner_kernel_dgemm_sub_nn_4x4_lib4
+  callq _inner_kernel_dgemm_sub_nn_4x4_lib4
+#elif defined(OS_WINDOWS)
+  call inner_kernel_dgemm_sub_nn_4x4_lib4
 #endif
 #endif
 
@@ -7436,9 +7925,11 @@ _kernel_dtrsm_nn_lu_inv_4x4_vs_lib4:
 	INNER_SCALE_11_4X4_LIB4
 #else
 #if defined(OS_LINUX)
-	call inner_scale_11_4x4_lib4
+  call inner_scale_11_4x4_lib4
 #elif defined(OS_MAC)
-	callq _inner_scale_11_4x4_lib4
+  callq _inner_scale_11_4x4_lib4
+#elif defined(OS_WINDOWS)
+  call inner_scale_11_4x4_lib4
 #endif
 #endif
 
@@ -7453,9 +7944,11 @@ _kernel_dtrsm_nn_lu_inv_4x4_vs_lib4:
 	INNER_EDGE_DTRSM_LUN_INV_4X4_VS_LIB4 // TODO
 #else
 #if defined(OS_LINUX)
-	call inner_edge_dtrsm_lun_inv_4x4_vs_lib4 // TODO
+  call inner_edge_dtrsm_lun_inv_4x4_vs_lib4
 #elif defined(OS_MAC)
-	callq _inner_edge_dtrsm_lun_inv_4x4_vs_lib4 // TODO
+  callq _inner_edge_dtrsm_lun_inv_4x4_vs_lib4
+#elif defined(OS_WINDOWS)
+  call inner_edge_dtrsm_lun_inv_4x4_vs_lib4
 #endif
 #endif
 
@@ -7471,9 +7964,11 @@ _kernel_dtrsm_nn_lu_inv_4x4_vs_lib4:
 	INNER_STORE_4X4_VS_LIB4
 #else
 #if defined(OS_LINUX)
-	call inner_store_4x4_vs_lib4
+  call inner_store_4x4_vs_lib4
 #elif defined(OS_MAC)
-	callq _inner_store_4x4_vs_lib4
+  callq _inner_store_4x4_vs_lib4
+#elif defined(OS_WINDOWS)
+  call inner_store_4x4_vs_lib4
 #endif
 #endif
 
@@ -7492,9 +7987,11 @@ _kernel_dtrsm_nn_lu_inv_4x4_vs_lib4:
 
 	ret
 
+
 #if defined(OS_LINUX)
-	.size	kernel_dtrsm_nn_lu_inv_4x4_vs_lib4, .-kernel_dtrsm_nn_lu_inv_4x4_vs_lib4
+  .size	kernel_dtrsm_nn_lu_inv_4x4_vs_lib4, .-kernel_dtrsm_nn_lu_inv_4x4_vs_lib4
 #endif
+
 
 
 
@@ -7505,12 +8002,14 @@ _kernel_dtrsm_nn_lu_inv_4x4_vs_lib4:
 
 	.p2align 4,,15
 #if defined(OS_LINUX)
-	.globl kernel_dgetrf_nn_4x4_lib4
-	.type kernel_dgetrf_nn_4x4_lib4, @function
+  .type kernel_dgetrf_nn_4x4_lib4, @function
 kernel_dgetrf_nn_4x4_lib4:
 #elif defined(OS_MAC)
-	.globl _kernel_dgetrf_nn_4x4_lib4
 _kernel_dgetrf_nn_4x4_lib4:
+#elif defined(OS_WINDOWS)
+  .globl kernel_dgetrf_nn_4x4_lib4
+  .def   kernel_dgetrf_nn_4x4_lib4;        .scl    2;      .type   32;     .endef
+kernel_dgetrf_nn_4x4_lib4:
 #endif
 	
 	// prologue
@@ -7547,9 +8046,11 @@ _kernel_dgetrf_nn_4x4_lib4:
 	INNER_KERNEL_DGEMM_SUB_NN_4X4_LIB4
 #else
 #if defined(OS_LINUX)
-	call inner_kernel_dgemm_sub_nn_4x4_lib4
+  call inner_kernel_dgemm_sub_nn_4x4_lib4
 #elif defined(OS_MAC)
-	callq _inner_kernel_dgemm_sub_nn_4x4_lib4
+  callq _inner_kernel_dgemm_sub_nn_4x4_lib4
+#elif defined(OS_WINDOWS)
+  call inner_kernel_dgemm_sub_nn_4x4_lib4
 #endif
 #endif
 
@@ -7562,9 +8063,11 @@ _kernel_dgetrf_nn_4x4_lib4:
 	INNER_SCALE_11_4X4_LIB4
 #else
 #if defined(OS_LINUX)
-	call inner_scale_11_4x4_lib4
+  call inner_scale_11_4x4_lib4
 #elif defined(OS_MAC)
-	callq _inner_scale_11_4x4_lib4
+  callq _inner_scale_11_4x4_lib4
+#elif defined(OS_WINDOWS)
+  call inner_scale_11_4x4_lib4
 #endif
 #endif
 
@@ -7577,9 +8080,11 @@ _kernel_dgetrf_nn_4x4_lib4:
 	INNER_EDGE_DGETRF_4X4_LIB4
 #else
 #if defined(OS_LINUX)
-	call inner_edge_dgetrf_4x4_lib4
+  call inner_edge_dgetrf_4x4_lib4
 #elif defined(OS_MAC)
-	callq _inner_edge_dgetrf_4x4_lib4
+  callq _inner_edge_dgetrf_4x4_lib4
+#elif defined(OS_WINDOWS)
+  call inner_edge_dgetrf_4x4_lib4
 #endif
 #endif
 
@@ -7592,9 +8097,11 @@ _kernel_dgetrf_nn_4x4_lib4:
 	INNER_STORE_4X4_LIB4
 #else
 #if defined(OS_LINUX)
-	call inner_store_4x4_lib4
+  call inner_store_4x4_lib4
 #elif defined(OS_MAC)
-	callq _inner_store_4x4_lib4
+  callq _inner_store_4x4_lib4
+#elif defined(OS_WINDOWS)
+  call inner_store_4x4_lib4
 #endif
 #endif
 
@@ -7613,9 +8120,11 @@ _kernel_dgetrf_nn_4x4_lib4:
 
 	ret
 
+
 #if defined(OS_LINUX)
-	.size	kernel_dgetrf_nn_4x4_lib4, .-kernel_dgetrf_nn_4x4_lib4
+  .size	kernel_dgetrf_nn_4x4_lib4, .-kernel_dgetrf_nn_4x4_lib4
 #endif
+
 
 
 
@@ -7626,12 +8135,14 @@ _kernel_dgetrf_nn_4x4_lib4:
 
 	.p2align 4,,15
 #if defined(OS_LINUX)
-	.globl kernel_dgetrf_nn_4x4_vs_lib4
-	.type kernel_dgetrf_nn_4x4_vs_lib4, @function
+  .type kernel_dgetrf_nn_4x4_vs_lib4, @function
 kernel_dgetrf_nn_4x4_vs_lib4:
 #elif defined(OS_MAC)
-	.globl _kernel_dgetrf_nn_4x4_vs_lib4
 _kernel_dgetrf_nn_4x4_vs_lib4:
+#elif defined(OS_WINDOWS)
+  .globl kernel_dgetrf_nn_4x4_vs_lib4
+  .def   kernel_dgetrf_nn_4x4_vs_lib4;        .scl    2;      .type   32;     .endef
+kernel_dgetrf_nn_4x4_vs_lib4:
 #endif
 	
 	// prologue
@@ -7668,9 +8179,11 @@ _kernel_dgetrf_nn_4x4_vs_lib4:
 	INNER_KERNEL_DGEMM_SUB_NN_4X4_LIB4
 #else
 #if defined(OS_LINUX)
-	call inner_kernel_dgemm_sub_nn_4x4_lib4
+  call inner_kernel_dgemm_sub_nn_4x4_lib4
 #elif defined(OS_MAC)
-	callq _inner_kernel_dgemm_sub_nn_4x4_lib4
+  callq _inner_kernel_dgemm_sub_nn_4x4_lib4
+#elif defined(OS_WINDOWS)
+  call inner_kernel_dgemm_sub_nn_4x4_lib4
 #endif
 #endif
 
@@ -7683,9 +8196,11 @@ _kernel_dgetrf_nn_4x4_vs_lib4:
 	INNER_SCALE_11_4X4_LIB4
 #else
 #if defined(OS_LINUX)
-	call inner_scale_11_4x4_lib4
+  call inner_scale_11_4x4_lib4
 #elif defined(OS_MAC)
-	callq _inner_scale_11_4x4_lib4
+  callq _inner_scale_11_4x4_lib4
+#elif defined(OS_WINDOWS)
+  call inner_scale_11_4x4_lib4
 #endif
 #endif
 
@@ -7698,9 +8213,11 @@ _kernel_dgetrf_nn_4x4_vs_lib4:
 	INNER_EDGE_DGETRF_4X4_LIB4
 #else
 #if defined(OS_LINUX)
-	call inner_edge_dgetrf_4x4_lib4
+  call inner_edge_dgetrf_4x4_lib4
 #elif defined(OS_MAC)
-	callq _inner_edge_dgetrf_4x4_lib4
+  callq _inner_edge_dgetrf_4x4_lib4
+#elif defined(OS_WINDOWS)
+  call inner_edge_dgetrf_4x4_lib4
 #endif
 #endif
 
@@ -7716,9 +8233,11 @@ _kernel_dgetrf_nn_4x4_vs_lib4:
 	INNER_STORE_4X4_VS_LIB4
 #else
 #if defined(OS_LINUX)
-	call inner_store_4x4_vs_lib4
+  call inner_store_4x4_vs_lib4
 #elif defined(OS_MAC)
-	callq _inner_store_4x4_vs_lib4
+  callq _inner_store_4x4_vs_lib4
+#elif defined(OS_WINDOWS)
+  call inner_store_4x4_vs_lib4
 #endif
 #endif
 
@@ -7737,9 +8256,11 @@ _kernel_dgetrf_nn_4x4_vs_lib4:
 
 	ret
 
+
 #if defined(OS_LINUX)
-	.size	kernel_dgetrf_nn_4x4_vs_lib4, .-kernel_dgetrf_nn_4x4_vs_lib4
+  .size	kernel_dgetrf_nn_4x4_vs_lib4, .-kernel_dgetrf_nn_4x4_vs_lib4
 #endif
+
 
 
 
@@ -7751,12 +8272,14 @@ _kernel_dgetrf_nn_4x4_vs_lib4:
 
 	.p2align 4,,15
 #if defined(OS_LINUX)
-	.globl kernel_dlauum_nt_4x4_lib4
-	.type kernel_dlauum_nt_4x4_lib4, @function
+  .type kernel_dlauum_nt_4x4_lib4, @function
 kernel_dlauum_nt_4x4_lib4:
 #elif defined(OS_MAC)
-	.globl _kernel_dlauum_nt_4x4_lib4
 _kernel_dlauum_nt_4x4_lib4:
+#elif defined(OS_WINDOWS)
+  .globl kernel_dlauum_nt_4x4_lib4
+  .def   kernel_dlauum_nt_4x4_lib4;        .scl    2;      .type   32;     .endef
+kernel_dlauum_nt_4x4_lib4:
 #endif
 	
 	// prologue
@@ -7793,9 +8316,11 @@ _kernel_dlauum_nt_4x4_lib4:
 	INNER_KERNEL_DGEMM_ADD_NT_4X4_LIB4
 #else
 #if defined(OS_LINUX)
-	call inner_kernel_dgemm_add_nt_4x4_lib4
+  call inner_kernel_dgemm_add_nt_4x4_lib4
 #elif defined(OS_MAC)
-	callq _inner_kernel_dgemm_add_nt_4x4_lib4
+  callq _inner_kernel_dgemm_add_nt_4x4_lib4
+#elif defined(OS_WINDOWS)
+  call inner_kernel_dgemm_add_nt_4x4_lib4
 #endif
 #endif
 
@@ -7806,9 +8331,11 @@ _kernel_dlauum_nt_4x4_lib4:
 	INNER_BLEND_4X4_LIB4
 #else
 #if defined(OS_LINUX)
-	call inner_blend_4x4_lib4
+  call inner_blend_4x4_lib4
 #elif defined(OS_MAC)
-	callq _inner_blend_4x4_lib4
+  callq _inner_blend_4x4_lib4
+#elif defined(OS_WINDOWS)
+  call inner_blend_4x4_lib4
 #endif
 #endif
 
@@ -7823,9 +8350,11 @@ _kernel_dlauum_nt_4x4_lib4:
 	INNER_EDGE_DLAUUM_NT_4X4_LIB4
 #else
 #if defined(OS_LINUX)
-	call inner_edge_dlauum_nt_4x4_lib4
+  call inner_edge_dlauum_nt_4x4_lib4
 #elif defined(OS_MAC)
-	callq _inner_edge_dlauum_nt_4x4_lib4
+  callq _inner_edge_dlauum_nt_4x4_lib4
+#elif defined(OS_WINDOWS)
+  call inner_edge_dlauum_nt_4x4_lib4
 #endif
 #endif
 
@@ -7840,9 +8369,11 @@ _kernel_dlauum_nt_4x4_lib4:
 	INNER_SCALE_AB_4X4_LIB4
 #else
 #if defined(OS_LINUX)
-	call inner_scale_ab_4x4_lib4
+  call inner_scale_ab_4x4_lib4
 #elif defined(OS_MAC)
-	callq _inner_scale_ab_4x4_lib4
+  callq _inner_scale_ab_4x4_lib4
+#elif defined(OS_WINDOWS)
+  call inner_scale_ab_4x4_lib4
 #endif
 #endif
 
@@ -7855,9 +8386,11 @@ _kernel_dlauum_nt_4x4_lib4:
 	INNER_STORE_L_4X4_LIB4
 #else
 #if defined(OS_LINUX)
-	call inner_store_l_4x4_lib4
+  call inner_store_l_4x4_lib4
 #elif defined(OS_MAC)
-	callq _inner_store_l_4x4_lib4
+  callq _inner_store_l_4x4_lib4
+#elif defined(OS_WINDOWS)
+  call inner_store_l_4x4_lib4
 #endif
 #endif
 
@@ -7876,9 +8409,11 @@ _kernel_dlauum_nt_4x4_lib4:
 
 	ret
 
+
 #if defined(OS_LINUX)
-	.size	kernel_dlauum_nt_4x4_vs_lib4, .-kernel_dlauum_nt_4x4_vs_lib4
+  .size	kernel_dlauum_nt_4x4_vs_lib4, .-kernel_dlauum_nt_4x4_vs_lib4
 #endif
+
 
 
 
@@ -7890,12 +8425,14 @@ _kernel_dlauum_nt_4x4_lib4:
 
 	.p2align 4,,15
 #if defined(OS_LINUX)
-	.globl kernel_dlauum_nt_4x4_vs_lib4
-	.type kernel_dlauum_nt_4x4_vs_lib4, @function
+  .type kernel_dlauum_nt_4x4_vs_lib4, @function
 kernel_dlauum_nt_4x4_vs_lib4:
 #elif defined(OS_MAC)
-	.globl _kernel_dlauum_nt_4x4_vs_lib4
 _kernel_dlauum_nt_4x4_vs_lib4:
+#elif defined(OS_WINDOWS)
+  .globl kernel_dlauum_nt_4x4_vs_lib4
+  .def   kernel_dlauum_nt_4x4_vs_lib4;        .scl    2;      .type   32;     .endef
+kernel_dlauum_nt_4x4_vs_lib4:
 #endif
 	
 	// prologue
@@ -7932,9 +8469,11 @@ _kernel_dlauum_nt_4x4_vs_lib4:
 	INNER_KERNEL_DGEMM_ADD_NT_4X4_LIB4
 #else
 #if defined(OS_LINUX)
-	call inner_kernel_dgemm_add_nt_4x4_lib4
+  call inner_kernel_dgemm_add_nt_4x4_lib4
 #elif defined(OS_MAC)
-	callq _inner_kernel_dgemm_add_nt_4x4_lib4
+  callq _inner_kernel_dgemm_add_nt_4x4_lib4
+#elif defined(OS_WINDOWS)
+  call inner_kernel_dgemm_add_nt_4x4_lib4
 #endif
 #endif
 
@@ -7945,9 +8484,11 @@ _kernel_dlauum_nt_4x4_vs_lib4:
 	INNER_BLEND_4X4_LIB4
 #else
 #if defined(OS_LINUX)
-	call inner_blend_4x4_lib4
+  call inner_blend_4x4_lib4
 #elif defined(OS_MAC)
-	callq _inner_blend_4x4_lib4
+  callq _inner_blend_4x4_lib4
+#elif defined(OS_WINDOWS)
+  call inner_blend_4x4_lib4
 #endif
 #endif
 
@@ -7962,9 +8503,11 @@ _kernel_dlauum_nt_4x4_vs_lib4:
 	INNER_EDGE_DLAUUM_NT_4X4_VS_LIB4
 #else
 #if defined(OS_LINUX)
-	call inner_edge_dlauum_nt_4x4_vs_lib4
+  call inner_edge_dlauum_nt_4x4_vs_lib4
 #elif defined(OS_MAC)
-	callq _inner_edge_dlauum_nt_4x4_vs_lib4
+  callq _inner_edge_dlauum_nt_4x4_vs_lib4
+#elif defined(OS_WINDOWS)
+  call inner_edge_dlauum_nt_4x4_vs_lib4
 #endif
 #endif
 
@@ -7979,9 +8522,11 @@ _kernel_dlauum_nt_4x4_vs_lib4:
 	INNER_SCALE_AB_4X4_LIB4
 #else
 #if defined(OS_LINUX)
-	call inner_scale_ab_4x4_lib4
+  call inner_scale_ab_4x4_lib4
 #elif defined(OS_MAC)
-	callq _inner_scale_ab_4x4_lib4
+  callq _inner_scale_ab_4x4_lib4
+#elif defined(OS_WINDOWS)
+  call inner_scale_ab_4x4_lib4
 #endif
 #endif
 
@@ -7996,9 +8541,11 @@ _kernel_dlauum_nt_4x4_vs_lib4:
 	INNER_STORE_4X4_VS_LIB4
 #else
 #if defined(OS_LINUX)
-	call inner_store_4x4_vs_lib4
+  call inner_store_4x4_vs_lib4
 #elif defined(OS_MAC)
-	callq _inner_store_4x4_vs_lib4
+  callq _inner_store_4x4_vs_lib4
+#elif defined(OS_WINDOWS)
+  call inner_store_4x4_vs_lib4
 #endif
 #endif
 
@@ -8017,9 +8564,11 @@ _kernel_dlauum_nt_4x4_vs_lib4:
 
 	ret
 
+
 #if defined(OS_LINUX)
-	.size	kernel_dlauum_nt_4x4_vs_lib4, .-kernel_dlauum_nt_4x4_vs_lib4
+  .size	kernel_dlauum_nt_4x4_vs_lib4, .-kernel_dlauum_nt_4x4_vs_lib4
 #endif
+
 #endif
 
 
@@ -8027,14 +8576,17 @@ _kernel_dlauum_nt_4x4_vs_lib4:
 
 
 	// read-only data
+
 #if defined(OS_LINUX)
-	.section	.rodata.cst32,"aM",@progbits,32
+        .section        .rodata.cst32,"aM",@progbits,32
 #elif defined(OS_MAC)
-	.section	__TEXT,__const
+        .section        __TEXT,__const
+#elif defined(OS_WINDOWS)
+        .section .rdata        
 #endif
 #if 1
-#if defined(OS_LINUX)
-	.align 32
+#if defined(OS_LINUX) || defined(OS_WINDOWS)
+        .align 32
 .LC00: // { -1 -1 -1 1 }
 #elif defined(OS_MAC)
 	.align 5
@@ -8044,8 +8596,8 @@ LC00: // { -1 -1 -1 1 }
 	.quad	-1
 	.quad	-1
 	.quad	1
-#if defined(OS_LINUX)
-	.align 32
+#if defined(OS_LINUX) || defined(OS_WINDOWS)
+        .align 32
 .LC01: // { -1 -1 -1 -1 }
 #elif defined(OS_MAC)
 	.align 5
@@ -8056,8 +8608,8 @@ LC01: // { -1 -1 -1 -1 }
 	.quad	-1
 	.quad	-1
 #endif
-#if defined(OS_LINUX)
-	.align 32
+#if defined(OS_LINUX) || defined(OS_WINDOWS)
+        .align 32
 .LC02: // { 3.5 2.5 1.5 0.5 }
 #elif defined(OS_MAC)
 	.align 5
@@ -8071,8 +8623,8 @@ LC02: // { 3.5 2.5 1.5 0.5 }
 	.long	1074003968
 	.long	0
 	.long	1074528256
-#if defined(OS_LINUX)
-	.align 32
+#if defined(OS_LINUX) || defined(OS_WINDOWS)
+        .align 32
 .LC03: // { 7.5 6.5 5.5 4.5 }
 #elif defined(OS_MAC)
 	.align 5
@@ -8086,8 +8638,8 @@ LC03: // { 7.5 6.5 5.5 4.5 }
 	.long	1075445760
 	.long	0
 	.long	1075707904
-#if defined(OS_LINUX)
-	.align 32
+#if defined(OS_LINUX) || defined(OS_WINDOWS)
+        .align 32
 .LC04: // { 1.0 1.0 }
 #elif defined(OS_MAC)
 	.align 5
@@ -8101,8 +8653,8 @@ LC04: // { 1.0 1.0 1.0 1.0 }
 	.long	1072693248
 	.long	0
 	.long	1072693248
-#if defined(OS_LINUX)
-	.align 32
+#if defined(OS_LINUX) || defined(OS_WINDOWS)
+        .align 32
 .LC05: // { 1.0 1.0 1.0 -1.0 }
 #elif defined(OS_MAC)
 	.align 5
@@ -8116,8 +8668,8 @@ LC05: // { 1.0 1.0 1.0 -1.0 }
 	.long	1072693248
 	.long	0
 	.long	1072693248
-#if defined(OS_LINUX)
-	.align 32
+#if defined(OS_LINUX) || defined(OS_WINDOWS)
+        .align 32
 .LC06: // { 1.0 1.0 -1.0 -1.0 }
 #elif defined(OS_MAC)
 	.align 5
@@ -8131,8 +8683,8 @@ LC06: // { 1.0 1.0 -1.0 -1.0 }
 	.long	1072693248
 	.long	0
 	.long	1072693248
-#if defined(OS_LINUX)
-	.align 32
+#if defined(OS_LINUX) || defined(OS_WINDOWS)
+        .align 32
 .LC07: // { 1.0 -1.0 -1.0 -1.0 }
 #elif defined(OS_MAC)
 	.align 5
@@ -8146,8 +8698,8 @@ LC07: // { 1.0 -1.0 -1.0 -1.0 }
 	.long	-1074790400
 	.long	0
 	.long	1072693248
-#if defined(OS_LINUX)
-	.align 32
+#if defined(OS_LINUX) || defined(OS_WINDOWS)
+        .align 32
 .LC08: // { -1.0 -1.0 -1.0 1.0 }
 #elif defined(OS_MAC)
 	.align 5
@@ -8161,8 +8713,8 @@ LC08: // { -1.0 -1.0 -1.0 1.0 }
 	.long	-1074790400
 	.long	0
 	.long	-1074790400
-#if defined(OS_LINUX)
-	.align 32
+#if defined(OS_LINUX) || defined(OS_WINDOWS)
+        .align 32
 .LC09: // { -1.0 -1.0 1.0 1.0 }
 #elif defined(OS_MAC)
 	.align 5
@@ -8176,8 +8728,8 @@ LC09: // { -1.0 -1.0 1.0 1.0 }
 	.long	-1074790400
 	.long	0
 	.long	-1074790400
-#if defined(OS_LINUX)
-	.align 32
+#if defined(OS_LINUX) || defined(OS_WINDOWS)
+        .align 32
 .LC10: // { -1.0 1.0 1.0 1.0 }
 #elif defined(OS_MAC)
 	.align 5
