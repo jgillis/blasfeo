@@ -32,7 +32,7 @@
 //.LSTR:
 //	.string	"\n%d %d %d\n"
 
-#if defined(OS_LINUX)
+#if defined(OS_LINUX) || defined(OS_WINDOWS)
 	.text
 #elif defined(OS_MAC)
 	.section	__TEXT,__text,regular,pure_instructions
@@ -92,10 +92,14 @@
 #else
 	.p2align 4,,15
 #if defined(OS_LINUX)
-	.type inner_kernel_dgemv_add_nt_6_lib4, @function
+  .type inner_kernel_dgemv_add_nt_6_lib4, @function
 inner_kernel_dgemv_add_nt_6_lib4:
 #elif defined(OS_MAC)
 _inner_kernel_dgemv_add_nt_6_lib4:
+#elif defined(OS_WINDOWS)
+  .def   inner_kernel_dgemv_add_nt_6_lib4;        .scl    2;      .type   32;     .endef
+  .seh_proc inner_kernel_dgemv_add_nt_6_lib4
+inner_kernel_dgemv_add_nt_6_lib4:
 #endif
 #endif
 
@@ -168,7 +172,7 @@ _inner_kernel_dgemv_add_nt_6_lib4:
 0: // clean-up
 	
 	vcvtsi2sd	%r10d, %xmm14, %xmm14
-#if defined(OS_LINUX)
+#if defined(OS_LINUX) ||  defined(OS_WINDOWS)
 	vmovupd		.LC02(%rip), %ymm13
 #elif defined(OS_MAC)
 	vmovupd		LC02(%rip), %ymm13
@@ -217,7 +221,7 @@ _inner_kernel_dgemv_add_nt_6_lib4:
 	vaddpd	%ymm13, %ymm15, %ymm13
 	
 	vcvtsi2sd	%r10d, %xmm14, %xmm14
-#if defined(OS_LINUX)
+#if defined(OS_LINUX) ||  defined(OS_WINDOWS)
 	vmovupd		.LC02(%rip), %ymm15
 #elif defined(OS_MAC)
 	vmovupd		LC02(%rip), %ymm15
@@ -243,9 +247,11 @@ _inner_kernel_dgemv_add_nt_6_lib4:
 #else
 	ret
 
+
 #if defined(OS_LINUX)
-	.size	inner_kernel_dgemv_add_nt_6_lib4, .-inner_kernel_dgemv_add_nt_6_lib4
+  .size	inner_kernel_dgemv_add_nt_6_lib4, .-inner_kernel_dgemv_add_nt_6_lib4
 #endif
+
 #endif
 
 
@@ -306,10 +312,14 @@ _inner_kernel_dgemv_add_nt_6_lib4:
 #else
 	.p2align 4,,15
 #if defined(OS_LINUX)
-	.type inner_edge_dsymv_add_nt_4_lib4, @function
+  .type inner_edge_dsymv_add_nt_4_lib4, @function
 inner_edge_dsymv_add_nt_4_lib4:
 #elif defined(OS_MAC)
 _inner_edge_dsymv_add_nt_4_lib4:
+#elif defined(OS_WINDOWS)
+  .def   inner_edge_dsymv_add_nt_4_lib4;        .scl    2;      .type   32;     .endef
+  .seh_proc inner_edge_dsymv_add_nt_4_lib4
+inner_edge_dsymv_add_nt_4_lib4:
 #endif
 #endif
 
@@ -367,9 +377,11 @@ _inner_edge_dsymv_add_nt_4_lib4:
 #else
 	ret
 
+
 #if defined(OS_LINUX)
-	.size	inner_edge_dsymv_add_nt_4_lib4, .-inner_edge_dsymv_add_nt_4_lib4
+  .size	inner_edge_dsymv_add_nt_4_lib4, .-inner_edge_dsymv_add_nt_4_lib4
 #endif
+
 #endif
 
 #endif
@@ -418,10 +430,14 @@ _inner_edge_dsymv_add_nt_4_lib4:
 #else
 	.p2align 4,,15
 #if defined(OS_LINUX)
-	.type inner_blend_t_scale_ab_6_lib4, @function
+  .type inner_blend_t_scale_ab_6_lib4, @function
 inner_blend_t_scale_ab_6_lib4:
 #elif defined(OS_MAC)
 _inner_blend_t_scale_ab_6_lib4:
+#elif defined(OS_WINDOWS)
+  .def   inner_blend_t_scale_ab_6_lib4;        .scl    2;      .type   32;     .endef
+  .seh_proc inner_blend_t_scale_ab_6_lib4
+inner_blend_t_scale_ab_6_lib4:
 #endif
 #endif
 
@@ -458,9 +474,11 @@ _inner_blend_t_scale_ab_6_lib4:
 #else
 	ret
 	
+
 #if defined(OS_LINUX)
-	.size	inner_blend_t_scale_ab_6_lib4, .-inner_blend_t_scale_ab_6_lib4
+  .size	inner_blend_t_scale_ab_6_lib4, .-inner_blend_t_scale_ab_6_lib4
 #endif
+
 #endif
 
 
@@ -505,10 +523,14 @@ _inner_blend_t_scale_ab_6_lib4:
 #else
 	.p2align 4,,15
 #if defined(OS_LINUX)
-	.type inner_blend_t_scale_a1_4_lib4, @function
+  .type inner_blend_t_scale_a1_4_lib4, @function
 inner_blend_t_scale_a1_4_lib4:
 #elif defined(OS_MAC)
 _inner_blend_t_scale_a1_4_lib4:
+#elif defined(OS_WINDOWS)
+  .def   inner_blend_t_scale_a1_4_lib4;        .scl    2;      .type   32;     .endef
+  .seh_proc inner_blend_t_scale_a1_4_lib4
+inner_blend_t_scale_a1_4_lib4:
 #endif
 #endif
 
@@ -532,9 +554,11 @@ _inner_blend_t_scale_a1_4_lib4:
 #else
 	ret
 	
+
 #if defined(OS_LINUX)
-	.size	inner_blend_t_scale_a1_4_lib4, .-inner_blend_t_scale_a1_4_lib4
+  .size	inner_blend_t_scale_a1_4_lib4, .-inner_blend_t_scale_a1_4_lib4
 #endif
+
 #endif
 
 #endif
@@ -559,10 +583,14 @@ _inner_blend_t_scale_a1_4_lib4:
 #else
 	.p2align 4,,15
 #if defined(OS_LINUX)
-	.type inner_store_6_lib4, @function
+  .type inner_store_6_lib4, @function
 inner_store_6_lib4:
 #elif defined(OS_MAC)
 _inner_store_6_lib4:
+#elif defined(OS_WINDOWS)
+  .def   inner_store_6_lib4;        .scl    2;      .type   32;     .endef
+  .seh_proc inner_store_6_lib4
+inner_store_6_lib4:
 #endif
 #endif
 	
@@ -574,9 +602,11 @@ _inner_store_6_lib4:
 #else
 	ret
 
+
 #if defined(OS_LINUX)
-	.size	inner_store_6_lib4, .-inner_store_6_lib4
+  .size	inner_store_6_lib4, .-inner_store_6_lib4
 #endif
+
 #endif
 
 
@@ -588,12 +618,15 @@ _inner_store_6_lib4:
 
 	.p2align 4,,15
 #if defined(OS_LINUX)
-	.globl kernel_dgemv_nt_6_lib4
-	.type kernel_dgemv_nt_6_lib4, @function
+  .type kernel_dgemv_nt_6_lib4, @function
 kernel_dgemv_nt_6_lib4:
 #elif defined(OS_MAC)
-	.globl _kernel_dgemv_nt_6_lib4
 _kernel_dgemv_nt_6_lib4:
+#elif defined(OS_WINDOWS)
+  .globl kernel_dgemv_nt_6_lib4
+  .def   kernel_dgemv_nt_6_lib4;        .scl    2;      .type   32;     .endef
+  .seh_proc kernel_dgemv_nt_6_lib4
+kernel_dgemv_nt_6_lib4:
 #endif
 	
 	// prologue
@@ -652,9 +685,11 @@ _kernel_dgemv_nt_6_lib4:
 	INNER_KERNEL_DGEMV_ADD_NT_6_LIB4
 #else
 #if defined(OS_LINUX)
-	call inner_kernel_dgemv_add_nt_6_lib4
+  call inner_kernel_dgemv_add_nt_6_lib4
 #elif defined(OS_MAC)
-	callq _inner_kernel_dgemv_add_nt_6_lib4
+  callq _inner_kernel_dgemv_add_nt_6_lib4
+#elif defined(OS_WINDOWS)
+  call inner_kernel_dgemv_add_nt_6_lib4
 #endif
 #endif
 
@@ -669,9 +704,11 @@ _kernel_dgemv_nt_6_lib4:
 	INNER_BLEND_T_SCALE_AB_6_LIB4
 #else
 #if defined(OS_LINUX)
-	call inner_blend_t_scale_ab_6_lib4
+  call inner_blend_t_scale_ab_6_lib4
 #elif defined(OS_MAC)
-	callq _inner_blend_t_scale_ab_6_lib4
+  callq _inner_blend_t_scale_ab_6_lib4
+#elif defined(OS_WINDOWS)
+  call inner_blend_t_scale_ab_6_lib4
 #endif
 #endif
 
@@ -684,9 +721,11 @@ _kernel_dgemv_nt_6_lib4:
 	INNER_STORE_6_LIB4
 #else
 #if defined(OS_LINUX)
-	call inner_store_6_lib4
+  call inner_store_6_lib4
 #elif defined(OS_MAC)
-	callq _inner_store_6_lib4
+  callq _inner_store_6_lib4
+#elif defined(OS_WINDOWS)
+  call inner_store_6_lib4
 #endif
 #endif
 
@@ -705,9 +744,11 @@ _kernel_dgemv_nt_6_lib4:
 
 	ret
 
+
 #if defined(OS_LINUX)
-	.size	kernel_dgemv_nt_6_lib4, .-kernel_dgemv_nt_6_lib4
+  .size	kernel_dgemv_nt_6_lib4, .-kernel_dgemv_nt_6_lib4
 #endif
+
 
 
 
@@ -720,12 +761,15 @@ _kernel_dgemv_nt_6_lib4:
 
 	.p2align 4,,15
 #if defined(OS_LINUX)
-	.globl kernel_dsymv_l_4_lib4
-	.type kernel_dsymv_l_4_lib4, @function
+  .type kernel_dsymv_l_4_lib4, @function
 kernel_dsymv_l_4_lib4:
 #elif defined(OS_MAC)
-	.globl _kernel_dsymv_l_4_lib4
 _kernel_dsymv_l_4_lib4:
+#elif defined(OS_WINDOWS)
+  .globl kernel_dsymv_l_4_lib4
+  .def   kernel_dsymv_l_4_lib4;        .scl    2;      .type   32;     .endef
+  .seh_proc kernel_dsymv_l_4_lib4
+kernel_dsymv_l_4_lib4:
 #endif
 	
 	// prologue
@@ -778,9 +822,11 @@ _kernel_dsymv_l_4_lib4:
 	INNER_EDGE_DSYMV_ADD_NT_4_LIB4
 #else
 #if defined(OS_LINUX)
-	call inner_edge_dsymv_add_nt_4_lib4
+  call inner_edge_dsymv_add_nt_4_lib4
 #elif defined(OS_MAC)
-	callq _inner_edge_dsymv_add_nt_4_lib4
+  callq _inner_edge_dsymv_add_nt_4_lib4
+#elif defined(OS_WINDOWS)
+  call inner_edge_dsymv_add_nt_4_lib4
 #endif
 #endif
 
@@ -788,9 +834,11 @@ _kernel_dsymv_l_4_lib4:
 	INNER_KERNEL_DGEMV_ADD_NT_4_LIB4
 #else
 #if defined(OS_LINUX)
-	call inner_kernel_dgemv_add_nt_4_lib4
+  call inner_kernel_dgemv_add_nt_4_lib4
 #elif defined(OS_MAC)
-	callq _inner_kernel_dgemv_add_nt_4_lib4
+  callq _inner_kernel_dgemv_add_nt_4_lib4
+#elif defined(OS_WINDOWS)
+  call inner_kernel_dgemv_add_nt_4_lib4
 #endif
 #endif
 
@@ -804,9 +852,11 @@ _kernel_dsymv_l_4_lib4:
 	INNER_BLEND_T_SCALE_A1_4_LIB4
 #else
 #if defined(OS_LINUX)
-	call inner_blend_t_scale_a1_4_lib4
+  call inner_blend_t_scale_a1_4_lib4
 #elif defined(OS_MAC)
-	callq _inner_blend_t_scale_a1_4_lib4
+  callq _inner_blend_t_scale_a1_4_lib4
+#elif defined(OS_WINDOWS)
+  call inner_blend_t_scale_a1_4_lib4
 #endif
 #endif
 
@@ -819,9 +869,11 @@ _kernel_dsymv_l_4_lib4:
 	INNER_STORE_4_LIB4
 #else
 #if defined(OS_LINUX)
-	call inner_store_4_lib4
+  call inner_store_4_lib4
 #elif defined(OS_MAC)
-	callq _inner_store_4_lib4
+  callq _inner_store_4_lib4
+#elif defined(OS_WINDOWS)
+  call inner_store_4_lib4
 #endif
 #endif
 
@@ -840,9 +892,11 @@ _kernel_dsymv_l_4_lib4:
 
 	ret
 
+
 #if defined(OS_LINUX)
-	.size	kernel_dsymv_l_4_lib4, .-kernel_dsymv_l_4_lib4
+  .size	kernel_dsymv_l_4_lib4, .-kernel_dsymv_l_4_lib4
 #endif
+
 
 #endif
 
@@ -851,14 +905,17 @@ _kernel_dsymv_l_4_lib4:
 
 
 	// read-only data
+
 #if defined(OS_LINUX)
-	.section	.rodata.cst32,"aM",@progbits,32
+        .section        .rodata.cst32,"aM",@progbits,32
 #elif defined(OS_MAC)
-	.section	__TEXT,__const
+        .section        __TEXT,__const
+#elif defined(OS_WINDOWS)
+        .section .rdata        
 #endif
 #if 1
-#if defined(OS_LINUX)
-	.align 32
+#if defined(OS_LINUX) || defined(OS_WINDOWS)
+        .align 32
 .LC00: // { -1 -1 -1 1 }
 #elif defined(OS_MAC)
 LC00: // { -1 -1 -1 1 }
@@ -868,8 +925,8 @@ LC00: // { -1 -1 -1 1 }
 	.quad	-1
 	.quad	-1
 	.quad	1
-#if defined(OS_LINUX)
-	.align 32
+#if defined(OS_LINUX) || defined(OS_WINDOWS)
+        .align 32
 .LC01: // { -1 -1 -1 -1 }
 #elif defined(OS_MAC)
 LC01: // { -1 -1 -1 -1 }
@@ -880,8 +937,8 @@ LC01: // { -1 -1 -1 -1 }
 	.quad	-1
 	.quad	-1
 #endif
-#if defined(OS_LINUX)
-	.align 32
+#if defined(OS_LINUX) || defined(OS_WINDOWS)
+        .align 32
 .LC02: // { 3.5 2.5 1.5 0.5 }
 #elif defined(OS_MAC)
 LC02: // { 3.5 2.5 1.5 0.5 }
@@ -895,8 +952,8 @@ LC02: // { 3.5 2.5 1.5 0.5 }
 	.long	1074003968
 	.long	0
 	.long	1074528256
-#if defined(OS_LINUX)
-	.align 32
+#if defined(OS_LINUX) || defined(OS_WINDOWS)
+        .align 32
 .LC03: // { 7.5 6.5 5.5 4.5 }
 #elif defined(OS_MAC)
 LC03: // { 7.5 6.5 5.5 4.5 }
@@ -910,8 +967,8 @@ LC03: // { 7.5 6.5 5.5 4.5 }
 	.long	1075445760
 	.long	0
 	.long	1075707904
-#if defined(OS_LINUX)
-	.align 32
+#if defined(OS_LINUX) || defined(OS_WINDOWS)
+        .align 32
 .LC04: // { 1.0 1.0 1.0 1.0 }
 #elif defined(OS_MAC)
 LC04: // { 1.0 1.0 1.0 1.0 }
