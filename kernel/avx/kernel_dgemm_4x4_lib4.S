@@ -1107,8 +1107,9 @@ _inner_edge_dtrmm_nt_ru_4x4_lib4:
 	.type inner_edge_dtrmm_nt_ru_4x4_vs_lib4, @function
 inner_edge_dtrmm_nt_ru_4x4_vs_lib4:
 #elif defined(OS_MAC)
-#endif
 _inner_edge_dtrmm_nt_ru_4x4_vs_lib4:
+#endif
+
 #endif
 	
 	vmovapd			0(%r11), %ymm8
@@ -1222,8 +1223,9 @@ _inner_edge_dtrmm_nt_ru_4x4_vs_lib4:
 	.type inner_edge_dlauum_nt_4x4_lib4, @function
 inner_edge_dlauum_nt_4x4_lib4:
 #elif defined(OS_MAC)
-#endif
 _inner_edge_dlauum_nt_4x4_lib4:
+#endif
+
 #endif
 	
 	vxorpd			%ymm14, %ymm14, %ymm14
