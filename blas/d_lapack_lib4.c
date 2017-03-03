@@ -1208,7 +1208,8 @@ void dgetrf_nn_lib(int m, int n, double *pC, int sdc, double *pD, int sdd, doubl
 			}
 		if(m-ii>0)
 			{
-			kernel_dgemm_nn_4x4_vs_lib4(jj, &dm1, &pD[ii*sdd], 0, &pD[jj*bs], sdd, &d1, 0, &pD[jj*bs+ii*sdd], sdd, 0, &pD[jj*bs+ii*sdd], sdd, 0, m-ii, 0, 4);
+			  exit(-1);
+			//kernel_dgemm_nn_4x4_vs_lib4(jj, &dm1, &pD[ii*sdd], 0, &pD[jj*bs], sdd, &d1, 0, &pD[jj*bs+ii*sdd], sdd, 0, &pD[jj*bs+ii*sdd], sdd, 0, m-ii, 0, 4);
 			}
 #endif
 		kernel_dgetrf_pivot_4_lib4(m-i0, &pD[jj*bs+i0*sdd], sdd, &inv_diag_D[jj], &ipiv[i0]);
