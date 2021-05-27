@@ -87,9 +87,15 @@ void blasfeo_saxpy_blas(int *n, float *alpha, float *x, int *incx, float *y, int
 //
 float blasfeo_sdot_blas(int *n, float *x, int *incx, float *y, int *incy);
 
+float blasfeo_sdot_blas_normal(int n, const float *x, int incx, const float *y, int incy);
+
+
 // BLAS 3
 //
 void blasfeo_sgemm(char *ta, char *tb, int *m, int *n, int *k, float *alpha, float *A, int *lda, float *B, int *ldb, float *beta, float *C, int *ldc);
+
+void blasfeo_sgemm_normal(char ta, char tb, int m, int n, int k, float alpha, const float *A, int lda, const float *B, int ldb, float beta, float *C, int ldc);
+
 //
 void blasfeo_strsm(char *side, char *uplo, char *transa, char *diag, int *m, int *n, float *alpha, float *A, int *lda, float *B, int *ldb);
 

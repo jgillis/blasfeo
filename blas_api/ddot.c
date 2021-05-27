@@ -47,11 +47,8 @@
 #endif
 
 
-double blasfeo_ddot_blas(int *ptr_n, double *x, int *ptr_ix, double *y, int *ptr_iy)
+double blasfeo_ddot_blas_normal(int n, const double *x, int ix, const double *y, int iy)
 	{
-	int n = *ptr_n;
-	int ix = *ptr_ix;
-	int iy = *ptr_iy;
 
 	double res = 0.0;
 
@@ -72,4 +69,9 @@ double blasfeo_ddot_blas(int *ptr_n, double *x, int *ptr_ix, double *y, int *ptr
 	return res;
 
 	}
+
+double blasfeo_ddot_blas(int *ptr_n, double *x, int *ptr_ix, double *y, int *ptr_iy)
+	{
+  return blasfeo_ddot_blas_normal(*ptr_n, x, *ptr_ix, y, *ptr_iy);
+}
 

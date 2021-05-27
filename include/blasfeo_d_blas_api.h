@@ -109,8 +109,12 @@ void dtrtrs_(char *uplo, char *trans, char *diag, int *m, int *n, double *A, int
 void blasfeo_daxpy_blas(int *n, double *alpha, double *x, int *incx, double *y, int *incy);
 //
 double blasfeo_ddot_blas(int *n, double *x, int *incx, double *y, int *incy);
+
+double blasfeo_ddot_blas_normal(int n, const double *x, int incx, const double *y, int incy);
+
 //
 void blasfeo_dcopy(int *n, double *x, int *incx, double *y, int *incy);
+
 
 // BLAS 3
 //
@@ -122,6 +126,7 @@ void blasfeo_dtrmm(char *side, char *uplo, char *transa, char *diag, int *m, int
 //
 void blasfeo_dtrsm(char *side, char *uplo, char *transa, char *diag, int *m, int *n, double *alpha, double *A, int *lda, double *B, int *ldb);
 
+void blasfeo_dgemm_normal(char ta, char tb, int m, int n, int k, double alpha, const double *A, int lda, const double *B, int ldb, double beta, double *C, int ldc);
 
 
 // LAPACK

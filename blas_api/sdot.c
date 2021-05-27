@@ -46,12 +46,8 @@
 #define blasfeo_sdot_blas sdot_
 #endif
 
-
-float blasfeo_sdot_blas(int *ptr_n, float *x, int *ptr_ix, float *y, int *ptr_iy)
+float blasfeo_sdot_blas_normal(int n, const float *x, int ix, const float *y, int iy)
 	{
-	int n = *ptr_n;
-	int ix = *ptr_ix;
-	int iy = *ptr_iy;
 
 	float res = 0.0;
 
@@ -74,4 +70,9 @@ float blasfeo_sdot_blas(int *ptr_n, float *x, int *ptr_ix, float *y, int *ptr_iy
 	return res;
 
 	}
+
+
+float blasfeo_sdot_blas(int *ptr_n, float *x, int *ptr_ix, float *y, int *ptr_iy) {
+  return blasfeo_sdot_blas_normal(*ptr_n, x, *ptr_ix, y, *ptr_iy);
+}
 
