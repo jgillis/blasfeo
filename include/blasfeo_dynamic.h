@@ -29,27 +29,34 @@
 * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS                   *
 * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.                                    *
 *                                                                                                 *
-* Author: Gianluca Frison, gianluca.frison (at) imtek.uni-freiburg.de                             *
-*                                                                                                 *
 **************************************************************************************************/
 
-#include "blasfeo_processor_features.h"
-#include "blasfeo_target.h"
-#if defined(BLASFEO_DYNAMIC)
-#include "blasfeo_dynamic.h"
+// TARGET=DYNAMIC: the target, and with it the panel sizes, is selected at load
+// time; such a library (blasfeo-dynamic) is not ABI compatible with blasfeo
+
+#ifndef BLASFEO_DYNAMIC_H_
+#define BLASFEO_DYNAMIC_H_
+
+#ifdef __cplusplus
+extern "C" {
 #endif
-#include "blasfeo_block_size.h"
-#include "blasfeo_stdlib.h"
-#include "blasfeo_common.h"
-#include "blasfeo_d_aux.h"
-#include "blasfeo_d_aux_ext_dep.h"
-#include "blasfeo_d_kernel.h"
-#include "blasfeo_d_blas.h"
-#include "blasfeo_s_aux.h"
-#include "blasfeo_s_aux_ext_dep.h"
-#include "blasfeo_s_kernel.h"
-#include "blasfeo_s_blas.h"
-#include "blasfeo_i_aux_ext_dep.h"
-#include "blasfeo_v_aux_ext_dep.h"
-#include "blasfeo_timing.h"
-#include "blasfeo_memory.h"
+
+// data imported from a Windows DLL needs dllimport (MSVC; MinGW also auto-imports)
+#if defined(_WIN32) && defined(BLASFEO_DYNAMIC_DLL) && !defined(BLASFEO_DYNAMIC_BUILD)
+#define BLASFEO_DYNAMIC_DATA __declspec(dllimport)
+#else
+#define BLASFEO_DYNAMIC_DATA
+#endif
+
+// panel sizes of the selected target (D_PS, S_PS)
+BLASFEO_DYNAMIC_DATA extern int blasfeo_d_ps;
+BLASFEO_DYNAMIC_DATA extern int blasfeo_s_ps;
+
+// name of the selected target, e.g. "X64_INTEL_HASWELL"
+const char *blasfeo_dynamic_target(void);
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif  // BLASFEO_DYNAMIC_H_

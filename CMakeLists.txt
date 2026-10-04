@@ -195,6 +195,13 @@ set(X64_AUTOMATIC_TARGETS
 		)
 
 
+# Dynamic (multi-target) build: set TARGET=DYNAMIC and list the targets to bundle in
+# BLASFEO_DYNAMIC_TARGETS, in order of preference; they must all belong to the
+# architecture compiled for (x86_64, x86, ARMv8A or ARMv7A), empty for its default.
+# The best one for the running CPU is selected at load time (override with env BLASFEO_TARGET).
+set(BLASFEO_DYNAMIC_TARGETS "" CACHE STRING "Targets bundled by TARGET=DYNAMIC, most preferred first (empty: default of the architecture)")
+list(APPEND ALLOWED_TARGETS DYNAMIC)
+
 list(FIND ALLOWED_TARGETS ${TARGET} isvalid)
 if(${isvalid} EQUAL -1)
 	message(FATAL_ERROR "Target ${TARGET} is not supported")
@@ -262,6 +269,11 @@ endif()
 
 if(NOT DEFINED(BLASFEO_CROSSCOMPILING))
 	set(BLASFEO_CROSSCOMPILING ${CMAKE_CROSSCOMPILING})
+endif()
+
+if(${TARGET} STREQUAL DYNAMIC)
+	include(${PROJECT_SOURCE_DIR}/cmake/BlasfeoDynamic.cmake)
+	return()
 endif()
 
 # Skip BLASFEO examples for unsupported systems and for Realease build
@@ -467,8 +479,20 @@ endif()
 
 
 # Create the target.h file with the proper target definition
-configure_file(${PROJECT_SOURCE_DIR}/blasfeo_target.h.in
-	${CMAKE_CURRENT_SOURCE_DIR}/include/blasfeo_target.h @ONLY)
+if(NOT BLASFEO_DYNAMIC_SUBBUILD)
+	configure_file(${PROJECT_SOURCE_DIR}/blasfeo_target.h.in
+		${CMAKE_CURRENT_SOURCE_DIR}/include/blasfeo_target.h @ONLY)
+else()
+	# slice of a DYNAMIC build: include/blasfeo_target.h belongs to the dynamic build
+	# and is inert here, so everything it would define is passed as flags instead
+	set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -DBLASFEO_DYNAMIC_SUBBUILD")
+	set(CMAKE_ASM_FLAGS "${CMAKE_ASM_FLAGS} -DBLASFEO_DYNAMIC_SUBBUILD")
+	foreach(feature AVX AVX2 FMA SSE3 VFPv3 NEON VFPv4 NEONv2)
+		if(TARGET_NEED_FEATURE_${feature})
+			set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -DTARGET_NEED_FEATURE_${feature}=1")
+		endif()
+	endforeach()
+endif()
 
 
 # Append the appropriate flags based on the architecture and compiler

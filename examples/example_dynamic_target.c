@@ -29,27 +29,88 @@
 * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS                   *
 * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.                                    *
 *                                                                                                 *
-* Author: Gianluca Frison, gianluca.frison (at) imtek.uni-freiburg.de                             *
-*                                                                                                 *
 **************************************************************************************************/
 
-#include "blasfeo_processor_features.h"
-#include "blasfeo_target.h"
-#if defined(BLASFEO_DYNAMIC)
-#include "blasfeo_dynamic.h"
-#endif
-#include "blasfeo_block_size.h"
-#include "blasfeo_stdlib.h"
-#include "blasfeo_common.h"
-#include "blasfeo_d_aux.h"
-#include "blasfeo_d_aux_ext_dep.h"
-#include "blasfeo_d_kernel.h"
-#include "blasfeo_d_blas.h"
-#include "blasfeo_s_aux.h"
-#include "blasfeo_s_aux_ext_dep.h"
-#include "blasfeo_s_kernel.h"
-#include "blasfeo_s_blas.h"
-#include "blasfeo_i_aux_ext_dep.h"
-#include "blasfeo_v_aux_ext_dep.h"
-#include "blasfeo_timing.h"
-#include "blasfeo_memory.h"
+/*
+ * TARGET=DYNAMIC: show the target selected at load time and check that the
+ * matrix layout seen through BLASFEO_DMATEL (runtime panel size D_PS) is the
+ * one of the selected target, against a plain column-major computation.
+ */
+
+#include <stdlib.h>
+#include <stdio.h>
+#include <math.h>
+
+#include <blasfeo.h>
+
+
+
+int main()
+	{
+
+	int n = 13;
+	int ii, jj, kk;
+
+	printf("\ntarget %s, D_PS %d, S_PS %d\n\n", blasfeo_dynamic_target(), D_PS, S_PS);
+
+	double *A = malloc(n*n*sizeof(double));
+	double *C_ref = malloc(n*n*sizeof(double));
+	double *L = malloc(n*n*sizeof(double));
+	for(jj=0; jj<n; jj++)
+		for(ii=0; ii<n; ii++)
+			A[ii+n*jj] = sin(1.0+ii+3*jj);
+
+	// C_ref = A * A^T + n * I
+	for(jj=0; jj<n; jj++)
+		for(ii=0; ii<n; ii++)
+			{
+			C_ref[ii+n*jj] = ii==jj ? n : 0.0;
+			for(kk=0; kk<n; kk++)
+				C_ref[ii+n*jj] += A[ii+n*kk]*A[jj+n*kk];
+			}
+
+	struct blasfeo_dmat sA, sC, sL;
+	blasfeo_allocate_dmat(n, n, &sA);
+	blasfeo_allocate_dmat(n, n, &sC);
+	blasfeo_allocate_dmat(n, n, &sL);
+
+	// write through the layout macro
+	for(jj=0; jj<n; jj++)
+		for(ii=0; ii<n; ii++)
+			BLASFEO_DMATEL(&sA, ii, jj) = A[ii+n*jj];
+
+	blasfeo_dgese(n, n, 0.0, &sC, 0, 0);
+	blasfeo_ddiare(n, (double) n, &sC, 0, 0);
+	blasfeo_dgemm_nt(n, n, n, 1.0, &sA, 0, 0, &sA, 0, 0, 1.0, &sC, 0, 0, &sC, 0, 0);
+
+	// read through the layout macro
+	double err_gemm = 0.0;
+	for(jj=0; jj<n; jj++)
+		for(ii=0; ii<n; ii++)
+			err_gemm = fmax(err_gemm, fabs(BLASFEO_DMATEL(&sC, ii, jj)-C_ref[ii+n*jj]));
+	printf("dgemm_nt  max error %e\n", err_gemm);
+
+	// L * L^T = C_ref
+	blasfeo_dpotrf_l(n, &sC, 0, 0, &sL, 0, 0);
+	blasfeo_unpack_dmat(n, n, &sL, 0, 0, L, n);
+	double err_potrf = 0.0;
+	for(jj=0; jj<n; jj++)
+		for(ii=jj; ii<n; ii++)
+			{
+			double tmp = 0.0;
+			for(kk=0; kk<=jj; kk++)
+				tmp += L[ii+n*kk]*L[jj+n*kk];
+			err_potrf = fmax(err_potrf, fabs(tmp-C_ref[ii+n*jj]));
+			}
+	printf("dpotrf_l  max error %e\n\n", err_potrf);
+
+	blasfeo_free_dmat(&sA);
+	blasfeo_free_dmat(&sC);
+	blasfeo_free_dmat(&sL);
+	free(A);
+	free(C_ref);
+	free(L);
+
+	return err_gemm<1e-10 && err_potrf<1e-10 ? 0 : 1;
+
+	}

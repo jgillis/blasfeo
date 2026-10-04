@@ -43,7 +43,17 @@
 
 
 
-#if defined( TARGET_X64_AMD_ZEN5 )
+#if defined( BLASFEO_DYNAMIC )
+// dynamic build: the panel sizes are those of the target selected at load time;
+// all other block sizes are internal to each target and not exposed
+#include "blasfeo_dynamic.h"
+#define CACHE_LINE_SIZE 64
+#define D_PS blasfeo_d_ps
+#define S_PS blasfeo_s_ps
+
+
+
+#elif defined( TARGET_X64_AMD_ZEN5 )
 // common
 #define CACHE_LINE_SIZE 64 // data cache size: 64 bytes
 #define L1_CACHE_SIZE (48*1024) // L1 data cache size: 48 kB, 12-way

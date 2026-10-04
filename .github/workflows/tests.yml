@@ -6,6 +6,10 @@ on:
     branches:
       - master
 
+env:
+  # routines X64_INTEL_SKYLAKE_X lacks (orglq, most single precision)
+  DYNAMIC_KNOWN_FAILURES: X64_INTEL_SKYLAKE_X/example_d_lq_factorization X64_INTEL_SKYLAKE_X/example_s_lu_factorization
+
 jobs:
   tests:
     strategy:
@@ -52,6 +56,80 @@ jobs:
         shell: bash -l {0}
         working-directory: tests
         run: python3 tester.py testset_ci_${{ matrix.api }}_${{ matrix.mf }}_${{ matrix.precision }}_${{ matrix.arch }}${{ matrix.packalg }}.json
+
+  # one library bundling several targets, selected at load time; the
+  # architecture group follows the compiler (native, -m32 or cross)
+  dynamic:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - arch: x86_64
+            os: ubuntu-latest
+          - arch: x86
+            os: ubuntu-latest
+            apt: gcc-multilib
+            cmake_args: -DCMAKE_C_FLAGS=-m32 -DCMAKE_ASM_FLAGS=-m32
+          - arch: arm64
+            os: ubuntu-24.04-arm
+          - arch: armv7
+            os: ubuntu-latest
+            apt: gcc-arm-linux-gnueabihf qemu-user
+            cmake_args: -DCMAKE_SYSTEM_NAME=Linux -DCMAKE_SYSTEM_PROCESSOR=armv7l -DCMAKE_C_COMPILER=arm-linux-gnueabihf-gcc -DCMAKE_ASM_COMPILER=arm-linux-gnueabihf-gcc
+            run: qemu-arm -L /usr/arm-linux-gnueabihf
+          - arch: macos arm64
+            os: macos-14
+          - arch: macos x86_64
+            os: macos-15-intel
+
+    name: dynamic (${{ matrix.arch }})
+    runs-on: ${{ matrix.os }}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install packages
+        if: matrix.apt
+        run: sudo apt-get update && sudo apt-get install -y ${{ matrix.apt }}
+
+      - name: Configure
+        run: cmake -S . -B build -DTARGET=DYNAMIC -DBUILD_SHARED_LIBS=ON ${{ matrix.cmake_args }}
+
+      - name: Build
+        run: cmake --build build --parallel
+
+      - name: Run examples
+        env:
+          RUN: ${{ matrix.run }}
+          KNOWN_FAILURES: ${{ env.DYNAMIC_KNOWN_FAILURES }}
+        run: bash .github/workflows/dynamic_examples.sh
+
+  dynamic-msys2:
+    name: dynamic (windows x86_64)
+    runs-on: windows-latest
+
+    defaults:
+      run:
+        shell: msys2 {0}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: msys2/setup-msys2@v2
+        with:
+          msystem: MINGW64
+          install: mingw-w64-x86_64-gcc mingw-w64-x86_64-cmake make git
+
+      - name: Configure
+        run: cmake -S . -B build -G "MSYS Makefiles" -DTARGET=DYNAMIC -DBUILD_SHARED_LIBS=ON
+
+      - name: Build
+        run: cmake --build build --parallel
+
+      - name: Run examples
+        env:
+          KNOWN_FAILURES: ${{ env.DYNAMIC_KNOWN_FAILURES }}
+        run: PATH="$PWD/build:$PATH" bash .github/workflows/dynamic_examples.sh
 
   # MSVC only supports TARGET=GENERIC (no assembly kernels)
   windows-msvc:
