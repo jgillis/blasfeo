@@ -76,6 +76,44 @@ jobs:
             echo "::endgroup::"
           done
 
+  # MinGW-w64 gcc: assembly kernels with the Windows x64 calling convention
+  windows-msys2:
+    strategy:
+      fail-fast: false
+      matrix:
+        target: [ GENERIC, X64_INTEL_CORE, X64_INTEL_SANDY_BRIDGE, X64_INTEL_HASWELL ]
+
+    runs-on: windows-latest
+
+    defaults:
+      run:
+        shell: msys2 {0}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: msys2/setup-msys2@v2
+        with:
+          msystem: MINGW64
+          # the mingw-w64 toolchain, not the plain gcc/cmake packages, which
+          # target the msys2 POSIX emulation layer
+          install: mingw-w64-x86_64-gcc mingw-w64-x86_64-cmake make git
+
+      - name: Configure
+        run: cmake -S . -B build -G "MSYS Makefiles" -DTARGET=${{ matrix.target }}
+
+      - name: Build
+        run: cmake --build build --parallel
+
+      - name: Run examples
+        run: |
+          set -e
+          for e in getting_started example_d_lu_factorization example_d_lq_factorization example_d_riccati_recursion example_s_lu_factorization example_s_riccati_recursion; do
+            echo "::group::$e"
+            ./build/examples/$e.exe
+            echo "::endgroup::"
+          done
+
   # debug:
   #   strategy:
   #     fail-fast: false
