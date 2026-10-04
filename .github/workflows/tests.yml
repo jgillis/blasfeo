@@ -53,6 +53,29 @@ jobs:
         working-directory: tests
         run: python3 tester.py testset_ci_${{ matrix.api }}_${{ matrix.mf }}_${{ matrix.precision }}_${{ matrix.arch }}${{ matrix.packalg }}.json
 
+  # MSVC only supports TARGET=GENERIC (no assembly kernels)
+  windows-msvc:
+    runs-on: windows-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Configure
+        run: cmake -S . -B build -DTARGET=GENERIC
+
+      - name: Build
+        run: cmake --build build --config Release --parallel
+
+      - name: Run examples
+        shell: bash
+        run: |
+          set -e
+          for e in getting_started example_d_lu_factorization example_d_lq_factorization example_d_riccati_recursion example_s_lu_factorization example_s_riccati_recursion; do
+            echo "::group::$e"
+            ./build/examples/Release/$e.exe
+            echo "::endgroup::"
+          done
+
   # debug:
   #   strategy:
   #     fail-fast: false
