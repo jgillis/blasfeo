@@ -767,6 +767,19 @@ file(GLOB KERNEL_DP_SRC
 	${PROJECT_SOURCE_DIR}/kernel/avx512/kernel_dgelqf_lib8.S
 	${PROJECT_SOURCE_DIR}/kernel/avx2/kernel_dgemm_4x4_lib4.S
 	${PROJECT_SOURCE_DIR}/kernel/avx/kernel_dpack_lib4.S
+	# column-major (blasfeo_cm_*, BLAS API) routines: lib4 kernels on internal buffers
+	${PROJECT_SOURCE_DIR}/kernel/avx2/kernel_dgemm_12x4_lib4.S
+	${PROJECT_SOURCE_DIR}/kernel/avx2/kernel_dgemm_8x4_lib4.S
+	${PROJECT_SOURCE_DIR}/kernel/avx2/kernel_dgemv_4_lib4.S
+	${PROJECT_SOURCE_DIR}/kernel/avx2/kernel_dger_lib4.S
+	${PROJECT_SOURCE_DIR}/kernel/avx2/kernel_dgetrf_pivot_lib4.c
+	${PROJECT_SOURCE_DIR}/kernel/avx/kernel_dgetr_lib.S
+	${PROJECT_SOURCE_DIR}/kernel/generic/kernel_dgemv_4_lib4.c
+	${PROJECT_SOURCE_DIR}/kernel/generic/kernel_dsymv_4_lib4.c
+	${PROJECT_SOURCE_DIR}/kernel/generic/kernel_dpack_buffer_lib4.c
+	${PROJECT_SOURCE_DIR}/kernel/generic/kernel_dger_lib4.c
+	${PROJECT_SOURCE_DIR}/kernel/generic/kernel_ddot_lib.c
+	${PROJECT_SOURCE_DIR}/kernel/generic/kernel_daxpy_lib.c
 	)
 
 file(GLOB KERNEL_SP_SRC
