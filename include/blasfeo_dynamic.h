@@ -29,134 +29,34 @@
 * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS                   *
 * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.                                    *
 *                                                                                                 *
-* Author: Gianluca Frison, gianluca.frison (at) imtek.uni-freiburg.de                             *
-*                                                                                                 *
 **************************************************************************************************/
 
+// TARGET=DYNAMIC: the target, and with it the panel sizes, is selected at load
+// time; such a library (blasfeo-dynamic) is not ABI compatible with blasfeo
 
+#ifndef BLASFEO_DYNAMIC_H_
+#define BLASFEO_DYNAMIC_H_
 
-#if defined(OS_LINUX)
-
-#define STACKSIZE 11*16
-#define PROLOGUE \
-	sub sp, sp, #(11 * 16); \
-	stp d8, d9, [sp, #(0 * 16)]; \
-	stp d10, d11, [sp, #(1 * 16)]; \
-	stp d12, d13, [sp, #(2 * 16)]; \
-	stp d14, d15, [sp, #(3 * 16)]; \
-	stp x18, x19, [sp, #(4 * 16)]; \
-	stp x20, x21, [sp, #(5 * 16)]; \
-	stp x22, x23, [sp, #(6 * 16)]; \
-	stp x24, x25, [sp, #(7 * 16)]; \
-	stp x26, x27, [sp, #(8 * 16)]; \
-	stp x28, x29, [sp, #(9 * 16)]; \
-	str x30, [sp, #(10 * 16)];
-#define EPILOGUE \
-	ldp d8, d9, [sp, #(0 * 16)]; \
-	ldp d10, d11, [sp, #(1 * 16)]; \
-	ldp d12, d13, [sp, #(2 * 16)]; \
-	ldp d14, d15, [sp, #(3 * 16)]; \
-	ldp x18, x19, [sp, #(4 * 16)]; \
-	ldp x20, x21, [sp, #(5 * 16)]; \
-	ldp x22, x23, [sp, #(6 * 16)]; \
-	ldp x24, x25, [sp, #(7 * 16)]; \
-	ldp x26, x27, [sp, #(8 * 16)]; \
-	ldp x28, x29, [sp, #(9 * 16)]; \
-	ldr x30, [sp, #(10 * 16)]; \
-	add sp, sp, #(11 * 16);
-#define GLOB(NAME) \
-	.global	NAME
-#define FUN_START(NAME) \
-	.type NAME, %function; \
-NAME:
-#define FUN_END(NAME) \
-	.size	NAME, .-NAME
-#define CALL(NAME) \
-	bl NAME
-//#define ZERO_ACC_N \
-//	fmov	d0, xzr; \
-//	fmov    d1, d0
-//#define ZERO_ACC_T \
-//	fmov	d0, xzr; \
-//	fmov    d1, d0; \
-//	fmov    d2, d0; \
-//	fmov    d3, d0
-
-#else // defined(OS_MAC)
-
-#define STACKSIZE 11*16
-.macro PROLOGUE
-	sub sp, sp, #(11 * 16)
-	stp d8, d9, [sp, #(0 * 16)]
-	stp d10, d11, [sp, #(1 * 16)]
-	stp d12, d13, [sp, #(2 * 16)]
-	stp d14, d15, [sp, #(3 * 16)]
-	stp x18, x19, [sp, #(4 * 16)]
-	stp x20, x21, [sp, #(5 * 16)]
-	stp x22, x23, [sp, #(6 * 16)]
-	stp x24, x25, [sp, #(7 * 16)]
-	stp x26, x27, [sp, #(8 * 16)]
-	stp x28, x29, [sp, #(9 * 16)]
-	str x30, [sp, #(10 * 16)]
-.endm
-.macro EPILOGUE
-	ldp d8, d9, [sp, #(0 * 16)]
-	ldp d10, d11, [sp, #(1 * 16)]
-	ldp d12, d13, [sp, #(2 * 16)]
-	ldp d14, d15, [sp, #(3 * 16)]
-	ldp x18, x19, [sp, #(4 * 16)]
-	ldp x20, x21, [sp, #(5 * 16)]
-	ldp x22, x23, [sp, #(6 * 16)]
-	ldp x24, x25, [sp, #(7 * 16)]
-	ldp x26, x27, [sp, #(8 * 16)]
-	ldp x28, x29, [sp, #(9 * 16)]
-	ldr x30, [sp, #(10 * 16)]
-	add sp, sp, #(11 * 16)
-.endm
-#define GLOB(NAME) \
-	.globl _ ## NAME
-#define FUN_START(NAME) \
-_ ## NAME:
-#define FUN_END(NAME)
-#define CALL(NAME) \
-	bl _ ## NAME
-//.macro ZERO_ACC_N
-//	fmov	d0, xzr
-//	fmov    d1, d0
-//.endm
-//.macro ZERO_ACC_T
-//	fmov	d0, xzr
-//	fmov    d1, d0
-//	fmov    d2, d0
-//	fmov    d3, d0
-//.endm
-
+#ifdef __cplusplus
+extern "C" {
 #endif
 
-
-
-
-
-
-	.text
-
-
-
-
-
-//#if defined(BLAS_API)
-#if ( defined(BLAS_API) | ( defined(LA_HIGH_PERFORMANCE) & defined(MF_COLMAJ) ) )
-
-#include "kernel_dger_lib.S"
-
+// data imported from a Windows DLL needs dllimport (MSVC; MinGW also auto-imports)
+#if defined(_WIN32) && defined(BLASFEO_DYNAMIC_DLL) && !defined(BLASFEO_DYNAMIC_BUILD)
+#define BLASFEO_DYNAMIC_DATA __declspec(dllimport)
+#else
+#define BLASFEO_DYNAMIC_DATA
 #endif
 
+// panel sizes of the selected target (D_PS, S_PS)
+BLASFEO_DYNAMIC_DATA extern int blasfeo_d_ps;
+BLASFEO_DYNAMIC_DATA extern int blasfeo_s_ps;
 
+// name of the selected target, e.g. "X64_INTEL_HASWELL"
+const char *blasfeo_dynamic_target(void);
 
-
-
-
-
-#if defined(OS_LINUX)
-	.section	.note.GNU-stack,"",%progbits
+#ifdef __cplusplus
+}
 #endif
+
+#endif  // BLASFEO_DYNAMIC_H_

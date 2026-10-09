@@ -35,6 +35,9 @@
 
 #include "blasfeo_processor_features.h"
 #include "blasfeo_target.h"
+#if defined(BLASFEO_DYNAMIC)
+#include "blasfeo_dynamic.h"
+#endif
 #include "blasfeo_block_size.h"
 #include "blasfeo_stdlib.h"
 #include "blasfeo_common.h"

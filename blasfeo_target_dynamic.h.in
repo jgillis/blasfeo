@@ -1,0 +1,68 @@
+// dynamic build (TARGET=DYNAMIC) bundling: @BLASFEO_DYNAMIC_TARGETS_STR@
+// the target is selected at load time, see blasfeo_dynamic_target()
+
+// inert while compiling the per-target slices of the dynamic build
+#ifndef BLASFEO_DYNAMIC_SUBBUILD
+
+#ifndef BLASFEO_DYNAMIC
+#define BLASFEO_DYNAMIC
+#endif
+
+#ifndef TARGET_DYNAMIC
+#define TARGET_DYNAMIC
+#endif
+
+// shared library
+#ifndef BLASFEO_DYNAMIC_DLL
+#cmakedefine BLASFEO_DYNAMIC_DLL
+#endif
+
+#ifndef LA_@LA@
+#define LA_@LA@
+#endif
+
+#ifndef MF_@MF@
+#define MF_@MF@
+#endif
+
+#ifndef EXT_DEP
+#define ON 1
+#define OFF 0
+#if @EXT_DEP@==ON
+#define EXT_DEP
+#endif
+#undef ON
+#undef OFF
+#endif
+
+#ifndef EXT_DEP_MALLOC
+#define ON 1
+#define OFF 0
+#if @EXT_DEP_MALLOC@==ON
+#define EXT_DEP_MALLOC
+#endif
+#undef ON
+#undef OFF
+#endif
+
+#ifndef BLAS_API
+#define ON 1
+#define OFF 0
+#if @BLAS_API@==ON
+#define BLAS_API
+#endif
+#undef ON
+#undef OFF
+#endif
+
+#ifndef FORTRAN_BLAS_API
+#define ON 1
+#define OFF 0
+#if @FORTRAN_BLAS_API@==ON
+#define FORTRAN_BLAS_API
+#endif
+#undef ON
+#undef OFF
+#endif
+
+#endif // BLASFEO_DYNAMIC_SUBBUILD

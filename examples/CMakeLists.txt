@@ -73,3 +73,9 @@ else() # add explicit math library
 
 endif()
 
+
+# load-time target selection of TARGET=DYNAMIC
+if(${TARGET} STREQUAL DYNAMIC AND ${DP_ROUTINES})
+	add_executable(example_dynamic_target example_dynamic_target.c)
+	target_link_libraries(example_dynamic_target blasfeo m)
+endif()
